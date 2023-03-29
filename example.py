@@ -5,7 +5,7 @@ class Solution:
     def twoSum(self, nums, target):
         return [0]
 """
-lang = "python"
+lang = "python3"
 question_id = 1
 question_slug = 'two-sum'
 
@@ -16,5 +16,7 @@ sub = LeetCodeSubmission(code=code,
 
 env = LeetCodeEnv()
 
-env.step(sub)
+status, reward, done, submission_result = env.step(sub)
+
+print(status, reward, done, submission_result )
 
