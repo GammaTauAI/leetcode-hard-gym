@@ -11,6 +11,7 @@ class LeetCodeSubmission(BaseModel):
     lang: str
     question_id: str
     question_slug: str
+    timeout: int = 5
 
 dotenv.load_dotenv()
 
@@ -60,7 +61,7 @@ class LeetCodeEnv(gym.Env):
             problem=sub.question_slug, body=submission
         )
 
-        time.sleep(5)
+        time.sleep(sub.timeout)
 
         submission_result = self.api_instance.submissions_detail_id_check_get(
             id=submission_id.submission_id
@@ -69,7 +70,10 @@ class LeetCodeEnv(gym.Env):
         return submission_result
 
     def __calculate_reward(self, submission_result):
-        status_msg = submission_result['status_msg'] # 'Accepted' | 'Runtime Error'| 'Wrong Answer'
+        if 'status' in submission_result.keys() and submission_result['status'] == 'PENDING':
+            status_msg = 'Submission Timed-Out'
+        else:
+            status_msg = submission_result['status_msg'] # 'Accepted' | 'Runtime Error'| 'Wrong Answer'
         return status_msg == 'Accepted', status_msg
     
     def is_done(self):
