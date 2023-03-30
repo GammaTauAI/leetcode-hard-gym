@@ -1,9 +1,20 @@
-# leetcode-hard-env
-Leetcode submission environment and hard question + code snippet dataset
+# Leetcode-Hard Gym
+A gym to evaluate superhuman programming agents built on top of OpenAI's [gym](https://github.com/openai/gym).
+
+Written by: [Beck Labash](https://github.com/becklabs)
+
+Supports:
+  - `python`
+
+### Leaderboard for Leetcode-hard: Pass@1
+  - OpenAI's GPT-4: `10.7` ([source](https://arxiv.org/pdf/2303.12712.pdf))
+  - OpenAI's Codex: `3.6` ([source](https://arxiv.org/pdf/2303.12712.pdf))
+  - OpenAI's GPT-3.5: `0.0` ([source](https://arxiv.org/pdf/2303.12712.pdf))
+  - Reflexion + GPT-4: `???`
 
 ### Setup:
 - pip install requirements
-- Set environment variable LEETCODE_SESSION to the cookie LEETCODE_SESSION from a signed-in Leetcode session
+- Set environment variable `LEETCODE_SESSION` to the cookie `LEETCODE_SESSION` from a signed-in Leetcode session
 
 ### Example usage:
 
@@ -54,14 +65,4 @@ print(status, reward, done, submission_result)
 ```
 
 Note: compare result was shortened here, it contains a sequence of booleans indicating if a test was passed
-
-
-
-
-
-
-
-
-
-
 
