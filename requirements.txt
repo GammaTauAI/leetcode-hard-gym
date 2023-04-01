@@ -3,3 +3,4 @@ gym==0.26.2
 pydantic==1.10.7
 python-dotenv==1.0.0
 requests==2.28.2
+python-leetcode==1.2.1
