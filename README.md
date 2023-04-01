@@ -30,7 +30,7 @@ Then we can instantiate a submission environment ...
 ```python
 from environment import LeetCodeEnv
 
-env = LeetCodeEnv(timeout = 5)
+env = LeetCodeEnv()
 ```
 
 ... and build a submission using a row from the dataset ...
@@ -50,7 +50,8 @@ question_slug = row['title_slug']
 sub = LeetCodeSubmission(code=code,
                          lang=lang,
                          question_id=question_id,
-                         question_slug=question_slug)
+                         question_slug=question_slug
+                         timeout = 5)
 ```
 
 Finally, we can step through the environment with the submission:
