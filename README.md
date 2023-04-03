@@ -24,7 +24,7 @@ Supports:
   - `dart`
   - `mysql`
 
-### Leaderboard for Leetcode-hard: Pass@1
+### Leaderboard for Leetcode Hard (Python): Pass@1
   - OpenAI's GPT-4: `10.7` ([source](https://arxiv.org/pdf/2303.12712.pdf))
   - OpenAI's Codex: `3.6` ([source](https://arxiv.org/pdf/2303.12712.pdf))
   - OpenAI's GPT-3.5: `0.0` ([source](https://arxiv.org/pdf/2303.12712.pdf))
