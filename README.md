@@ -5,6 +5,24 @@ Written by: [Beck Labash](https://github.com/becklabs)
 
 Supports:
   - `python`
+  - `c`
+  - `c#`
+  - `java`
+  - `python`
+  - `javascript`
+  - `ruby`
+  - `swift`
+  - `go`
+  - `scala`
+  - `kotlin`
+  - `rust`
+  - `php`
+  - `typescript`
+  - `racket`
+  - `erlang`
+  - `elixir`
+  - `dart`
+  - `mysql`
 
 ### Leaderboard for Leetcode-hard: Pass@1
   - OpenAI's GPT-4: `10.7` ([source](https://arxiv.org/pdf/2303.12712.pdf))
