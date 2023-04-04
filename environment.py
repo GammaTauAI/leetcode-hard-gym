@@ -80,7 +80,7 @@ class LeetCodeEnv(gym.Env):
 
     def __send_submission(self, sub: LeetCodeSubmission):
         submission = leetcode.Submission(
-            judge_type="large", typed_code=sub.code, question_id=sub.question_id, test_mode=False, lang=sub.lang
+            judge_type="large", typed_code=sub.code, question_id=sub.question_id, test_mode=False, lang=sub.lang.value
         )
 
         submission_id = self.api_instance.problems_problem_submit_post(

@@ -1,11 +1,11 @@
-from environment import LeetCodeEnv, LeetCodeSubmission
+from environment import LeetCodeEnv, LeetCodeSubmission, ProgrammingLanguage
 
 code = """
 class Solution:
     def twoSum(self, nums, target):
         return [0]
 """
-lang = "python3"
+lang = ProgrammingLanguage.PYTHON3
 question_id = 1
 question_slug = 'two-sum'
 
