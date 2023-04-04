@@ -18,5 +18,5 @@ env = LeetCodeEnv()
 
 status, reward, done, submission_result = env.step(sub)
 
-print(status, reward, done, submission_result )
+print(status, reward, done, submission_result)
 
