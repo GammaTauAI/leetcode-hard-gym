@@ -1,5 +1,9 @@
 from enum import Enum
+
 class ProgrammingLanguage(Enum):
+    """
+    Enum for valid LeetCodeSubmission programming languages
+    """
     CPP = "c++"
     JAVA = "java"
     PYTHON = "python"
@@ -25,6 +29,9 @@ class ProgrammingLanguage(Enum):
 
 from pydantic import BaseModel
 class LeetCodeSubmission(BaseModel):
+    """
+    Model for a Leetcode Code Submission
+    """
     code: str
     lang: ProgrammingLanguage
     question_id: str

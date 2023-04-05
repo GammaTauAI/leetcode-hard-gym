@@ -1,10 +1,12 @@
-import gym
 import os
+import time
+
+import dotenv
+import gym
 import leetcode
 import leetcode.auth
-import dotenv
-import time
-from leetcode_types import LeetCodeSubmission
+
+from .leetcode_types import LeetCodeSubmission
 
 dotenv.load_dotenv()
 
