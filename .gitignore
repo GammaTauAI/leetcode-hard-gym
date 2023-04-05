@@ -2,3 +2,4 @@ env/
 .env
 __pycache__/
 SubmissionTest.ipynb
+.vscode/
