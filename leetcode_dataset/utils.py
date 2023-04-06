@@ -4,9 +4,9 @@ import time
 from bs4 import BeautifulSoup
 import requests
 
-def get_question(slug):
+def get_question(url):
     while True:
-        res = requests.get(f'https://leetcode.com/problems/{slug}/')
+        res = requests.get(url)
         status = res.status_code
         if status == 200:
             return res
@@ -19,8 +19,8 @@ def get_question(slug):
 def title_slug(title):
     return '-'.join(title.lower().split())
 
-def get_code_snippets(slug):
-    res = get_question(slug)
+def get_code_snippets(url):
+    res = get_question(url)
     if res is None:
         return None
     soup = BeautifulSoup(res.content, "html.parser")
@@ -31,22 +31,64 @@ def get_code_snippets(slug):
     code_snippets = query["state"]["data"]["question"]["codeSnippets"]
     return code_snippets
 
-env = LeetCodeEnv()
 
-def id_from_slug(slug: str) -> str:
-  graphql_request = leetcode.GraphqlQuery(
-          query="""
-              query getQuestionDetail($titleSlug: String!) {
-                question(titleSlug: $titleSlug) {
-                  questionFrontendId
-                }
-              }
-          """,
-          variables={"titleSlug": slug},
-          operation_name="getQuestionDetail",
-  )
-  response = ast.literal_eval(str(env.api_instance.graphql_post(body=graphql_request)))
-  frontend_id = response['data']['question']['question_frontend_id']
+import re
+from abc import ABC, abstractmethod
 
-  return frontend_id
+class SubmissionFormatter(ABC):
+    """
+    Class that converts between HumanEval and Leetcode submission formats.
+    """
+    @abstractmethod
+    def to_leetcode(self, humaneval_snippet: str):
+        ...
+    
+    @abstractmethod
+    def to_humaneval(self, leetcode_snippet: str):
+        ...
 
+class PySubmissionFormatter(SubmissionFormatter):
+    def to_leetcode(self, humaneval_snippet: str):
+        comment_pattern = re.compile(r"((?:#.*\n)*)")
+        comment_match = comment_pattern.match(humaneval_snippet)
+        comments = comment_match.group(1) if comment_match else ""
+        
+        # Remove comments from the snippet
+        humaneval_snippet = comment_pattern.sub("", humaneval_snippet).strip()
+        humaneval_snippet_indented = humaneval_snippet.replace('\n', '\n    ')
+        
+        return f"""\
+{comments}class Solution:
+    {humaneval_snippet_indented}
+"""
+
+    def to_humaneval(self, leetcode_snippet: str):
+        comment_pattern = re.compile(r"((?:#.*\n)*)")
+        comment_match = comment_pattern.match(leetcode_snippet)
+        comments = comment_match.group(1) if comment_match else ""
+        
+        # Remove comments from the snippet
+        leetcode_snippet = comment_pattern.sub("", leetcode_snippet).strip()
+        
+        pattern = re.compile(r"class Solution:\s+([\s\S]+)")
+        match = pattern.search(leetcode_snippet)
+        if match:
+            return f"{comments}{match.group(1).replace('    ', '', 1)}"
+        return leetcode_snippet.strip()
+
+
+class RsSubmissionFormatter(SubmissionFormatter):
+    def to_leetcode(self, humaneval_snippet: str):
+        return f"""\
+        impl Solution {{
+            {humaneval_snippet.strip()}
+        }}
+        """
+
+    def to_humaneval(self, leetcode_snippet: str):
+        pattern = re.compile(r"impl Solution \{([\s\S]+)\}")
+        match = pattern.search(leetcode_snippet)
+        if match:
+            return match.group(1).strip()
+        return leetcode_snippet.strip()
+    
