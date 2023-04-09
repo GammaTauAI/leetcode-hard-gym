@@ -57,7 +57,7 @@ class LeetCodeEnv(gym.Env):
         self.__wait_for_cooldown()
 
         if sub.question_id is None:
-            sub.question_id = id_from_slug(sub.question_slug)
+            sub.question_id = id_from_slug(sub.question_slug, self.api_instance)
 
         submission = leetcode.Submission(
             judge_type="large", typed_code=sub.code, question_id=sub.question_id, test_mode=False, lang=sub.lang.value

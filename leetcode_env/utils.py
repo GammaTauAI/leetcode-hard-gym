@@ -1,15 +1,27 @@
 import ast
 import re
 from abc import ABC, abstractmethod
-
+import os
 import astunparse
 import leetcode
+# import dotenv
 
-from .environment import LeetCodeEnv
+# dotenv.load_dotenv()
 
-env = LeetCodeEnv()
+# configuration = leetcode.Configuration()
 
-def id_from_slug(slug: str) -> str:
+# leetcode_session = os.environ["LEETCODE_SESSION"]
+# csrf_token = leetcode.auth.get_csrf_cookie(leetcode_session)
+
+# configuration.api_key["x-csrftoken"] = csrf_token
+# configuration.api_key["csrftoken"] = csrf_token
+# configuration.api_key["LEETCODE_SESSION"] = leetcode_session
+# configuration.api_key["Referer"] = "https://leetcode.com"
+# configuration.debug = False
+
+# api_instance = leetcode.DefaultApi(leetcode.ApiClient(configuration))
+
+def id_from_slug(slug: str, api_instance) -> str:
     """
     Retrieves the id of the question with the given slug
     """
@@ -24,7 +36,7 @@ def id_from_slug(slug: str) -> str:
               variables={"titleSlug": slug},
               operation_name="getQuestionDetail",
       )
-    response = ast.literal_eval(str(env.api_instance.graphql_post(body=graphql_request)))
+    response = ast.literal_eval(str(api_instance.graphql_post(body=graphql_request)))
     frontend_id = response['data']['question']['question_id']
     return frontend_id
 
