@@ -1,3 +1,5 @@
+from typing import Optional
+from pydantic import BaseModel
 from enum import Enum
 
 class ProgrammingLanguage(Enum):
@@ -27,7 +29,6 @@ class ProgrammingLanguage(Enum):
     MS_SQL_SERVER = "ms sql server"
     ORACLE = "oracle"
 
-from pydantic import BaseModel
 class LeetCodeSubmission(BaseModel):
     """
     Model for a Leetcode Code Submission
@@ -36,4 +37,5 @@ class LeetCodeSubmission(BaseModel):
     lang: ProgrammingLanguage
     question_id: str
     question_slug: str
+    question_id: Optional[str] = None
     timeout: int = 5

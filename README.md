@@ -40,13 +40,13 @@ We can load the code-snippet annotated dataset like so:
 
 ```python
 import pandas as pd
-data = pd.read_csv("path/to/repo/leetcode_dataset/data/leetcode_hard_with_snippets.csv")
+data = pd.read_csv("path/to/repo/leetcode_dataset/data/with_snippets/leetcode_hard_with_snippets.csv")
 row = data.iloc[0]
 ```
 
 Then we can instantiate a submission environment ...
 ```python
-from environment import LeetCodeEnv
+from leetcode_env.environment import LeetCodeEnv
 
 env = LeetCodeEnv()
 ```
@@ -54,7 +54,7 @@ env = LeetCodeEnv()
 ... and build a submission using a row from the dataset ...
 
 ```python
-from environment import LeetCodeSubmission
+from leetcode_env.leetcode_types import LeetCodeSubmission
 
 code = """
 class Solution:
