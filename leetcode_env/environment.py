@@ -15,13 +15,12 @@ dotenv.load_dotenv()
 class LeetCodeEnv(gym.Env):
     metadata = {'render.modes': ['human']}
 
-    def __init__(self, cooldown = 20):
+    def __init__(self, cooldown = 0):
         super(LeetCodeEnv, self).__init__()
         self.__configure_leetcode()
         self.reward = False
         self.last_run = None 
         self.cooldown = cooldown # To avoid rate limit
-
 
     def __configure_leetcode(self):
         configuration = leetcode.Configuration()
@@ -54,7 +53,7 @@ class LeetCodeEnv(gym.Env):
         self.reward = False
 
     def __send_submission(self, sub: LeetCodeSubmission):
-        # self.__wait_for_cooldown()
+        self.__wait_for_cooldown()
 
         if sub.question_id is None:
             sub.question_id = id_from_slug(sub.question_slug, self.api_instance)
@@ -67,7 +66,7 @@ class LeetCodeEnv(gym.Env):
             problem=sub.question_slug, body=submission
         )
 
-        time.sleep(5)
+        time.sleep(sub.timeout)
 
         submission_result = self.api_instance.submissions_detail_id_check_get(
             id=submission_id.submission_id
@@ -93,7 +92,6 @@ class LeetCodeEnv(gym.Env):
     def __wait_for_cooldown(self):
         if self.last_run == None:
             self.last_run = datetime.now()
-        
         else:
             while (datetime.now() - self.last_run).total_seconds() < self.cooldown:
                 time.sleep(0.1)
