@@ -64,6 +64,11 @@ class PySubmissionFormatter:
         return "\n".join(comments)
 
     @staticmethod
+    def extract_imports(source: str) -> str:
+        imports = re.findall(r"^\s*import.*", source, re.MULTILINE)
+        return "\n".join(imports)
+
+    @staticmethod
     def to_humaneval(leetcode_snippet: str) -> str:
         comments = PySubmissionFormatter.extract_comments(leetcode_snippet)
         try:
@@ -83,6 +88,8 @@ class PySubmissionFormatter:
     @staticmethod
     def to_leetcode(humaneval_snippet: str, class_name: str = "Solution") -> str:
         comments = PySubmissionFormatter.extract_comments(humaneval_snippet)
+        # Remove imports 
+        humaneval_snippet = re.sub(r"^from\s+\S+\s+import.*|^import.*", "", humaneval_snippet, flags=re.MULTILINE)
         try:
             tree = ast.parse(humaneval_snippet)
         except IndentationError:

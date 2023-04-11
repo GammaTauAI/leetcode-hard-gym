@@ -54,7 +54,7 @@ class LeetCodeEnv(gym.Env):
         self.reward = False
 
     def __send_submission(self, sub: LeetCodeSubmission):
-        self.__wait_for_cooldown()
+        # self.__wait_for_cooldown()
 
         if sub.question_id is None:
             sub.question_id = id_from_slug(sub.question_slug, self.api_instance)
@@ -67,7 +67,7 @@ class LeetCodeEnv(gym.Env):
             problem=sub.question_slug, body=submission
         )
 
-        time.sleep(sub.timeout)
+        time.sleep(5)
 
         submission_result = self.api_instance.submissions_detail_id_check_get(
             id=submission_id.submission_id
