@@ -1,9 +1,11 @@
 import ast
+import os
 import re
 from abc import ABC, abstractmethod
-import os
+
 import astunparse
 import leetcode
+
 # import dotenv
 
 # dotenv.load_dotenv()
@@ -21,42 +23,44 @@ import leetcode
 
 # api_instance = leetcode.DefaultApi(leetcode.ApiClient(configuration))
 
+
 def id_from_slug(slug: str, api_instance) -> str:
     """
     Retrieves the id of the question with the given slug
     """
     graphql_request = leetcode.GraphqlQuery(
-      query="""
+        query="""
                   query getQuestionDetail($titleSlug: String!) {
                     question(titleSlug: $titleSlug) {
                       questionId
                     }
                   }
               """,
-              variables={"titleSlug": slug},
-              operation_name="getQuestionDetail",
-      )
+        variables={"titleSlug": slug},
+        operation_name="getQuestionDetail",
+    )
     response = ast.literal_eval(str(api_instance.graphql_post(body=graphql_request)))
-    frontend_id = response['data']['question']['question_id']
+    frontend_id = response["data"]["question"]["question_id"]
     return frontend_id
+
 
 def metadata_from_slug(slug: str, api_instance) -> str:
     """
     Retrieves the metadata of the question with the given slug
     """
     graphql_request = leetcode.GraphqlQuery(
-      query="""
+        query="""
                   query getQuestionDetail($titleSlug: String!) {
                     question(titleSlug: $titleSlug) {
                       metaData
                     }
                   }
               """,
-              variables={"titleSlug": slug},
-              operation_name="getQuestionDetail",
+        variables={"titleSlug": slug},
+        operation_name="getQuestionDetail",
     )
     response = ast.literal_eval(str(api_instance.graphql_post(body=graphql_request)))
-    metadata = response['data']['question']
+    metadata = response["data"]["question"]
     return metadata
 
 
@@ -64,17 +68,19 @@ class SubmissionFormatter(ABC):
     """
     Class that converts between HumanEval and Leetcode submission formats.
     """
+
     @abstractmethod
     def to_leetcode(self, humaneval_snippet: str):
         """
         Convert the string to leetcode format
         """
-    
+
     @abstractmethod
     def to_humaneval(self, leetcode_snippet: str):
         """
         Convert the string to humaneval format
         """
+
 
 class PySubmissionFormatter:
     @staticmethod
@@ -107,8 +113,13 @@ class PySubmissionFormatter:
     @staticmethod
     def to_leetcode(humaneval_snippet: str, class_name: str = "Solution") -> str:
         comments = PySubmissionFormatter.extract_comments(humaneval_snippet)
-        # Remove imports 
-        humaneval_snippet = re.sub(r"^from\s+\S+\s+import.*|^import.*", "", humaneval_snippet, flags=re.MULTILINE)
+        # Remove imports
+        humaneval_snippet = re.sub(
+            r"^from\s+\S+\s+import.*|^import.*",
+            "",
+            humaneval_snippet,
+            flags=re.MULTILINE,
+        )
         try:
             tree = ast.parse(humaneval_snippet)
         except IndentationError:
@@ -133,6 +144,7 @@ class PySubmissionFormatter:
         new_tree = ast.Module(body=[class_node], type_ignores=[])
         return f"{comments}\n{astunparse.unparse(new_tree).strip()}\n"
 
+
 class RsSubmissionFormatter:
     @staticmethod
     def extract_comments(source: str) -> str:
@@ -155,4 +167,3 @@ class RsSubmissionFormatter:
         function_source = function_source.strip()
         function_source = re.sub(r"fn ", "pub fn ", function_source)
         return f"impl {struct_name} {{\n    {function_source}\n}}\n"
-    

@@ -13,5 +13,5 @@ setup(
     package_data={
         "": ["*.txt", "*.rst", "*.md", "*.csv"],
     },
-    packages=["leetcode_hard_gym"]
+    packages=["leetcode_hard_gym"],
 )
