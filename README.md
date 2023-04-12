@@ -31,10 +31,32 @@ Supports:
   - Reflexion + GPT-4: `???`
 
 ### Setup:
-- pip install requirements
-- Set environment variable `LEETCODE_SESSION` to the cookie `LEETCODE_SESSION` from a signed-in Leetcode session
 
-### Example usage:
+  python3 -m venv env
+  source env/bin/activate
+  pip install -r requirements.txt
+
+- Set environment variable `LEETCODE_SESSION` to the cookie `LEETCODE_SESSION` from a signed-in Leetcode session or set it in the .env file
+
+
+### Basic Usage
+
+```python
+
+from leetcode_hard_gym.main import run_all
+
+# define `generate_one_completion` to be a function that generates code
+def generate_one_completion(prompt):
+    return "def hello_world():\n    print('hello world')"
+
+run_gym(
+  generate_one_completion,
+  output_file="results.jsonl",
+  lang="python3"
+)
+```
+
+### Detailed Example usage:
 
 We can load the code-snippet annotated dataset like so:
 
@@ -46,7 +68,7 @@ row = data.iloc[0]
 
 Then we can instantiate a submission environment ...
 ```python
-from leetcode_env.environment import LeetCodeEnv
+from leetcode_hard_gym.leetcode_env.environment import LeetCodeEnv
 
 env = LeetCodeEnv()
 ```
@@ -54,7 +76,7 @@ env = LeetCodeEnv()
 ... and build a submission using a row from the dataset ...
 
 ```python
-from leetcode_env.leetcode_types import LeetCodeSubmission
+from leetcode_hard_gym.leetcode_env.leetcode_types import LeetCodeSubmission
 
 code = """
 class Solution:
