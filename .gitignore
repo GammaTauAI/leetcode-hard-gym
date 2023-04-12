@@ -3,3 +3,5 @@ env/
 __pycache__/
 SubmissionTest.ipynb
 .vscode/
+
+*.egg-info
