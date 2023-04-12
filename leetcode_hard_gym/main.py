@@ -1,20 +1,20 @@
 import json
+from pathlib import Path
 
 import pandas as pd
 import tqdm
-from leetcode_env.environment import LeetCodeEnv
-from leetcode_env.leetcode_types import LeetCodeSubmission
 
 from .leetcode_env.environment import LeetCodeEnv
-from .leetcode_env.leetcode_types import (LeetCodeSubmission,
-                                          ProgrammingLanguage)
+from .leetcode_env.leetcode_types import LeetCodeSubmission, ProgrammingLanguage
 from .leetcode_env.utils import id_from_slug
 
 
 def load_dataset():
-    return pd.read_csv(
-        "./leetcode_dataset/data/with_snippets/leetcode_hard_with_snippets.csv"
+    # load file from reference to this file
+    fname = Path(__file__).parent.joinpath(
+        "leetcode_dataset/data/with_snippets/leetcode_hard_with_snippets.csv"
     )
+    return pd.read_csv(fname)
 
 
 def run_all(generate_one_completion: callable, output_file: str = None, lang="python3"):
@@ -28,7 +28,9 @@ def run_all(generate_one_completion: callable, output_file: str = None, lang="py
         question_slug = row["title_slug"]
 
         ittr.set_description(f"Running {question_slug}")
-        code = generate_one_completion(question_slug)
+        code = generate_one_completion(
+            question_slug, question_id=question_id, question_slug=question_slug
+        )
 
         ittr.set_description(f"Submitting {question_slug}")
         sub = LeetCodeSubmission(
