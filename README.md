@@ -49,7 +49,7 @@ from leetcode_hard_gym.main import run_all
 def generate_one_completion(prompt):
     return "def hello_world():\n    print('hello world')"
 
-run_gym(
+run_all(
   generate_one_completion,
   output_file="results.jsonl",
   lang="python3"
