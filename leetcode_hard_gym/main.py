@@ -5,7 +5,8 @@ import pandas as pd
 import tqdm
 
 from .leetcode_env.environment import LeetCodeEnv
-from .leetcode_env.leetcode_types import LeetCodeSubmission, ProgrammingLanguage
+from .leetcode_env.leetcode_types import (LeetCodeSubmission,
+                                          ProgrammingLanguage)
 from .leetcode_env.utils import id_from_slug
 
 
@@ -27,9 +28,18 @@ def run_all(generate_one_completion: callable, output_file: str = None, lang="py
         question_id = row["id"]
         question_slug = row["title_slug"]
 
+        prompt = (
+            row["title"]
+            + ":\n"
+            + row["description"]
+            + f"\n\nCode:\n```{lang}\n"
+            + row[f"{lang}_code_snippet"]
+            + "\n```"
+        )
         ittr.set_description(f"Running {question_slug}")
+
         code = generate_one_completion(
-            question_slug, question_id=question_id, question_slug=question_slug
+            prompt, question_id=question_id, question_slug=question_slug
         )
 
         ittr.set_description(f"Submitting {question_slug}")
