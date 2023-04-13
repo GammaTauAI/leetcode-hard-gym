@@ -1,11 +1,14 @@
-from typing import Optional
-from pydantic import BaseModel
 from enum import Enum
+from typing import Optional
+
+from pydantic import BaseModel
+
 
 class ProgrammingLanguage(Enum):
     """
     Enum for valid LeetCodeSubmission programming languages
     """
+
     CPP = "c++"
     JAVA = "java"
     PYTHON = "python"
@@ -29,10 +32,12 @@ class ProgrammingLanguage(Enum):
     MS_SQL_SERVER = "ms sql server"
     ORACLE = "oracle"
 
+
 class LeetCodeSubmission(BaseModel):
     """
     Model for a Leetcode Code Submission
     """
+
     code: str
     lang: ProgrammingLanguage
     question_id: str
