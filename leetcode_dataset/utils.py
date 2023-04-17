@@ -2,6 +2,7 @@ import json
 import time
 import requests
 from bs4 import BeautifulSoup
+from typing import List
 
 def get_question(url):
     """
@@ -38,4 +39,39 @@ def get_code_snippets(url):
     query = [i for i in queries if 'question' in i['state']['data'] and 'codeSnippets' in i['state']['data']['question']][0]
     code_snippets = query["state"]["data"]["question"]["codeSnippets"]
     return code_snippets
-    
+
+url = "https://leetcode.com/graphql/"
+
+payload = lambda slug: json.dumps({
+  "query": "\n    query consolePanelConfig($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    exampleTestcaseList\n  }\n}\n    ",
+  "variables": {
+    "titleSlug": slug
+  },
+  "operationName": "consolePanelConfig"
+})
+
+headers = {
+  'authority': 'leetcode.com',
+  'accept': '*/*',
+  'accept-language': 'en-US,en;q=0.9',
+  'authorization': '',
+  'baggage': 'sentry-environment=production,sentry-release=8f466f72,sentry-transaction=%2Fproblems%2F%5Bslug%5D%2F%5B%5B...tab%5D%5D,sentry-public_key=2a051f9838e2450fbdd5a77eb62cc83c,sentry-trace_id=897972800d1c46e5a5d499f12244a91b,sentry-sample_rate=0.004',
+  'content-type': 'application/json',
+  'cookie': 'gr_user_id=35b498db-f28f-485f-8b44-417f8fba15ed; __stripe_mid=04d7a882-553c-499c-8866-bcf56aac8ef6ed918f; __atuvc=1%7C5; NEW_PROBLEMLIST_PAGE=1; csrftoken=9BiGVDJiJS7iFJKVYZ1CNMNulRAvYUdlezUlp1oYOrsR2zVsk9mZh1MD6C2d6twV; messages="9b526d67f2587ca52e83b4431db91f6bd6abdac1$[[\\"__json_message\\"\\0540\\05425\\054\\"You have signed out.\\"]\\054[\\"__json_message\\"\\0540\\05425\\054\\"Successfully signed in as beckles168.\\"]\\054[\\"__json_message\\"\\0540\\05425\\054\\"You have signed out.\\"]\\054[\\"__json_message\\"\\0540\\05425\\054\\"Successfully signed in as leetcodeexecutor.\\"]\\054[\\"__json_message\\"\\0540\\05425\\054\\"You have signed out.\\"]\\054[\\"__json_message\\"\\0540\\05425\\054\\"Successfully signed in as beckles168.\\"]]"; 87b5a3c3f1a55520_gr_last_sent_cs1=beckles168; _gid=GA1.2.2067840721.1681477917; LEETCODE_SESSION=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfYXV0aF91c2VyX2lkIjoiOTIwNjcxMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImFsbGF1dGguYWNjb3VudC5hdXRoX2JhY2tlbmRzLkF1dGhlbnRpY2F0aW9uQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjU2MGIwZGIzMjVjOTcwNTk3OGFkZDI4MjY0MzM5NjU0NzVjZDhmMjYiLCJpZCI6OTIwNjcxMywiZW1haWwiOiJiZWNrbGVzMTY4QGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYmVja2xlczE2OCIsInVzZXJfc2x1ZyI6ImJlY2tsZXMxNjgiLCJhdmF0YXIiOiJodHRwczovL2Fzc2V0cy5sZWV0Y29kZS5jb20vdXNlcnMvYXZhdGFycy9hdmF0YXJfMTY4MDY1MjE2OC5wbmciLCJyZWZyZXNoZWRfYXQiOjE2ODE2NjIzMDAsImlwIjoiNzIuMTk1LjEzNC4zMSIsImlkZW50aXR5IjoiNzIzYzUxMjYzYzgwZjZiZTc5ZmEyMTE5MWVlMGIzODciLCJzZXNzaW9uX2lkIjozNzg5MzIzNH0.BJV_u27JVniHZ73kI76oTTkFGK4OHNJPpv-F58pZBUc; 87b5a3c3f1a55520_gr_session_id=73357b2f-2c35-49f4-8256-556aa503d604; 87b5a3c3f1a55520_gr_last_sent_sid_with_cs1=73357b2f-2c35-49f4-8256-556aa503d604; 87b5a3c3f1a55520_gr_session_id_73357b2f-2c35-49f4-8256-556aa503d604=true; _gat=1; 87b5a3c3f1a55520_gr_cs1=beckles168; _ga=GA1.1.1043183799.1675086637; __stripe_sid=d8eb8303-f932-4cfd-92ef-9ed80b781cae827bea; _ga_CDRWKZTDEX=GS1.1.1681662302.39.1.1681665678.0.0.0; _dd_s=rum=0&expire=1681666578197; LEETCODE_SESSION=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfYXV0aF91c2VyX2lkIjoiOTIwNjcxMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImFsbGF1dGguYWNjb3VudC5hdXRoX2JhY2tlbmRzLkF1dGhlbnRpY2F0aW9uQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjU2MGIwZGIzMjVjOTcwNTk3OGFkZDI4MjY0MzM5NjU0NzVjZDhmMjYiLCJpZCI6OTIwNjcxMywiZW1haWwiOiJiZWNrbGVzMTY4QGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYmVja2xlczE2OCIsInVzZXJfc2x1ZyI6ImJlY2tsZXMxNjgiLCJhdmF0YXIiOiJodHRwczovL2Fzc2V0cy5sZWV0Y29kZS5jb20vdXNlcnMvYXZhdGFycy9hdmF0YXJfMTY4MDY1MjE2OC5wbmciLCJyZWZyZXNoZWRfYXQiOjE2ODE2NjIzMDAsImlwIjoiNTQuODYuNTAuMTM5IiwiaWRlbnRpdHkiOiI3MjNjNTEyNjNjODBmNmJlNzlmYTIxMTkxZWUwYjM4NyIsInNlc3Npb25faWQiOjM3ODkzMjM0fQ.DtQ8KCL7Qsua4Bp-vOMJfg4VJUjX4NSxhdNXs756x4M; csrftoken=9BiGVDJiJS7iFJKVYZ1CNMNulRAvYUdlezUlp1oYOrsR2zVsk9mZh1MD6C2d6twV',
+  'origin': 'https://leetcode.com',
+  'random-uuid': '4922dfe3-8c3c-1d65-9b7a-ca84bfe9f756',
+  'referer': 'https://leetcode.com/problems/two-sum/',
+  'sec-ch-ua': '"Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"macOS"',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'sentry-trace': '897972800d1c46e5a5d499f12244a91b-a37933a4a1d212e3-0',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+  'x-csrftoken': '9BiGVDJiJS7iFJKVYZ1CNMNulRAvYUdlezUlp1oYOrsR2zVsk9mZh1MD6C2d6twV'
+}
+
+def test_cases_from_slug(slug: str) -> List[str]:
+    response = requests.post(url, headers=headers, data=payload(slug))
+    return dict(response.json())['data']['question']['exampleTestcaseList']

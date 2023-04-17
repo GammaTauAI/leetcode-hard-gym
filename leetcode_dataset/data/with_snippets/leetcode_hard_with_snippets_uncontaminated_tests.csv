@@ -1,0 +1,5030 @@
+,question_slug,question_title,frontend_question_id,question_id,description,cpp_snippet,java_snippet,python_snippet,python3_snippet,c_snippet,csharp_snippet,javascript_snippet,ruby_snippet,swift_snippet,golang_snippet,scala_snippet,kotlin_snippet,rust_snippet,php_snippet,typescript_snippet,racket_snippet,erlang_snippet,elixir_snippet,dart_snippet,example_test_cases
+0,minimum-reverse-operations,Minimum Reverse Operations,2612.0,2726.0,"You are given an integer n and an integer p in the range [0, n - 1]. Representing a 0-indexed array arr of length n where all positions are set to 0's, except position p which is set to 1.
+You are also given an integer array banned containing some positions from the array. For the ith position in banned, arr[banned[i]] = 0, and banned[i] != p.
+You can perform multiple operations on arr. In an operation, you can choose a subarray with size k and reverse the subarray. However, the 1 in arr should never go to any of the positions in banned. In other words, after each operation arr[banned[i]] remains 0.
+Return an array ans where for each i from [0, n - 1], ans[i] is the minimum number of reverse operations needed to bring the 1 to position i in arr, or -1 if it is impossible.
+
+A subarray is a contiguous non-empty sequence of elements within an array.
+The values of ans[i] are independent for all i's.
+The reverse of an array is an array containing the values in reverse order.
+
+ 
+Example 1:
+
+Input: n = 4, p = 0, banned = [1,2], k = 4
+Output: [0,-1,-1,1]
+Explanation: In this case k = 4 so there is only one possible reverse operation we can perform, which is reversing the whole array. Initially, 1 is placed at position 0 so the amount of operations we need for position 0 is 0. We can never place a 1 on the banned positions, so the answer for positions 1 and 2 is -1. Finally, with one reverse operation we can bring the 1 to index 3, so the answer for position 3 is 1. 
+
+Example 2:
+
+Input: n = 5, p = 0, banned = [2,4], k = 3
+Output: [0,-1,-1,-1,-1]
+Explanation: In this case the 1 is initially at position 0, so the answer for that position is 0. We can perform reverse operations of size 3. The 1 is currently located at position 0, so we need to reverse the subarray [0, 2] for it to leave that position, but reversing that subarray makes position 2 have a 1, which shouldn't happen. So, we can't move the 1 from position 0, making the result for all the other positions -1. 
+
+Example 3:
+
+Input: n = 4, p = 2, banned = [0,1,3], k = 1
+Output: [-1,-1,0,-1]
+Explanation: In this case we can only perform reverse operations of size 1. So the 1 never changes its position.
+
+ 
+Constraints:
+
+1 <= n <= 105
+0 <= p <= n - 1
+0 <= banned.length <= n - 1
+0 <= banned[i] <= n - 1
+1 <= k <= n 
+banned[i] != p
+all values in banned are unique 
+
+","class Solution {
+public:
+    vector<int> minReverseOperations(int n, int p, vector<int>& banned, int k) {
+        
+    }
+};","class Solution {
+    public int[] minReverseOperations(int n, int p, int[] banned, int k) {
+        
+    }
+}","class Solution(object):
+    def minReverseOperations(self, n, p, banned, k):
+        """"""
+        :type n: int
+        :type p: int
+        :type banned: List[int]
+        :type k: int
+        :rtype: List[int]
+        """"""
+        ","class Solution:
+    def minReverseOperations(self, n: int, p: int, banned: List[int], k: int) -> List[int]:
+        ","/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* minReverseOperations(int n, int p, int* banned, int bannedSize, int k, int* returnSize){
+
+}","public class Solution {
+    public int[] MinReverseOperations(int n, int p, int[] banned, int k) {
+        
+    }
+}","/**
+ * @param {number} n
+ * @param {number} p
+ * @param {number[]} banned
+ * @param {number} k
+ * @return {number[]}
+ */
+var minReverseOperations = function(n, p, banned, k) {
+    
+};","# @param {Integer} n
+# @param {Integer} p
+# @param {Integer[]} banned
+# @param {Integer} k
+# @return {Integer[]}
+def min_reverse_operations(n, p, banned, k)
+    
+end","class Solution {
+    func minReverseOperations(_ n: Int, _ p: Int, _ banned: [Int], _ k: Int) -> [Int] {
+        
+    }
+}","func minReverseOperations(n int, p int, banned []int, k int) []int {
+    
+}","object Solution {
+    def minReverseOperations(n: Int, p: Int, banned: Array[Int], k: Int): Array[Int] = {
+        
+    }
+}","class Solution {
+    fun minReverseOperations(n: Int, p: Int, banned: IntArray, k: Int): IntArray {
+        
+    }
+}","impl Solution {
+    pub fn min_reverse_operations(n: i32, p: i32, banned: Vec<i32>, k: i32) -> Vec<i32> {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer $n
+     * @param Integer $p
+     * @param Integer[] $banned
+     * @param Integer $k
+     * @return Integer[]
+     */
+    function minReverseOperations($n, $p, $banned, $k) {
+        
+    }
+}","function minReverseOperations(n: number, p: number, banned: number[], k: number): number[] {
+
+};","(define/contract (min-reverse-operations n p banned k)
+  (-> exact-integer? exact-integer? (listof exact-integer?) exact-integer? (listof exact-integer?))
+
+  )","-spec min_reverse_operations(N :: integer(), P :: integer(), Banned :: [integer()], K :: integer()) -> [integer()].
+min_reverse_operations(N, P, Banned, K) ->
+  .","defmodule Solution do
+  @spec min_reverse_operations(n :: integer, p :: integer, banned :: [integer], k :: integer) :: [integer]
+  def min_reverse_operations(n, p, banned, k) do
+
+  end
+end","class Solution {
+  List<int> minReverseOperations(int n, int p, List<int> banned, int k) {
+
+  }
+}","[({'n': '4', 'p': '0', 'banned': '[1,2]', 'k': '4'}, '[0,-1,-1,1]'), ({'n': '5', 'p': '0', 'banned': '[2,4]', 'k': '3'}, '[0,-1,-1,-1,-1]'), ({'n': '4', 'p': '2', 'banned': '[0,1,3]', 'k': '1'}, '[-1,-1,0,-1]')]"
+1,collect-coins-in-a-tree,Collect Coins in a Tree,2603.0,2717.0,"There exists an undirected and unrooted tree with n nodes indexed from 0 to n - 1. You are given an integer n and a 2D integer array edges of length n - 1, where edges[i] = [ai, bi] indicates that there is an edge between nodes ai and bi in the tree. You are also given an array coins of size n where coins[i] can be either 0 or 1, where 1 indicates the presence of a coin in the vertex i.
+Initially, you choose to start at any vertex in the tree. Then, you can perform the following operations any number of times: 
+
+Collect all the coins that are at a distance of at most 2 from the current vertex, or
+Move to any adjacent vertex in the tree.
+
+Find the minimum number of edges you need to go through to collect all the coins and go back to the initial vertex.
+Note that if you pass an edge several times, you need to count it into the answer several times.
+ 
+Example 1:
+
+
+Input: coins = [1,0,0,0,0,1], edges = [[0,1],[1,2],[2,3],[3,4],[4,5]]
+Output: 2
+Explanation: Start at vertex 2, collect the coin at vertex 0, move to vertex 3, collect the coin at vertex 5 then move back to vertex 2.
+
+Example 2:
+
+
+Input: coins = [0,0,0,1,1,0,0,1], edges = [[0,1],[0,2],[1,3],[1,4],[2,5],[5,6],[5,7]]
+Output: 2
+Explanation: Start at vertex 0, collect the coins at vertices 4 and 3, move to vertex 2,  collect the coin at vertex 7, then move back to vertex 0.
+
+ 
+Constraints:
+
+n == coins.length
+1 <= n <= 3 * 104
+0 <= coins[i] <= 1
+edges.length == n - 1
+edges[i].length == 2
+0 <= ai, bi < n
+ai != bi
+edges represents a valid tree.
+
+","class Solution {
+public:
+    int collectTheCoins(vector<int>& coins, vector<vector<int>>& edges) {
+        
+    }
+};","class Solution {
+    public int collectTheCoins(int[] coins, int[][] edges) {
+        
+    }
+}","class Solution(object):
+    def collectTheCoins(self, coins, edges):
+        """"""
+        :type coins: List[int]
+        :type edges: List[List[int]]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def collectTheCoins(self, coins: List[int], edges: List[List[int]]) -> int:
+        ","int collectTheCoins(int* coins, int coinsSize, int** edges, int edgesSize, int* edgesColSize){
+
+}","public class Solution {
+    public int CollectTheCoins(int[] coins, int[][] edges) {
+        
+    }
+}","/**
+ * @param {number[]} coins
+ * @param {number[][]} edges
+ * @return {number}
+ */
+var collectTheCoins = function(coins, edges) {
+    
+};","# @param {Integer[]} coins
+# @param {Integer[][]} edges
+# @return {Integer}
+def collect_the_coins(coins, edges)
+    
+end","class Solution {
+    func collectTheCoins(_ coins: [Int], _ edges: [[Int]]) -> Int {
+        
+    }
+}","func collectTheCoins(coins []int, edges [][]int) int {
+    
+}","object Solution {
+    def collectTheCoins(coins: Array[Int], edges: Array[Array[Int]]): Int = {
+        
+    }
+}","class Solution {
+    fun collectTheCoins(coins: IntArray, edges: Array<IntArray>): Int {
+        
+    }
+}","impl Solution {
+    pub fn collect_the_coins(coins: Vec<i32>, edges: Vec<Vec<i32>>) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $coins
+     * @param Integer[][] $edges
+     * @return Integer
+     */
+    function collectTheCoins($coins, $edges) {
+        
+    }
+}","function collectTheCoins(coins: number[], edges: number[][]): number {
+
+};","(define/contract (collect-the-coins coins edges)
+  (-> (listof exact-integer?) (listof (listof exact-integer?)) exact-integer?)
+
+  )","-spec collect_the_coins(Coins :: [integer()], Edges :: [[integer()]]) -> integer().
+collect_the_coins(Coins, Edges) ->
+  .","defmodule Solution do
+  @spec collect_the_coins(coins :: [integer], edges :: [[integer]]) :: integer
+  def collect_the_coins(coins, edges) do
+
+  end
+end","class Solution {
+  int collectTheCoins(List<int> coins, List<List<int>> edges) {
+
+  }
+}","[({'coins': '[1,0,0,0,0,1]', 'edges': '[[0,1],[1,2],[2,3],[3,4],[4,5]]'}, '2'), ({'coins': '[0,0,0,1,1,0,0,1]', 'edges': '[[0,1],[0,2],[1,3],[1,4],[2,5],[5,6],[5,7]]'}, '2')]"
+2,minimum-time-to-visit-a-cell-in-a-grid,Minimum Time to Visit a Cell In a Grid,2577.0,2711.0,"You are given a m x n matrix grid consisting of non-negative integers where grid[row][col] represents the minimum time required to be able to visit the cell (row, col), which means you can visit the cell (row, col) only when the time you visit it is greater than or equal to grid[row][col].
+You are standing in the top-left cell of the matrix in the 0th second, and you must move to any adjacent cell in the four directions: up, down, left, and right. Each move you make takes 1 second.
+Return the minimum time required in which you can visit the bottom-right cell of the matrix. If you cannot visit the bottom-right cell, then return -1.
+ 
+Example 1:
+
+
+Input: grid = [[0,1,3,2],[5,1,2,5],[4,3,8,6]]
+Output: 7
+Explanation: One of the paths that we can take is the following:
+- at t = 0, we are on the cell (0,0).
+- at t = 1, we move to the cell (0,1). It is possible because grid[0][1] <= 1.
+- at t = 2, we move to the cell (1,1). It is possible because grid[1][1] <= 2.
+- at t = 3, we move to the cell (1,2). It is possible because grid[1][2] <= 3.
+- at t = 4, we move to the cell (1,1). It is possible because grid[1][1] <= 4.
+- at t = 5, we move to the cell (1,2). It is possible because grid[1][2] <= 5.
+- at t = 6, we move to the cell (1,3). It is possible because grid[1][3] <= 6.
+- at t = 7, we move to the cell (2,3). It is possible because grid[2][3] <= 7.
+The final time is 7. It can be shown that it is the minimum time possible.
+
+Example 2:
+
+
+Input: grid = [[0,2,4],[3,2,1],[1,0,4]]
+Output: -1
+Explanation: There is no path from the top left to the bottom-right cell.
+
+ 
+Constraints:
+
+m == grid.length
+n == grid[i].length
+2 <= m, n <= 1000
+4 <= m * n <= 105
+0 <= grid[i][j] <= 105
+grid[0][0] == 0
+
+ 
+
+","class Solution {
+public:
+    int minimumTime(vector<vector<int>>& grid) {
+        
+    }
+};","class Solution {
+    public int minimumTime(int[][] grid) {
+        
+    }
+}","class Solution(object):
+    def minimumTime(self, grid):
+        """"""
+        :type grid: List[List[int]]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def minimumTime(self, grid: List[List[int]]) -> int:
+        ","int minimumTime(int** grid, int gridSize, int* gridColSize){
+
+}","public class Solution {
+    public int MinimumTime(int[][] grid) {
+        
+    }
+}","/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var minimumTime = function(grid) {
+    
+};","# @param {Integer[][]} grid
+# @return {Integer}
+def minimum_time(grid)
+    
+end","class Solution {
+    func minimumTime(_ grid: [[Int]]) -> Int {
+        
+    }
+}","func minimumTime(grid [][]int) int {
+    
+}","object Solution {
+    def minimumTime(grid: Array[Array[Int]]): Int = {
+        
+    }
+}","class Solution {
+    fun minimumTime(grid: Array<IntArray>): Int {
+        
+    }
+}","impl Solution {
+    pub fn minimum_time(grid: Vec<Vec<i32>>) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[][] $grid
+     * @return Integer
+     */
+    function minimumTime($grid) {
+        
+    }
+}","function minimumTime(grid: number[][]): number {
+
+};","(define/contract (minimum-time grid)
+  (-> (listof (listof exact-integer?)) exact-integer?)
+
+  )","-spec minimum_time(Grid :: [[integer()]]) -> integer().
+minimum_time(Grid) ->
+  .","defmodule Solution do
+  @spec minimum_time(grid :: [[integer]]) :: integer
+  def minimum_time(grid) do
+
+  end
+end","class Solution {
+  int minimumTime(List<List<int>> grid) {
+
+  }
+}","[({'grid': '[[0,1,3,2],[5,1,2,5],[4,3,8,6]]'}, '7'), ({'grid': '[[0,2,4],[3,2,1],[1,0,4]]'}, '-1')]"
+3,find-the-string-with-lcp,Find the String with LCP,2573.0,2708.0,"We define the lcp matrix of any 0-indexed string word of n lowercase English letters as an n x n grid such that:
+
+lcp[i][j] is equal to the length of the longest common prefix between the substrings word[i,n-1] and word[j,n-1].
+
+Given an n x n matrix lcp, return the alphabetically smallest string word that corresponds to lcp. If there is no such string, return an empty string.
+A string a is lexicographically smaller than a string b (of the same length) if in the first position where a and b differ, string a has a letter that appears earlier in the alphabet than the corresponding letter in b. For example, ""aabd"" is lexicographically smaller than ""aaca"" because the first position they differ is at the third letter, and 'b' comes before 'c'.
+ 
+Example 1:
+
+Input: lcp = [[4,0,2,0],[0,3,0,1],[2,0,2,0],[0,1,0,1]]
+Output: ""abab""
+Explanation: lcp corresponds to any 4 letter string with two alternating letters. The lexicographically smallest of them is ""abab"".
+
+Example 2:
+
+Input: lcp = [[4,3,2,1],[3,3,2,1],[2,2,2,1],[1,1,1,1]]
+Output: ""aaaa""
+Explanation: lcp corresponds to any 4 letter string with a single distinct letter. The lexicographically smallest of them is ""aaaa"". 
+
+Example 3:
+
+Input: lcp = [[4,3,2,1],[3,3,2,1],[2,2,2,1],[1,1,1,3]]
+Output: """"
+Explanation: lcp[3][3] cannot be equal to 3 since word[3,...,3] consists of only a single letter; Thus, no answer exists.
+
+ 
+Constraints:
+
+1 <= n == lcp.length == lcp[i].length <= 1000
+0 <= lcp[i][j] <= n
+
+","class Solution {
+public:
+    string findTheString(vector<vector<int>>& lcp) {
+        
+    }
+};","class Solution {
+    public String findTheString(int[][] lcp) {
+        
+    }
+}","class Solution(object):
+    def findTheString(self, lcp):
+        """"""
+        :type lcp: List[List[int]]
+        :rtype: str
+        """"""
+        ","class Solution:
+    def findTheString(self, lcp: List[List[int]]) -> str:
+        ","char * findTheString(int** lcp, int lcpSize, int* lcpColSize){
+
+}","public class Solution {
+    public string FindTheString(int[][] lcp) {
+        
+    }
+}","/**
+ * @param {number[][]} lcp
+ * @return {string}
+ */
+var findTheString = function(lcp) {
+    
+};","# @param {Integer[][]} lcp
+# @return {String}
+def find_the_string(lcp)
+    
+end","class Solution {
+    func findTheString(_ lcp: [[Int]]) -> String {
+        
+    }
+}","func findTheString(lcp [][]int) string {
+    
+}","object Solution {
+    def findTheString(lcp: Array[Array[Int]]): String = {
+        
+    }
+}","class Solution {
+    fun findTheString(lcp: Array<IntArray>): String {
+        
+    }
+}","impl Solution {
+    pub fn find_the_string(lcp: Vec<Vec<i32>>) -> String {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[][] $lcp
+     * @return String
+     */
+    function findTheString($lcp) {
+        
+    }
+}","function findTheString(lcp: number[][]): string {
+
+};","(define/contract (find-the-string lcp)
+  (-> (listof (listof exact-integer?)) string?)
+
+  )","-spec find_the_string(Lcp :: [[integer()]]) -> unicode:unicode_binary().
+find_the_string(Lcp) ->
+  .","defmodule Solution do
+  @spec find_the_string(lcp :: [[integer]]) :: String.t
+  def find_the_string(lcp) do
+
+  end
+end","class Solution {
+  String findTheString(List<List<int>> lcp) {
+
+  }
+}","[({'lcp': '[[4,0,2,0],[0,3,0,1],[2,0,2,0],[0,1,0,1]]'}, '""abab""'), ({'lcp': '[[4,3,2,1],[3,3,2,1],[2,2,2,1],[1,1,1,1]]'}, '""aaaa""'), ({'lcp': '[[4,3,2,1],[3,3,2,1],[2,2,2,1],[1,1,1,3]]'}, '""""')]"
+4,handling-sum-queries-after-update,Handling Sum Queries After Update,2569.0,2703.0,"You are given two 0-indexed arrays nums1 and nums2 and a 2D array queries of queries. There are three types of queries:
+
+For a query of type 1, queries[i] = [1, l, r]. Flip the values from 0 to 1 and from 1 to 0 in nums1 from index l to index r. Both l and r are 0-indexed.
+For a query of type 2, queries[i] = [2, p, 0]. For every index 0 <= i < n, set nums2[i] = nums2[i] + nums1[i] * p.
+For a query of type 3, queries[i] = [3, 0, 0]. Find the sum of the elements in nums2.
+
+Return an array containing all the answers to the third type queries.
+ 
+Example 1:
+
+Input: nums1 = [1,0,1], nums2 = [0,0,0], queries = [[1,1,1],[2,1,0],[3,0,0]]
+Output: [3]
+Explanation: After the first query nums1 becomes [1,1,1]. After the second query, nums2 becomes [1,1,1], so the answer to the third query is 3. Thus, [3] is returned.
+
+Example 2:
+
+Input: nums1 = [1], nums2 = [5], queries = [[2,0,0],[3,0,0]]
+Output: [5]
+Explanation: After the first query, nums2 remains [5], so the answer to the second query is 5. Thus, [5] is returned.
+
+ 
+Constraints:
+
+1 <= nums1.length,nums2.length <= 105
+nums1.length = nums2.length
+1 <= queries.length <= 105
+queries[i].length = 3
+0 <= l <= r <= nums1.length - 1
+0 <= p <= 106
+0 <= nums1[i] <= 1
+0 <= nums2[i] <= 109
+
+","class Solution {
+public:
+    vector<long long> handleQuery(vector<int>& nums1, vector<int>& nums2, vector<vector<int>>& queries) {
+        
+    }
+};","class Solution {
+    public long[] handleQuery(int[] nums1, int[] nums2, int[][] queries) {
+        
+    }
+}","class Solution(object):
+    def handleQuery(self, nums1, nums2, queries):
+        """"""
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :type queries: List[List[int]]
+        :rtype: List[int]
+        """"""
+        ","class Solution:
+    def handleQuery(self, nums1: List[int], nums2: List[int], queries: List[List[int]]) -> List[int]:
+        ","/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+long long* handleQuery(int* nums1, int nums1Size, int* nums2, int nums2Size, int** queries, int queriesSize, int* queriesColSize, int* returnSize){
+
+}","public class Solution {
+    public long[] HandleQuery(int[] nums1, int[] nums2, int[][] queries) {
+        
+    }
+}","/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @param {number[][]} queries
+ * @return {number[]}
+ */
+var handleQuery = function(nums1, nums2, queries) {
+    
+};","# @param {Integer[]} nums1
+# @param {Integer[]} nums2
+# @param {Integer[][]} queries
+# @return {Integer[]}
+def handle_query(nums1, nums2, queries)
+    
+end","class Solution {
+    func handleQuery(_ nums1: [Int], _ nums2: [Int], _ queries: [[Int]]) -> [Int] {
+        
+    }
+}","func handleQuery(nums1 []int, nums2 []int, queries [][]int) []int64 {
+    
+}","object Solution {
+    def handleQuery(nums1: Array[Int], nums2: Array[Int], queries: Array[Array[Int]]): Array[Long] = {
+        
+    }
+}","class Solution {
+    fun handleQuery(nums1: IntArray, nums2: IntArray, queries: Array<IntArray>): LongArray {
+        
+    }
+}","impl Solution {
+    pub fn handle_query(nums1: Vec<i32>, nums2: Vec<i32>, queries: Vec<Vec<i32>>) -> Vec<i64> {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $nums1
+     * @param Integer[] $nums2
+     * @param Integer[][] $queries
+     * @return Integer[]
+     */
+    function handleQuery($nums1, $nums2, $queries) {
+        
+    }
+}","function handleQuery(nums1: number[], nums2: number[], queries: number[][]): number[] {
+
+};","(define/contract (handle-query nums1 nums2 queries)
+  (-> (listof exact-integer?) (listof exact-integer?) (listof (listof exact-integer?)) (listof exact-integer?))
+
+  )","-spec handle_query(Nums1 :: [integer()], Nums2 :: [integer()], Queries :: [[integer()]]) -> [integer()].
+handle_query(Nums1, Nums2, Queries) ->
+  .","defmodule Solution do
+  @spec handle_query(nums1 :: [integer], nums2 :: [integer], queries :: [[integer]]) :: [integer]
+  def handle_query(nums1, nums2, queries) do
+
+  end
+end","class Solution {
+  List<int> handleQuery(List<int> nums1, List<int> nums2, List<List<int>> queries) {
+
+  }
+}","[({'nums1': '[1,0,1]', 'nums2': '[0,0,0]', 'queries': '[[1,1,1],[2,1,0],[3,0,0]]'}, '[3]'), ({'nums1': '[1]', 'nums2': '[5]', 'queries': '[[2,0,0],[3,0,0]]'}, '[5]')]"
+5,subsequence-with-the-minimum-score,Subsequence With the Minimum Score,2565.0,2701.0,"You are given two strings s and t.
+You are allowed to remove any number of characters from the string t.
+The score of the string is 0 if no characters are removed from the string t, otherwise:
+
+Let left be the minimum index among all removed characters.
+Let right be the maximum index among all removed characters.
+
+Then the score of the string is right - left + 1.
+Return the minimum possible score to make t a subsequence of s.
+A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., ""ace"" is a subsequence of ""abcde"" while ""aec"" is not).
+ 
+Example 1:
+
+Input: s = ""abacaba"", t = ""bzaa""
+Output: 1
+Explanation: In this example, we remove the character ""z"" at index 1 (0-indexed).
+The string t becomes ""baa"" which is a subsequence of the string ""abacaba"" and the score is 1 - 1 + 1 = 1.
+It can be proven that 1 is the minimum score that we can achieve.
+
+Example 2:
+
+Input: s = ""cde"", t = ""xyz""
+Output: 3
+Explanation: In this example, we remove characters ""x"", ""y"" and ""z"" at indices 0, 1, and 2 (0-indexed).
+The string t becomes """" which is a subsequence of the string ""cde"" and the score is 2 - 0 + 1 = 3.
+It can be proven that 3 is the minimum score that we can achieve.
+
+ 
+Constraints:
+
+1 <= s.length, t.length <= 105
+s and t consist of only lowercase English letters.
+
+","class Solution {
+public:
+    int minimumScore(string s, string t) {
+        
+    }
+};","class Solution {
+    public int minimumScore(String s, String t) {
+        
+    }
+}","class Solution(object):
+    def minimumScore(self, s, t):
+        """"""
+        :type s: str
+        :type t: str
+        :rtype: int
+        """"""
+        ","class Solution:
+    def minimumScore(self, s: str, t: str) -> int:
+        ","int minimumScore(char * s, char * t){
+
+}","public class Solution {
+    public int MinimumScore(string s, string t) {
+        
+    }
+}","/**
+ * @param {string} s
+ * @param {string} t
+ * @return {number}
+ */
+var minimumScore = function(s, t) {
+    
+};","# @param {String} s
+# @param {String} t
+# @return {Integer}
+def minimum_score(s, t)
+    
+end","class Solution {
+    func minimumScore(_ s: String, _ t: String) -> Int {
+        
+    }
+}","func minimumScore(s string, t string) int {
+    
+}","object Solution {
+    def minimumScore(s: String, t: String): Int = {
+        
+    }
+}","class Solution {
+    fun minimumScore(s: String, t: String): Int {
+        
+    }
+}","impl Solution {
+    pub fn minimum_score(s: String, t: String) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param String $s
+     * @param String $t
+     * @return Integer
+     */
+    function minimumScore($s, $t) {
+        
+    }
+}","function minimumScore(s: string, t: string): number {
+
+};","(define/contract (minimum-score s t)
+  (-> string? string? exact-integer?)
+
+  )","-spec minimum_score(S :: unicode:unicode_binary(), T :: unicode:unicode_binary()) -> integer().
+minimum_score(S, T) ->
+  .","defmodule Solution do
+  @spec minimum_score(s :: String.t, t :: String.t) :: integer
+  def minimum_score(s, t) do
+
+  end
+end","class Solution {
+  int minimumScore(String s, String t) {
+
+  }
+}","[({}, '1'), ({}, '3')]"
+6,minimum-number-of-visited-cells-in-a-grid,Minimum Number of Visited Cells in a Grid,2617.0,2697.0,"You are given a 0-indexed m x n integer matrix grid. Your initial position is at the top-left cell (0, 0).
+Starting from the cell (i, j), you can move to one of the following cells:
+
+Cells (i, k) with j < k <= grid[i][j] + j (rightward movement), or
+Cells (k, j) with i < k <= grid[i][j] + i (downward movement).
+
+Return the minimum number of cells you need to visit to reach the bottom-right cell (m - 1, n - 1). If there is no valid path, return -1.
+ 
+Example 1:
+
+
+Input: grid = [[3,4,2,1],[4,2,3,1],[2,1,0,0],[2,4,0,0]]
+Output: 4
+Explanation: The image above shows one of the paths that visits exactly 4 cells.
+
+Example 2:
+
+
+Input: grid = [[3,4,2,1],[4,2,1,1],[2,1,1,0],[3,4,1,0]]
+Output: 3
+Explanation: The image above shows one of the paths that visits exactly 3 cells.
+
+Example 3:
+
+
+Input: grid = [[2,1,0],[1,0,0]]
+Output: -1
+Explanation: It can be proven that no path exists.
+
+ 
+Constraints:
+
+m == grid.length
+n == grid[i].length
+1 <= m, n <= 105
+1 <= m * n <= 105
+0 <= grid[i][j] < m * n
+grid[m - 1][n - 1] == 0
+
+","class Solution {
+public:
+    int minimumVisitedCells(vector<vector<int>>& grid) {
+        
+    }
+};","class Solution {
+    public int minimumVisitedCells(int[][] grid) {
+        
+    }
+}","class Solution(object):
+    def minimumVisitedCells(self, grid):
+        """"""
+        :type grid: List[List[int]]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def minimumVisitedCells(self, grid: List[List[int]]) -> int:
+        ","int minimumVisitedCells(int** grid, int gridSize, int* gridColSize){
+
+}","public class Solution {
+    public int MinimumVisitedCells(int[][] grid) {
+        
+    }
+}","/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var minimumVisitedCells = function(grid) {
+    
+};","# @param {Integer[][]} grid
+# @return {Integer}
+def minimum_visited_cells(grid)
+    
+end","class Solution {
+    func minimumVisitedCells(_ grid: [[Int]]) -> Int {
+        
+    }
+}","func minimumVisitedCells(grid [][]int) int {
+    
+}","object Solution {
+    def minimumVisitedCells(grid: Array[Array[Int]]): Int = {
+        
+    }
+}","class Solution {
+    fun minimumVisitedCells(grid: Array<IntArray>): Int {
+        
+    }
+}","impl Solution {
+    pub fn minimum_visited_cells(grid: Vec<Vec<i32>>) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[][] $grid
+     * @return Integer
+     */
+    function minimumVisitedCells($grid) {
+        
+    }
+}","function minimumVisitedCells(grid: number[][]): number {
+
+};","(define/contract (minimum-visited-cells grid)
+  (-> (listof (listof exact-integer?)) exact-integer?)
+
+  )","-spec minimum_visited_cells(Grid :: [[integer()]]) -> integer().
+minimum_visited_cells(Grid) ->
+  .","defmodule Solution do
+  @spec minimum_visited_cells(grid :: [[integer]]) :: integer
+  def minimum_visited_cells(grid) do
+
+  end
+end","class Solution {
+  int minimumVisitedCells(List<List<int>> grid) {
+
+  }
+}","[({'grid': '[[3,4,2,1],[4,2,3,1],[2,1,0,0],[2,4,0,0]]'}, '4'), ({'grid': '[[3,4,2,1],[4,2,1,1],[2,1,1,0],[3,4,1,0]]'}, '3'), ({'grid': '[[2,1,0],[1,0,0]]'}, '-1')]"
+7,rearranging-fruits,Rearranging Fruits,2561.0,2689.0,"You have two fruit baskets containing n fruits each. You are given two 0-indexed integer arrays basket1 and basket2 representing the cost of fruit in each basket. You want to make both baskets equal. To do so, you can use the following operation as many times as you want:
+
+Chose two indices i and j, and swap the ith fruit of basket1 with the jth fruit of basket2.
+The cost of the swap is min(basket1[i],basket2[j]).
+
+Two baskets are considered equal if sorting them according to the fruit cost makes them exactly the same baskets.
+Return the minimum cost to make both the baskets equal or -1 if impossible.
+ 
+Example 1:
+
+Input: basket1 = [4,2,2,2], basket2 = [1,4,1,2]
+Output: 1
+Explanation: Swap index 1 of basket1 with index 0 of basket2, which has cost 1. Now basket1 = [4,1,2,2] and basket2 = [2,4,1,2]. Rearranging both the arrays makes them equal.
+
+Example 2:
+
+Input: basket1 = [2,3,4,1], basket2 = [3,2,5,1]
+Output: -1
+Explanation: It can be shown that it is impossible to make both the baskets equal.
+
+ 
+Constraints:
+
+basket1.length == bakste2.length
+1 <= basket1.length <= 105
+1 <= basket1[i],basket2[i] <= 109
+
+","class Solution {
+public:
+    long long minCost(vector<int>& basket1, vector<int>& basket2) {
+        
+    }
+};","class Solution {
+    public long minCost(int[] basket1, int[] basket2) {
+        
+    }
+}","class Solution(object):
+    def minCost(self, basket1, basket2):
+        """"""
+        :type basket1: List[int]
+        :type basket2: List[int]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def minCost(self, basket1: List[int], basket2: List[int]) -> int:
+        ","long long minCost(int* basket1, int basket1Size, int* basket2, int basket2Size){
+
+}","public class Solution {
+    public long MinCost(int[] basket1, int[] basket2) {
+        
+    }
+}","/**
+ * @param {number[]} basket1
+ * @param {number[]} basket2
+ * @return {number}
+ */
+var minCost = function(basket1, basket2) {
+    
+};","# @param {Integer[]} basket1
+# @param {Integer[]} basket2
+# @return {Integer}
+def min_cost(basket1, basket2)
+    
+end","class Solution {
+    func minCost(_ basket1: [Int], _ basket2: [Int]) -> Int {
+        
+    }
+}","func minCost(basket1 []int, basket2 []int) int64 {
+    
+}","object Solution {
+    def minCost(basket1: Array[Int], basket2: Array[Int]): Long = {
+        
+    }
+}","class Solution {
+    fun minCost(basket1: IntArray, basket2: IntArray): Long {
+        
+    }
+}","impl Solution {
+    pub fn min_cost(basket1: Vec<i32>, basket2: Vec<i32>) -> i64 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $basket1
+     * @param Integer[] $basket2
+     * @return Integer
+     */
+    function minCost($basket1, $basket2) {
+        
+    }
+}","function minCost(basket1: number[], basket2: number[]): number {
+
+};","(define/contract (min-cost basket1 basket2)
+  (-> (listof exact-integer?) (listof exact-integer?) exact-integer?)
+
+  )","-spec min_cost(Basket1 :: [integer()], Basket2 :: [integer()]) -> integer().
+min_cost(Basket1, Basket2) ->
+  .","defmodule Solution do
+  @spec min_cost(basket1 :: [integer], basket2 :: [integer]) :: integer
+  def min_cost(basket1, basket2) do
+
+  end
+end","class Solution {
+  int minCost(List<int> basket1, List<int> basket2) {
+
+  }
+}","[({'basket1': '[4,2,2,2]', 'basket2': '[1,4,1,2]'}, '1'), ({'basket1': '[2,3,4,1]', 'basket2': '[3,2,5,1]'}, '-1')]"
+8,count-increasing-quadruplets,Count Increasing Quadruplets,2552.0,2682.0,"Given a 0-indexed integer array nums of size n containing all numbers from 1 to n, return the number of increasing quadruplets.
+A quadruplet (i, j, k, l) is increasing if:
+
+0 <= i < j < k < l < n, and
+nums[i] < nums[k] < nums[j] < nums[l].
+
+ 
+Example 1:
+
+Input: nums = [1,3,2,4,5]
+Output: 2
+Explanation: 
+- When i = 0, j = 1, k = 2, and l = 3, nums[i] < nums[k] < nums[j] < nums[l].
+- When i = 0, j = 1, k = 2, and l = 4, nums[i] < nums[k] < nums[j] < nums[l]. 
+There are no other quadruplets, so we return 2.
+
+Example 2:
+
+Input: nums = [1,2,3,4]
+Output: 0
+Explanation: There exists only one quadruplet with i = 0, j = 1, k = 2, l = 3, but since nums[j] < nums[k], we return 0.
+
+ 
+Constraints:
+
+4 <= nums.length <= 4000
+1 <= nums[i] <= nums.length
+All the integers of nums are unique. nums is a permutation.
+
+","class Solution {
+public:
+    long long countQuadruplets(vector<int>& nums) {
+        
+    }
+};","class Solution {
+    public long countQuadruplets(int[] nums) {
+        
+    }
+}","class Solution(object):
+    def countQuadruplets(self, nums):
+        """"""
+        :type nums: List[int]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def countQuadruplets(self, nums: List[int]) -> int:
+        ","long long countQuadruplets(int* nums, int numsSize){
+
+}","public class Solution {
+    public long CountQuadruplets(int[] nums) {
+        
+    }
+}","/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var countQuadruplets = function(nums) {
+    
+};","# @param {Integer[]} nums
+# @return {Integer}
+def count_quadruplets(nums)
+    
+end","class Solution {
+    func countQuadruplets(_ nums: [Int]) -> Int {
+        
+    }
+}","func countQuadruplets(nums []int) int64 {
+    
+}","object Solution {
+    def countQuadruplets(nums: Array[Int]): Long = {
+        
+    }
+}","class Solution {
+    fun countQuadruplets(nums: IntArray): Long {
+        
+    }
+}","impl Solution {
+    pub fn count_quadruplets(nums: Vec<i32>) -> i64 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @return Integer
+     */
+    function countQuadruplets($nums) {
+        
+    }
+}","function countQuadruplets(nums: number[]): number {
+
+};","(define/contract (count-quadruplets nums)
+  (-> (listof exact-integer?) exact-integer?)
+
+  )","-spec count_quadruplets(Nums :: [integer()]) -> integer().
+count_quadruplets(Nums) ->
+  .","defmodule Solution do
+  @spec count_quadruplets(nums :: [integer]) :: integer
+  def count_quadruplets(nums) do
+
+  end
+end","class Solution {
+  int countQuadruplets(List<int> nums) {
+
+  }
+}","[({'nums': '[1,3,2,4,5]'}, '2'), ({'nums': '[1,2,3,4]'}, '0')]"
+9,put-marbles-in-bags,Put Marbles in Bags,2551.0,2681.0,"You have k bags. You are given a 0-indexed integer array weights where weights[i] is the weight of the ith marble. You are also given the integer k.
+Divide the marbles into the k bags according to the following rules:
+
+No bag is empty.
+If the ith marble and jth marble are in a bag, then all marbles with an index between the ith and jth indices should also be in that same bag.
+If a bag consists of all the marbles with an index from i to j inclusively, then the cost of the bag is weights[i] + weights[j].
+
+The score after distributing the marbles is the sum of the costs of all the k bags.
+Return the difference between the maximum and minimum scores among marble distributions.
+ 
+Example 1:
+
+Input: weights = [1,3,5,1], k = 2
+Output: 4
+Explanation: 
+The distribution [1],[3,5,1] results in the minimal score of (1+1) + (3+1) = 6. 
+The distribution [1,3],[5,1], results in the maximal score of (1+3) + (5+1) = 10. 
+Thus, we return their difference 10 - 6 = 4.
+
+Example 2:
+
+Input: weights = [1, 3], k = 2
+Output: 0
+Explanation: The only distribution possible is [1],[3]. 
+Since both the maximal and minimal score are the same, we return 0.
+
+ 
+Constraints:
+
+1 <= k <= weights.length <= 105
+1 <= weights[i] <= 109
+
+","class Solution {
+public:
+    long long putMarbles(vector<int>& weights, int k) {
+        
+    }
+};","class Solution {
+    public long putMarbles(int[] weights, int k) {
+        
+    }
+}","class Solution(object):
+    def putMarbles(self, weights, k):
+        """"""
+        :type weights: List[int]
+        :type k: int
+        :rtype: int
+        """"""
+        ","class Solution:
+    def putMarbles(self, weights: List[int], k: int) -> int:
+        ","long long putMarbles(int* weights, int weightsSize, int k){
+
+}","public class Solution {
+    public long PutMarbles(int[] weights, int k) {
+        
+    }
+}","/**
+ * @param {number[]} weights
+ * @param {number} k
+ * @return {number}
+ */
+var putMarbles = function(weights, k) {
+    
+};","# @param {Integer[]} weights
+# @param {Integer} k
+# @return {Integer}
+def put_marbles(weights, k)
+    
+end","class Solution {
+    func putMarbles(_ weights: [Int], _ k: Int) -> Int {
+        
+    }
+}","func putMarbles(weights []int, k int) int64 {
+    
+}","object Solution {
+    def putMarbles(weights: Array[Int], k: Int): Long = {
+        
+    }
+}","class Solution {
+    fun putMarbles(weights: IntArray, k: Int): Long {
+        
+    }
+}","impl Solution {
+    pub fn put_marbles(weights: Vec<i32>, k: i32) -> i64 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $weights
+     * @param Integer $k
+     * @return Integer
+     */
+    function putMarbles($weights, $k) {
+        
+    }
+}","function putMarbles(weights: number[], k: number): number {
+
+};","(define/contract (put-marbles weights k)
+  (-> (listof exact-integer?) exact-integer? exact-integer?)
+
+  )","-spec put_marbles(Weights :: [integer()], K :: integer()) -> integer().
+put_marbles(Weights, K) ->
+  .","defmodule Solution do
+  @spec put_marbles(weights :: [integer], k :: integer) :: integer
+  def put_marbles(weights, k) do
+
+  end
+end","class Solution {
+  int putMarbles(List<int> weights, int k) {
+
+  }
+}","[({'weights': '[1,3,5,1]', 'k': '2'}, '4'), ({'weights': '[1,3]', 'k': '2'}, '0')]"
+10,shortest-cycle-in-a-graph,Shortest Cycle in a Graph,2608.0,2671.0,"There is a bi-directional graph with n vertices, where each vertex is labeled from 0 to n - 1. The edges in the graph are represented by a given 2D integer array edges, where edges[i] = [ui, vi] denotes an edge between vertex ui and vertex vi. Every vertex pair is connected by at most one edge, and no vertex has an edge to itself.
+Return the length of the shortest cycle in the graph. If no cycle exists, return -1.
+A cycle is a path that starts and ends at the same node, and each edge in the path is used only once.
+ 
+Example 1:
+
+
+Input: n = 7, edges = [[0,1],[1,2],[2,0],[3,4],[4,5],[5,6],[6,3]]
+Output: 3
+Explanation: The cycle with the smallest length is : 0 -> 1 -> 2 -> 0 
+
+Example 2:
+
+
+Input: n = 4, edges = [[0,1],[0,2]]
+Output: -1
+Explanation: There are no cycles in this graph.
+
+ 
+Constraints:
+
+2 <= n <= 1000
+1 <= edges.length <= 1000
+edges[i].length == 2
+0 <= ui, vi < n
+ui != vi
+There are no repeated edges.
+
+","class Solution {
+public:
+    int findShortestCycle(int n, vector<vector<int>>& edges) {
+        
+    }
+};","class Solution {
+    public int findShortestCycle(int n, int[][] edges) {
+        
+    }
+}","class Solution(object):
+    def findShortestCycle(self, n, edges):
+        """"""
+        :type n: int
+        :type edges: List[List[int]]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def findShortestCycle(self, n: int, edges: List[List[int]]) -> int:
+        ","int findShortestCycle(int n, int** edges, int edgesSize, int* edgesColSize){
+
+}","public class Solution {
+    public int FindShortestCycle(int n, int[][] edges) {
+        
+    }
+}","/**
+ * @param {number} n
+ * @param {number[][]} edges
+ * @return {number}
+ */
+var findShortestCycle = function(n, edges) {
+    
+};","# @param {Integer} n
+# @param {Integer[][]} edges
+# @return {Integer}
+def find_shortest_cycle(n, edges)
+    
+end","class Solution {
+    func findShortestCycle(_ n: Int, _ edges: [[Int]]) -> Int {
+        
+    }
+}","func findShortestCycle(n int, edges [][]int) int {
+    
+}","object Solution {
+    def findShortestCycle(n: Int, edges: Array[Array[Int]]): Int = {
+        
+    }
+}","class Solution {
+    fun findShortestCycle(n: Int, edges: Array<IntArray>): Int {
+        
+    }
+}","impl Solution {
+    pub fn find_shortest_cycle(n: i32, edges: Vec<Vec<i32>>) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer $n
+     * @param Integer[][] $edges
+     * @return Integer
+     */
+    function findShortestCycle($n, $edges) {
+        
+    }
+}","function findShortestCycle(n: number, edges: number[][]): number {
+
+};","(define/contract (find-shortest-cycle n edges)
+  (-> exact-integer? (listof (listof exact-integer?)) exact-integer?)
+
+  )","-spec find_shortest_cycle(N :: integer(), Edges :: [[integer()]]) -> integer().
+find_shortest_cycle(N, Edges) ->
+  .","defmodule Solution do
+  @spec find_shortest_cycle(n :: integer, edges :: [[integer]]) :: integer
+  def find_shortest_cycle(n, edges) do
+
+  end
+end","class Solution {
+  int findShortestCycle(int n, List<List<int>> edges) {
+
+  }
+}","[({'n': '7', 'edges': '[[0,1],[1,2],[2,0],[3,4],[4,5],[5,6],[6,3]]'}, '3'), ({'n': '4', 'edges': '[[0,1],[0,2]]'}, '-1')]"
+11,minimum-time-to-complete-all-tasks,Minimum Time to Complete All Tasks,2589.0,2657.0,"There is a computer that can run an unlimited number of tasks at the same time. You are given a 2D integer array tasks where tasks[i] = [starti, endi, durationi] indicates that the ith task should run for a total of durationi seconds (not necessarily continuous) within the inclusive time range [starti, endi].
+You may turn on the computer only when it needs to run a task. You can also turn it off if it is idle.
+Return the minimum time during which the computer should be turned on to complete all tasks.
+ 
+Example 1:
+
+Input: tasks = [[2,3,1],[4,5,1],[1,5,2]]
+Output: 2
+Explanation: 
+- The first task can be run in the inclusive time range [2, 2].
+- The second task can be run in the inclusive time range [5, 5].
+- The third task can be run in the two inclusive time ranges [2, 2] and [5, 5].
+The computer will be on for a total of 2 seconds.
+
+Example 2:
+
+Input: tasks = [[1,3,2],[2,5,3],[5,6,2]]
+Output: 4
+Explanation: 
+- The first task can be run in the inclusive time range [2, 3].
+- The second task can be run in the inclusive time ranges [2, 3] and [5, 5].
+- The third task can be run in the two inclusive time range [5, 6].
+The computer will be on for a total of 4 seconds.
+
+ 
+Constraints:
+
+1 <= tasks.length <= 2000
+tasks[i].length == 3
+1 <= starti, endi <= 2000
+1 <= durationi <= endi - starti + 1 
+
+","class Solution {
+public:
+    int findMinimumTime(vector<vector<int>>& tasks) {
+        
+    }
+};","class Solution {
+    public int findMinimumTime(int[][] tasks) {
+        
+    }
+}","class Solution(object):
+    def findMinimumTime(self, tasks):
+        """"""
+        :type tasks: List[List[int]]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def findMinimumTime(self, tasks: List[List[int]]) -> int:
+        ","int findMinimumTime(int** tasks, int tasksSize, int* tasksColSize){
+
+}","public class Solution {
+    public int FindMinimumTime(int[][] tasks) {
+        
+    }
+}","/**
+ * @param {number[][]} tasks
+ * @return {number}
+ */
+var findMinimumTime = function(tasks) {
+    
+};","# @param {Integer[][]} tasks
+# @return {Integer}
+def find_minimum_time(tasks)
+    
+end","class Solution {
+    func findMinimumTime(_ tasks: [[Int]]) -> Int {
+        
+    }
+}","func findMinimumTime(tasks [][]int) int {
+    
+}","object Solution {
+    def findMinimumTime(tasks: Array[Array[Int]]): Int = {
+        
+    }
+}","class Solution {
+    fun findMinimumTime(tasks: Array<IntArray>): Int {
+        
+    }
+}","impl Solution {
+    pub fn find_minimum_time(tasks: Vec<Vec<i32>>) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[][] $tasks
+     * @return Integer
+     */
+    function findMinimumTime($tasks) {
+        
+    }
+}","function findMinimumTime(tasks: number[][]): number {
+
+};","(define/contract (find-minimum-time tasks)
+  (-> (listof (listof exact-integer?)) exact-integer?)
+
+  )","-spec find_minimum_time(Tasks :: [[integer()]]) -> integer().
+find_minimum_time(Tasks) ->
+  .","defmodule Solution do
+  @spec find_minimum_time(tasks :: [[integer]]) :: integer
+  def find_minimum_time(tasks) do
+
+  end
+end","class Solution {
+  int findMinimumTime(List<List<int>> tasks) {
+
+  }
+}","[({'tasks': '[[2,3,1],[4,5,1],[1,5,2]]'}, '2'), ({'tasks': '[[1,3,2],[2,5,3],[5,6,2]]'}, '4')]"
+12,count-number-of-possible-root-nodes,Count Number of Possible Root Nodes,2581.0,2652.0,"Alice has an undirected tree with n nodes labeled from 0 to n - 1. The tree is represented as a 2D integer array edges of length n - 1 where edges[i] = [ai, bi] indicates that there is an edge between nodes ai and bi in the tree.
+Alice wants Bob to find the root of the tree. She allows Bob to make several guesses about her tree. In one guess, he does the following:
+
+Chooses two distinct integers u and v such that there exists an edge [u, v] in the tree.
+He tells Alice that u is the parent of v in the tree.
+
+Bob's guesses are represented by a 2D integer array guesses where guesses[j] = [uj, vj] indicates Bob guessed uj to be the parent of vj.
+Alice being lazy, does not reply to each of Bob's guesses, but just says that at least k of his guesses are true.
+Given the 2D integer arrays edges, guesses and the integer k, return the number of possible nodes that can be the root of Alice's tree. If there is no such tree, return 0.
+ 
+Example 1:
+
+
+Input: edges = [[0,1],[1,2],[1,3],[4,2]], guesses = [[1,3],[0,1],[1,0],[2,4]], k = 3
+Output: 3
+Explanation: 
+Root = 0, correct guesses = [1,3], [0,1], [2,4]
+Root = 1, correct guesses = [1,3], [1,0], [2,4]
+Root = 2, correct guesses = [1,3], [1,0], [2,4]
+Root = 3, correct guesses = [1,0], [2,4]
+Root = 4, correct guesses = [1,3], [1,0]
+Considering 0, 1, or 2 as root node leads to 3 correct guesses.
+
+
+Example 2:
+
+
+Input: edges = [[0,1],[1,2],[2,3],[3,4]], guesses = [[1,0],[3,4],[2,1],[3,2]], k = 1
+Output: 5
+Explanation: 
+Root = 0, correct guesses = [3,4]
+Root = 1, correct guesses = [1,0], [3,4]
+Root = 2, correct guesses = [1,0], [2,1], [3,4]
+Root = 3, correct guesses = [1,0], [2,1], [3,2], [3,4]
+Root = 4, correct guesses = [1,0], [2,1], [3,2]
+Considering any node as root will give at least 1 correct guess. 
+
+
+ 
+Constraints:
+
+edges.length == n - 1
+2 <= n <= 105
+1 <= guesses.length <= 105
+0 <= ai, bi, uj, vj <= n - 1
+ai != bi
+uj != vj
+edges represents a valid tree.
+guesses[j] is an edge of the tree.
+guesses is unique.
+0 <= k <= guesses.length
+
+","class Solution {
+public:
+    int rootCount(vector<vector<int>>& edges, vector<vector<int>>& guesses, int k) {
+        
+    }
+};","class Solution {
+    public int rootCount(int[][] edges, int[][] guesses, int k) {
+        
+    }
+}","class Solution(object):
+    def rootCount(self, edges, guesses, k):
+        """"""
+        :type edges: List[List[int]]
+        :type guesses: List[List[int]]
+        :type k: int
+        :rtype: int
+        """"""
+        ","class Solution:
+    def rootCount(self, edges: List[List[int]], guesses: List[List[int]], k: int) -> int:
+        ","int rootCount(int** edges, int edgesSize, int* edgesColSize, int** guesses, int guessesSize, int* guessesColSize, int k){
+
+}","public class Solution {
+    public int RootCount(int[][] edges, int[][] guesses, int k) {
+        
+    }
+}","/**
+ * @param {number[][]} edges
+ * @param {number[][]} guesses
+ * @param {number} k
+ * @return {number}
+ */
+var rootCount = function(edges, guesses, k) {
+    
+};","# @param {Integer[][]} edges
+# @param {Integer[][]} guesses
+# @param {Integer} k
+# @return {Integer}
+def root_count(edges, guesses, k)
+    
+end","class Solution {
+    func rootCount(_ edges: [[Int]], _ guesses: [[Int]], _ k: Int) -> Int {
+        
+    }
+}","func rootCount(edges [][]int, guesses [][]int, k int) int {
+    
+}","object Solution {
+    def rootCount(edges: Array[Array[Int]], guesses: Array[Array[Int]], k: Int): Int = {
+        
+    }
+}","class Solution {
+    fun rootCount(edges: Array<IntArray>, guesses: Array<IntArray>, k: Int): Int {
+        
+    }
+}","impl Solution {
+    pub fn root_count(edges: Vec<Vec<i32>>, guesses: Vec<Vec<i32>>, k: i32) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[][] $edges
+     * @param Integer[][] $guesses
+     * @param Integer $k
+     * @return Integer
+     */
+    function rootCount($edges, $guesses, $k) {
+        
+    }
+}","function rootCount(edges: number[][], guesses: number[][], k: number): number {
+
+};","(define/contract (root-count edges guesses k)
+  (-> (listof (listof exact-integer?)) (listof (listof exact-integer?)) exact-integer? exact-integer?)
+
+  )","-spec root_count(Edges :: [[integer()]], Guesses :: [[integer()]], K :: integer()) -> integer().
+root_count(Edges, Guesses, K) ->
+  .","defmodule Solution do
+  @spec root_count(edges :: [[integer]], guesses :: [[integer]], k :: integer) :: integer
+  def root_count(edges, guesses, k) do
+
+  end
+end","class Solution {
+  int rootCount(List<List<int>> edges, List<List<int>> guesses, int k) {
+
+  }
+}","[({'edges': '[[0,1],[1,2],[1,3],[4,2]]', 'guesses': '[[1,3],[0,1],[1,0],[2,4]]', 'k': '3'}, '3'), ({'edges': '[[0,1],[1,2],[2,3],[3,4]]', 'guesses': '[[1,0],[3,4],[2,1],[3,2]]', 'k': '1'}, '5')]"
+13,number-of-ways-to-earn-points,Number of Ways to Earn Points,2585.0,2648.0,"There is a test that has n types of questions. You are given an integer target and a 0-indexed 2D integer array types where types[i] = [counti, marksi] indicates that there are counti questions of the ith type, and each one of them is worth marksi points.
+
+
+Return the number of ways you can earn exactly target points in the exam. Since the answer may be too large, return it modulo 109 + 7.
+Note that questions of the same type are indistinguishable.
+
+For example, if there are 3 questions of the same type, then solving the 1st and 2nd questions is the same as solving the 1st and 3rd questions, or the 2nd and 3rd questions.
+
+ 
+Example 1:
+
+Input: target = 6, types = [[6,1],[3,2],[2,3]]
+Output: 7
+Explanation: You can earn 6 points in one of the seven ways:
+- Solve 6 questions of the 0th type: 1 + 1 + 1 + 1 + 1 + 1 = 6
+- Solve 4 questions of the 0th type and 1 question of the 1st type: 1 + 1 + 1 + 1 + 2 = 6
+- Solve 2 questions of the 0th type and 2 questions of the 1st type: 1 + 1 + 2 + 2 = 6
+- Solve 3 questions of the 0th type and 1 question of the 2nd type: 1 + 1 + 1 + 3 = 6
+- Solve 1 question of the 0th type, 1 question of the 1st type and 1 question of the 2nd type: 1 + 2 + 3 = 6
+- Solve 3 questions of the 1st type: 2 + 2 + 2 = 6
+- Solve 2 questions of the 2nd type: 3 + 3 = 6
+
+Example 2:
+
+Input: target = 5, types = [[50,1],[50,2],[50,5]]
+Output: 4
+Explanation: You can earn 5 points in one of the four ways:
+- Solve 5 questions of the 0th type: 1 + 1 + 1 + 1 + 1 = 5
+- Solve 3 questions of the 0th type and 1 question of the 1st type: 1 + 1 + 1 + 2 = 5
+- Solve 1 questions of the 0th type and 2 questions of the 1st type: 1 + 2 + 2 = 5
+- Solve 1 question of the 2nd type: 5
+
+Example 3:
+
+Input: target = 18, types = [[6,1],[3,2],[2,3]]
+Output: 1
+Explanation: You can only earn 18 points by answering all questions.
+
+ 
+Constraints:
+
+1 <= target <= 1000
+n == types.length
+1 <= n <= 50
+types[i].length == 2
+1 <= counti, marksi <= 50
+
+","class Solution {
+public:
+    int waysToReachTarget(int target, vector<vector<int>>& types) {
+        
+    }
+};","class Solution {
+    public int waysToReachTarget(int target, int[][] types) {
+        
+    }
+}","class Solution(object):
+    def waysToReachTarget(self, target, types):
+        """"""
+        :type target: int
+        :type types: List[List[int]]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def waysToReachTarget(self, target: int, types: List[List[int]]) -> int:
+        ","int waysToReachTarget(int target, int** types, int typesSize, int* typesColSize){
+
+}","public class Solution {
+    public int WaysToReachTarget(int target, int[][] types) {
+        
+    }
+}","/**
+ * @param {number} target
+ * @param {number[][]} types
+ * @return {number}
+ */
+var waysToReachTarget = function(target, types) {
+    
+};","# @param {Integer} target
+# @param {Integer[][]} types
+# @return {Integer}
+def ways_to_reach_target(target, types)
+    
+end","class Solution {
+    func waysToReachTarget(_ target: Int, _ types: [[Int]]) -> Int {
+        
+    }
+}","func waysToReachTarget(target int, types [][]int) int {
+    
+}","object Solution {
+    def waysToReachTarget(target: Int, types: Array[Array[Int]]): Int = {
+        
+    }
+}","class Solution {
+    fun waysToReachTarget(target: Int, types: Array<IntArray>): Int {
+        
+    }
+}","impl Solution {
+    pub fn ways_to_reach_target(target: i32, types: Vec<Vec<i32>>) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer $target
+     * @param Integer[][] $types
+     * @return Integer
+     */
+    function waysToReachTarget($target, $types) {
+        
+    }
+}","function waysToReachTarget(target: number, types: number[][]): number {
+
+};","(define/contract (ways-to-reach-target target types)
+  (-> exact-integer? (listof (listof exact-integer?)) exact-integer?)
+
+  )","-spec ways_to_reach_target(Target :: integer(), Types :: [[integer()]]) -> integer().
+ways_to_reach_target(Target, Types) ->
+  .","defmodule Solution do
+  @spec ways_to_reach_target(target :: integer, types :: [[integer]]) :: integer
+  def ways_to_reach_target(target, types) do
+
+  end
+end","class Solution {
+  int waysToReachTarget(int target, List<List<int>> types) {
+
+  }
+}","[({'target': '6', 'types': '[[6,1],[3,2],[2,3]]'}, '7'), ({'target': '5', 'types': '[[50,1],[50,2],[50,5]]'}, '4'), ({'target': '18', 'types': '[[6,1],[3,2],[2,3]]'}, '1')]"
+14,split-the-array-to-make-coprime-products,Split the Array to Make Coprime Products,2584.0,2647.0,"You are given a 0-indexed integer array nums of length n.
+A split at an index i where 0 <= i <= n - 2 is called valid if the product of the first i + 1 elements and the product of the remaining elements are coprime.
+
+For example, if nums = [2, 3, 3], then a split at the index i = 0 is valid because 2 and 9 are coprime, while a split at the index i = 1 is not valid because 6 and 3 are not coprime. A split at the index i = 2 is not valid because i == n - 1.
+
+Return the smallest index i at which the array can be split validly or -1 if there is no such split.
+Two values val1 and val2 are coprime if gcd(val1, val2) == 1 where gcd(val1, val2) is the greatest common divisor of val1 and val2.
+ 
+Example 1:
+
+
+Input: nums = [4,7,8,15,3,5]
+Output: 2
+Explanation: The table above shows the values of the product of the first i + 1 elements, the remaining elements, and their gcd at each index i.
+The only valid split is at index 2.
+
+Example 2:
+
+
+Input: nums = [4,7,15,8,3,5]
+Output: -1
+Explanation: The table above shows the values of the product of the first i + 1 elements, the remaining elements, and their gcd at each index i.
+There is no valid split.
+
+ 
+Constraints:
+
+n == nums.length
+1 <= n <= 104
+1 <= nums[i] <= 106
+
+","class Solution {
+public:
+    int findValidSplit(vector<int>& nums) {
+        
+    }
+};","class Solution {
+    public int findValidSplit(int[] nums) {
+        
+    }
+}","class Solution(object):
+    def findValidSplit(self, nums):
+        """"""
+        :type nums: List[int]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def findValidSplit(self, nums: List[int]) -> int:
+        ","int findValidSplit(int* nums, int numsSize){
+
+}","public class Solution {
+    public int FindValidSplit(int[] nums) {
+        
+    }
+}","/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findValidSplit = function(nums) {
+    
+};","# @param {Integer[]} nums
+# @return {Integer}
+def find_valid_split(nums)
+    
+end","class Solution {
+    func findValidSplit(_ nums: [Int]) -> Int {
+        
+    }
+}","func findValidSplit(nums []int) int {
+    
+}","object Solution {
+    def findValidSplit(nums: Array[Int]): Int = {
+        
+    }
+}","class Solution {
+    fun findValidSplit(nums: IntArray): Int {
+        
+    }
+}","impl Solution {
+    pub fn find_valid_split(nums: Vec<i32>) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @return Integer
+     */
+    function findValidSplit($nums) {
+        
+    }
+}","function findValidSplit(nums: number[]): number {
+
+};","(define/contract (find-valid-split nums)
+  (-> (listof exact-integer?) exact-integer?)
+
+  )","-spec find_valid_split(Nums :: [integer()]) -> integer().
+find_valid_split(Nums) ->
+  .","defmodule Solution do
+  @spec find_valid_split(nums :: [integer]) :: integer
+  def find_valid_split(nums) do
+
+  end
+end","class Solution {
+  int findValidSplit(List<int> nums) {
+
+  }
+}","[({'nums': '[4,7,8,15,3,5]'}, '2'), ({'nums': '[4,7,15,8,3,5]'}, '-1')]"
+15,time-to-cross-a-bridge,Time to Cross a Bridge,2532.0,2642.0,"There are k workers who want to move n boxes from an old warehouse to a new one. You are given the two integers n and k, and a 2D integer array time of size k x 4 where time[i] = [leftToRighti, pickOldi, rightToLefti, putNewi].
+The warehouses are separated by a river and connected by a bridge. The old warehouse is on the right bank of the river, and the new warehouse is on the left bank of the river. Initially, all k workers are waiting on the left side of the bridge. To move the boxes, the ith worker (0-indexed) can :
+
+Cross the bridge from the left bank (new warehouse) to the right bank (old warehouse) in leftToRighti minutes.
+Pick a box from the old warehouse and return to the bridge in pickOldi minutes. Different workers can pick up their boxes simultaneously.
+Cross the bridge from the right bank (old warehouse) to the left bank (new warehouse) in rightToLefti minutes.
+Put the box in the new warehouse and return to the bridge in putNewi minutes. Different workers can put their boxes simultaneously.
+
+A worker i is less efficient than a worker j if either condition is met:
+
+leftToRighti + rightToLefti > leftToRightj + rightToLeftj
+leftToRighti + rightToLefti == leftToRightj + rightToLeftj and i > j
+
+The following rules regulate the movement of the workers through the bridge :
+
+If a worker x reaches the bridge while another worker y is crossing the bridge, x waits at their side of the bridge.
+If the bridge is free, the worker waiting on the right side of the bridge gets to cross the bridge. If more than one worker is waiting on the right side, the one with the lowest efficiency crosses first.
+If the bridge is free and no worker is waiting on the right side, and at least one box remains at the old warehouse, the worker on the left side of the river gets to cross the bridge. If more than one worker is waiting on the left side, the one with the lowest efficiency crosses first.
+
+Return the instance of time at which the last worker reaches the left bank of the river after all n boxes have been put in the new warehouse.
+ 
+Example 1:
+
+Input: n = 1, k = 3, time = [[1,1,2,1],[1,1,3,1],[1,1,4,1]]
+Output: 6
+Explanation: 
+From 0 to 1: worker 2 crosses the bridge from the left bank to the right bank.
+From 1 to 2: worker 2 picks up a box from the old warehouse.
+From 2 to 6: worker 2 crosses the bridge from the right bank to the left bank.
+From 6 to 7: worker 2 puts a box at the new warehouse.
+The whole process ends after 7 minutes. We return 6 because the problem asks for the instance of time at which the last worker reaches the left bank.
+
+Example 2:
+
+Input: n = 3, k = 2, time = [[1,9,1,8],[10,10,10,10]]
+Output: 50
+Explanation: 
+From 0  to 10: worker 1 crosses the bridge from the left bank to the right bank.
+From 10 to 20: worker 1 picks up a box from the old warehouse.
+From 10 to 11: worker 0 crosses the bridge from the left bank to the right bank.
+From 11 to 20: worker 0 picks up a box from the old warehouse.
+From 20 to 30: worker 1 crosses the bridge from the right bank to the left bank.
+From 30 to 40: worker 1 puts a box at the new warehouse.
+From 30 to 31: worker 0 crosses the bridge from the right bank to the left bank.
+From 31 to 39: worker 0 puts a box at the new warehouse.
+From 39 to 40: worker 0 crosses the bridge from the left bank to the right bank.
+From 40 to 49: worker 0 picks up a box from the old warehouse.
+From 49 to 50: worker 0 crosses the bridge from the right bank to the left bank.
+From 50 to 58: worker 0 puts a box at the new warehouse.
+The whole process ends after 58 minutes. We return 50 because the problem asks for the instance of time at which the last worker reaches the left bank.
+
+ 
+Constraints:
+
+1 <= n, k <= 104
+time.length == k
+time[i].length == 4
+1 <= leftToRighti, pickOldi, rightToLefti, putNewi <= 1000
+
+","class Solution {
+public:
+    int findCrossingTime(int n, int k, vector<vector<int>>& time) {
+        
+    }
+};","class Solution {
+    public int findCrossingTime(int n, int k, int[][] time) {
+        
+    }
+}","class Solution(object):
+    def findCrossingTime(self, n, k, time):
+        """"""
+        :type n: int
+        :type k: int
+        :type time: List[List[int]]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def findCrossingTime(self, n: int, k: int, time: List[List[int]]) -> int:
+        ","int findCrossingTime(int n, int k, int** time, int timeSize, int* timeColSize){
+
+}","public class Solution {
+    public int FindCrossingTime(int n, int k, int[][] time) {
+        
+    }
+}","/**
+ * @param {number} n
+ * @param {number} k
+ * @param {number[][]} time
+ * @return {number}
+ */
+var findCrossingTime = function(n, k, time) {
+    
+};","# @param {Integer} n
+# @param {Integer} k
+# @param {Integer[][]} time
+# @return {Integer}
+def find_crossing_time(n, k, time)
+    
+end","class Solution {
+    func findCrossingTime(_ n: Int, _ k: Int, _ time: [[Int]]) -> Int {
+        
+    }
+}","func findCrossingTime(n int, k int, time [][]int) int {
+    
+}","object Solution {
+    def findCrossingTime(n: Int, k: Int, time: Array[Array[Int]]): Int = {
+        
+    }
+}","class Solution {
+    fun findCrossingTime(n: Int, k: Int, time: Array<IntArray>): Int {
+        
+    }
+}","impl Solution {
+    pub fn find_crossing_time(n: i32, k: i32, time: Vec<Vec<i32>>) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer $n
+     * @param Integer $k
+     * @param Integer[][] $time
+     * @return Integer
+     */
+    function findCrossingTime($n, $k, $time) {
+        
+    }
+}","function findCrossingTime(n: number, k: number, time: number[][]): number {
+
+};","(define/contract (find-crossing-time n k time)
+  (-> exact-integer? exact-integer? (listof (listof exact-integer?)) exact-integer?)
+
+  )","-spec find_crossing_time(N :: integer(), K :: integer(), Time :: [[integer()]]) -> integer().
+find_crossing_time(N, K, Time) ->
+  .","defmodule Solution do
+  @spec find_crossing_time(n :: integer, k :: integer, time :: [[integer]]) :: integer
+  def find_crossing_time(n, k, time) do
+
+  end
+end","class Solution {
+  int findCrossingTime(int n, int k, List<List<int>> time) {
+
+  }
+}","[({'n': '1', 'k': '3', 'time': '[[1,1,2,1],[1,1,3,1],[1,1,4,1]]'}, '6'), ({'n': '3', 'k': '2', 'time': '[[1,9,1,8],[10,10,10,10]]'}, '50')]"
+16,check-if-point-is-reachable,Check if Point Is Reachable,2543.0,2635.0,"There exists an infinitely large grid. You are currently at point (1, 1), and you need to reach the point (targetX, targetY) using a finite number of steps.
+In one step, you can move from point (x, y) to any one of the following points:
+
+(x, y - x)
+(x - y, y)
+(2 * x, y)
+(x, 2 * y)
+
+Given two integers targetX and targetY representing the X-coordinate and Y-coordinate of your final position, return true if you can reach the point from (1, 1) using some number of steps, and false otherwise.
+ 
+Example 1:
+
+Input: targetX = 6, targetY = 9
+Output: false
+Explanation: It is impossible to reach (6,9) from (1,1) using any sequence of moves, so false is returned.
+
+Example 2:
+
+Input: targetX = 4, targetY = 7
+Output: true
+Explanation: You can follow the path (1,1) -> (1,2) -> (1,4) -> (1,8) -> (1,7) -> (2,7) -> (4,7).
+
+ 
+Constraints:
+
+1 <= targetX, targetY <= 109
+
+","class Solution {
+public:
+    bool isReachable(int targetX, int targetY) {
+        
+    }
+};","class Solution {
+    public boolean isReachable(int targetX, int targetY) {
+        
+    }
+}","class Solution(object):
+    def isReachable(self, targetX, targetY):
+        """"""
+        :type targetX: int
+        :type targetY: int
+        :rtype: bool
+        """"""
+        ","class Solution:
+    def isReachable(self, targetX: int, targetY: int) -> bool:
+        ","bool isReachable(int targetX, int targetY){
+
+}","public class Solution {
+    public bool IsReachable(int targetX, int targetY) {
+        
+    }
+}","/**
+ * @param {number} targetX
+ * @param {number} targetY
+ * @return {boolean}
+ */
+var isReachable = function(targetX, targetY) {
+    
+};","# @param {Integer} target_x
+# @param {Integer} target_y
+# @return {Boolean}
+def is_reachable(target_x, target_y)
+    
+end","class Solution {
+    func isReachable(_ targetX: Int, _ targetY: Int) -> Bool {
+        
+    }
+}","func isReachable(targetX int, targetY int) bool {
+    
+}","object Solution {
+    def isReachable(targetX: Int, targetY: Int): Boolean = {
+        
+    }
+}","class Solution {
+    fun isReachable(targetX: Int, targetY: Int): Boolean {
+        
+    }
+}","impl Solution {
+    pub fn is_reachable(target_x: i32, target_y: i32) -> bool {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer $targetX
+     * @param Integer $targetY
+     * @return Boolean
+     */
+    function isReachable($targetX, $targetY) {
+        
+    }
+}","function isReachable(targetX: number, targetY: number): boolean {
+
+};","(define/contract (is-reachable targetX targetY)
+  (-> exact-integer? exact-integer? boolean?)
+
+  )","-spec is_reachable(TargetX :: integer(), TargetY :: integer()) -> boolean().
+is_reachable(TargetX, TargetY) ->
+  .","defmodule Solution do
+  @spec is_reachable(target_x :: integer, target_y :: integer) :: boolean
+  def is_reachable(target_x, target_y) do
+
+  end
+end","class Solution {
+  bool isReachable(int targetX, int targetY) {
+
+  }
+}","[({'targetX': '6', 'targetY': '9'}, 'false'), ({'targetX': '4', 'targetY': '7'}, 'rue')]"
+17,minimum-cost-to-split-an-array,Minimum Cost to Split an Array,2547.0,2633.0,"You are given an integer array nums and an integer k.
+Split the array into some number of non-empty subarrays. The cost of a split is the sum of the importance value of each subarray in the split.
+Let trimmed(subarray) be the version of the subarray where all numbers which appear only once are removed.
+
+For example, trimmed([3,1,2,4,3,4]) = [3,4,3,4].
+
+The importance value of a subarray is k + trimmed(subarray).length.
+
+For example, if a subarray is [1,2,3,3,3,4,4], then trimmed([1,2,3,3,3,4,4]) = [3,3,3,4,4].The importance value of this subarray will be k + 5.
+
+Return the minimum possible cost of a split of nums.
+A subarray is a contiguous non-empty sequence of elements within an array.
+ 
+Example 1:
+
+Input: nums = [1,2,1,2,1,3,3], k = 2
+Output: 8
+Explanation: We split nums to have two subarrays: [1,2], [1,2,1,3,3].
+The importance value of [1,2] is 2 + (0) = 2.
+The importance value of [1,2,1,3,3] is 2 + (2 + 2) = 6.
+The cost of the split is 2 + 6 = 8. It can be shown that this is the minimum possible cost among all the possible splits.
+
+Example 2:
+
+Input: nums = [1,2,1,2,1], k = 2
+Output: 6
+Explanation: We split nums to have two subarrays: [1,2], [1,2,1].
+The importance value of [1,2] is 2 + (0) = 2.
+The importance value of [1,2,1] is 2 + (2) = 4.
+The cost of the split is 2 + 4 = 6. It can be shown that this is the minimum possible cost among all the possible splits.
+
+Example 3:
+
+Input: nums = [1,2,1,2,1], k = 5
+Output: 10
+Explanation: We split nums to have one subarray: [1,2,1,2,1].
+The importance value of [1,2,1,2,1] is 5 + (3 + 2) = 10.
+The cost of the split is 10. It can be shown that this is the minimum possible cost among all the possible splits.
+
+ 
+Constraints:
+
+1 <= nums.length <= 1000
+0 <= nums[i] < nums.length
+1 <= k <= 109
+
+ 
+
+","class Solution {
+public:
+    int minCost(vector<int>& nums, int k) {
+        
+    }
+};","class Solution {
+    public int minCost(int[] nums, int k) {
+        
+    }
+}","class Solution(object):
+    def minCost(self, nums, k):
+        """"""
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """"""
+        ","class Solution:
+    def minCost(self, nums: List[int], k: int) -> int:
+        ","int minCost(int* nums, int numsSize, int k){
+
+}","public class Solution {
+    public int MinCost(int[] nums, int k) {
+        
+    }
+}","/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var minCost = function(nums, k) {
+    
+};","# @param {Integer[]} nums
+# @param {Integer} k
+# @return {Integer}
+def min_cost(nums, k)
+    
+end","class Solution {
+    func minCost(_ nums: [Int], _ k: Int) -> Int {
+        
+    }
+}","func minCost(nums []int, k int) int {
+    
+}","object Solution {
+    def minCost(nums: Array[Int], k: Int): Int = {
+        
+    }
+}","class Solution {
+    fun minCost(nums: IntArray, k: Int): Int {
+        
+    }
+}","impl Solution {
+    pub fn min_cost(nums: Vec<i32>, k: i32) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @param Integer $k
+     * @return Integer
+     */
+    function minCost($nums, $k) {
+        
+    }
+}","function minCost(nums: number[], k: number): number {
+
+};","(define/contract (min-cost nums k)
+  (-> (listof exact-integer?) exact-integer? exact-integer?)
+
+  )","-spec min_cost(Nums :: [integer()], K :: integer()) -> integer().
+min_cost(Nums, K) ->
+  .","defmodule Solution do
+  @spec min_cost(nums :: [integer], k :: integer) :: integer
+  def min_cost(nums, k) do
+
+  end
+end","class Solution {
+  int minCost(List<int> nums, int k) {
+
+  }
+}","[({'nums': '[1,2,1,2,1,3,3]', 'k': '2'}, '8'), ({'nums': '[1,2,1,2,1]', 'k': '2'}, '6'), ({'nums': '[1,2,1,2,1]', 'k': '5'}, '10')]"
+18,difference-between-maximum-and-minimum-price-sum,Difference Between Maximum and Minimum Price Sum,2538.0,2627.0,"There exists an undirected and initially unrooted tree with n nodes indexed from 0 to n - 1. You are given the integer n and a 2D integer array edges of length n - 1, where edges[i] = [ai, bi] indicates that there is an edge between nodes ai and bi in the tree.
+Each node has an associated price. You are given an integer array price, where price[i] is the price of the ith node.
+The price sum of a given path is the sum of the prices of all nodes lying on that path.
+The tree can be rooted at any node root of your choice. The incurred cost after choosing root is the difference between the maximum and minimum price sum amongst all paths starting at root.
+Return the maximum possible cost amongst all possible root choices.
+ 
+Example 1:
+
+
+Input: n = 6, edges = [[0,1],[1,2],[1,3],[3,4],[3,5]], price = [9,8,7,6,10,5]
+Output: 24
+Explanation: The diagram above denotes the tree after rooting it at node 2. The first part (colored in red) shows the path with the maximum price sum. The second part (colored in blue) shows the path with the minimum price sum.
+- The first path contains nodes [2,1,3,4]: the prices are [7,8,6,10], and the sum of the prices is 31.
+- The second path contains the node [2] with the price [7].
+The difference between the maximum and minimum price sum is 24. It can be proved that 24 is the maximum cost.
+
+Example 2:
+
+
+Input: n = 3, edges = [[0,1],[1,2]], price = [1,1,1]
+Output: 2
+Explanation: The diagram above denotes the tree after rooting it at node 0. The first part (colored in red) shows the path with the maximum price sum. The second part (colored in blue) shows the path with the minimum price sum.
+- The first path contains nodes [0,1,2]: the prices are [1,1,1], and the sum of the prices is 3.
+- The second path contains node [0] with a price [1].
+The difference between the maximum and minimum price sum is 2. It can be proved that 2 is the maximum cost.
+
+ 
+Constraints:
+
+1 <= n <= 105
+edges.length == n - 1
+0 <= ai, bi <= n - 1
+edges represents a valid tree.
+price.length == n
+1 <= price[i] <= 105
+
+","class Solution {
+public:
+    long long maxOutput(int n, vector<vector<int>>& edges, vector<int>& price) {
+        
+    }
+};","class Solution {
+    public long maxOutput(int n, int[][] edges, int[] price) {
+        
+    }
+}","class Solution(object):
+    def maxOutput(self, n, edges, price):
+        """"""
+        :type n: int
+        :type edges: List[List[int]]
+        :type price: List[int]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def maxOutput(self, n: int, edges: List[List[int]], price: List[int]) -> int:
+        ","long long maxOutput(int n, int** edges, int edgesSize, int* edgesColSize, int* price, int priceSize){
+
+}","public class Solution {
+    public long MaxOutput(int n, int[][] edges, int[] price) {
+        
+    }
+}","/**
+ * @param {number} n
+ * @param {number[][]} edges
+ * @param {number[]} price
+ * @return {number}
+ */
+var maxOutput = function(n, edges, price) {
+    
+};","# @param {Integer} n
+# @param {Integer[][]} edges
+# @param {Integer[]} price
+# @return {Integer}
+def max_output(n, edges, price)
+    
+end","class Solution {
+    func maxOutput(_ n: Int, _ edges: [[Int]], _ price: [Int]) -> Int {
+        
+    }
+}","func maxOutput(n int, edges [][]int, price []int) int64 {
+    
+}","object Solution {
+    def maxOutput(n: Int, edges: Array[Array[Int]], price: Array[Int]): Long = {
+        
+    }
+}","class Solution {
+    fun maxOutput(n: Int, edges: Array<IntArray>, price: IntArray): Long {
+        
+    }
+}","impl Solution {
+    pub fn max_output(n: i32, edges: Vec<Vec<i32>>, price: Vec<i32>) -> i64 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer $n
+     * @param Integer[][] $edges
+     * @param Integer[] $price
+     * @return Integer
+     */
+    function maxOutput($n, $edges, $price) {
+        
+    }
+}","function maxOutput(n: number, edges: number[][], price: number[]): number {
+
+};","(define/contract (max-output n edges price)
+  (-> exact-integer? (listof (listof exact-integer?)) (listof exact-integer?) exact-integer?)
+
+  )","-spec max_output(N :: integer(), Edges :: [[integer()]], Price :: [integer()]) -> integer().
+max_output(N, Edges, Price) ->
+  .","defmodule Solution do
+  @spec max_output(n :: integer, edges :: [[integer]], price :: [integer]) :: integer
+  def max_output(n, edges, price) do
+
+  end
+end","class Solution {
+  int maxOutput(int n, List<List<int>> edges, List<int> price) {
+
+  }
+}","[({'n': '6', 'edges': '[[0,1],[1,2],[1,3],[3,4],[3,5]]', 'price': '[9,8,7,6,10,5]'}, '24'), ({'n': '3', 'edges': '[[0,1],[1,2]]', 'price': '[1,1,1]'}, '2')]"
+19,maximize-the-minimum-powered-city,Maximize the Minimum Powered City,2528.0,2618.0,"You are given a 0-indexed integer array stations of length n, where stations[i] represents the number of power stations in the ith city.
+Each power station can provide power to every city in a fixed range. In other words, if the range is denoted by r, then a power station at city i can provide power to all cities j such that |i - j| <= r and 0 <= i, j <= n - 1.
+
+Note that |x| denotes absolute value. For example, |7 - 5| = 2 and |3 - 10| = 7.
+
+The power of a city is the total number of power stations it is being provided power from.
+The government has sanctioned building k more power stations, each of which can be built in any city, and have the same range as the pre-existing ones.
+Given the two integers r and k, return the maximum possible minimum power of a city, if the additional power stations are built optimally.
+Note that you can build the k power stations in multiple cities.
+ 
+Example 1:
+
+Input: stations = [1,2,4,5,0], r = 1, k = 2
+Output: 5
+Explanation: 
+One of the optimal ways is to install both the power stations at city 1. 
+So stations will become [1,4,4,5,0].
+- City 0 is provided by 1 + 4 = 5 power stations.
+- City 1 is provided by 1 + 4 + 4 = 9 power stations.
+- City 2 is provided by 4 + 4 + 5 = 13 power stations.
+- City 3 is provided by 5 + 4 = 9 power stations.
+- City 4 is provided by 5 + 0 = 5 power stations.
+So the minimum power of a city is 5.
+Since it is not possible to obtain a larger power, we return 5.
+
+Example 2:
+
+Input: stations = [4,4,4,4], r = 0, k = 3
+Output: 4
+Explanation: 
+It can be proved that we cannot make the minimum power of a city greater than 4.
+
+ 
+Constraints:
+
+n == stations.length
+1 <= n <= 105
+0 <= stations[i] <= 105
+0 <= r <= n - 1
+0 <= k <= 109
+
+","class Solution {
+public:
+    long long maxPower(vector<int>& stations, int r, int k) {
+        
+    }
+};","class Solution {
+    public long maxPower(int[] stations, int r, int k) {
+        
+    }
+}","class Solution(object):
+    def maxPower(self, stations, r, k):
+        """"""
+        :type stations: List[int]
+        :type r: int
+        :type k: int
+        :rtype: int
+        """"""
+        ","class Solution:
+    def maxPower(self, stations: List[int], r: int, k: int) -> int:
+        ","long long maxPower(int* stations, int stationsSize, int r, int k){
+
+}","public class Solution {
+    public long MaxPower(int[] stations, int r, int k) {
+        
+    }
+}","/**
+ * @param {number[]} stations
+ * @param {number} r
+ * @param {number} k
+ * @return {number}
+ */
+var maxPower = function(stations, r, k) {
+    
+};","# @param {Integer[]} stations
+# @param {Integer} r
+# @param {Integer} k
+# @return {Integer}
+def max_power(stations, r, k)
+    
+end","class Solution {
+    func maxPower(_ stations: [Int], _ r: Int, _ k: Int) -> Int {
+        
+    }
+}","func maxPower(stations []int, r int, k int) int64 {
+    
+}","object Solution {
+    def maxPower(stations: Array[Int], r: Int, k: Int): Long = {
+        
+    }
+}","class Solution {
+    fun maxPower(stations: IntArray, r: Int, k: Int): Long {
+        
+    }
+}","impl Solution {
+    pub fn max_power(stations: Vec<i32>, r: i32, k: i32) -> i64 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $stations
+     * @param Integer $r
+     * @param Integer $k
+     * @return Integer
+     */
+    function maxPower($stations, $r, $k) {
+        
+    }
+}","function maxPower(stations: number[], r: number, k: number): number {
+
+};","(define/contract (max-power stations r k)
+  (-> (listof exact-integer?) exact-integer? exact-integer? exact-integer?)
+
+  )","-spec max_power(Stations :: [integer()], R :: integer(), K :: integer()) -> integer().
+max_power(Stations, R, K) ->
+  .","defmodule Solution do
+  @spec max_power(stations :: [integer], r :: integer, k :: integer) :: integer
+  def max_power(stations, r, k) do
+
+  end
+end","class Solution {
+  int maxPower(List<int> stations, int r, int k) {
+
+  }
+}","[({'stations': '[1,2,4,5,0]', 'r': '1', 'k': '2'}, '5'), ({'stations': '[4,4,4,4]', 'r': '0', 'k': '3'}, '4')]"
+20,count-anagrams,Count Anagrams,2514.0,2605.0,"You are given a string s containing one or more words. Every consecutive pair of words is separated by a single space ' '.
+A string t is an anagram of string s if the ith word of t is a permutation of the ith word of s.
+
+For example, ""acb dfe"" is an anagram of ""abc def"", but ""def cab"" and ""adc bef"" are not.
+
+Return the number of distinct anagrams of s. Since the answer may be very large, return it modulo 109 + 7.
+ 
+Example 1:
+
+Input: s = ""too hot""
+Output: 18
+Explanation: Some of the anagrams of the given string are ""too hot"", ""oot hot"", ""oto toh"", ""too toh"", and ""too oht"".
+
+Example 2:
+
+Input: s = ""aa""
+Output: 1
+Explanation: There is only one anagram possible for the given string.
+ 
+Constraints:
+
+1 <= s.length <= 105
+s consists of lowercase English letters and spaces ' '.
+There is single space between consecutive words.
+
+","class Solution {
+public:
+    int countAnagrams(string s) {
+        
+    }
+};","class Solution {
+    public int countAnagrams(String s) {
+        
+    }
+}","class Solution(object):
+    def countAnagrams(self, s):
+        """"""
+        :type s: str
+        :rtype: int
+        """"""
+        ","class Solution:
+    def countAnagrams(self, s: str) -> int:
+        ","int countAnagrams(char * s){
+
+}","public class Solution {
+    public int CountAnagrams(string s) {
+        
+    }
+}","/**
+ * @param {string} s
+ * @return {number}
+ */
+var countAnagrams = function(s) {
+    
+};","# @param {String} s
+# @return {Integer}
+def count_anagrams(s)
+    
+end","class Solution {
+    func countAnagrams(_ s: String) -> Int {
+        
+    }
+}","func countAnagrams(s string) int {
+    
+}","object Solution {
+    def countAnagrams(s: String): Int = {
+        
+    }
+}","class Solution {
+    fun countAnagrams(s: String): Int {
+        
+    }
+}","impl Solution {
+    pub fn count_anagrams(s: String) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param String $s
+     * @return Integer
+     */
+    function countAnagrams($s) {
+        
+    }
+}","function countAnagrams(s: string): number {
+
+};","(define/contract (count-anagrams s)
+  (-> string? exact-integer?)
+
+  )","-spec count_anagrams(S :: unicode:unicode_binary()) -> integer().
+count_anagrams(S) ->
+  .","defmodule Solution do
+  @spec count_anagrams(s :: String.t) :: integer
+  def count_anagrams(s) do
+
+  end
+end","class Solution {
+  int countAnagrams(String s) {
+
+  }
+}","[({}, '18'), ({}, '1')]"
+21,number-of-great-partitions,Number of Great Partitions,2518.0,2601.0,"You are given an array nums consisting of positive integers and an integer k.
+Partition the array into two ordered groups such that each element is in exactly one group. A partition is called great if the sum of elements of each group is greater than or equal to k.
+Return the number of distinct great partitions. Since the answer may be too large, return it modulo 109 + 7.
+Two partitions are considered distinct if some element nums[i] is in different groups in the two partitions.
+ 
+Example 1:
+
+Input: nums = [1,2,3,4], k = 4
+Output: 6
+Explanation: The great partitions are: ([1,2,3], [4]), ([1,3], [2,4]), ([1,4], [2,3]), ([2,3], [1,4]), ([2,4], [1,3]) and ([4], [1,2,3]).
+
+Example 2:
+
+Input: nums = [3,3,3], k = 4
+Output: 0
+Explanation: There are no great partitions for this array.
+
+Example 3:
+
+Input: nums = [6,6], k = 2
+Output: 2
+Explanation: We can either put nums[0] in the first partition or in the second partition.
+The great partitions will be ([6], [6]) and ([6], [6]).
+
+ 
+Constraints:
+
+1 <= nums.length, k <= 1000
+1 <= nums[i] <= 109
+
+","class Solution {
+public:
+    int countPartitions(vector<int>& nums, int k) {
+        
+    }
+};","class Solution {
+    public int countPartitions(int[] nums, int k) {
+        
+    }
+}","class Solution(object):
+    def countPartitions(self, nums, k):
+        """"""
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """"""
+        ","class Solution:
+    def countPartitions(self, nums: List[int], k: int) -> int:
+        ","int countPartitions(int* nums, int numsSize, int k){
+
+}","public class Solution {
+    public int CountPartitions(int[] nums, int k) {
+        
+    }
+}","/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var countPartitions = function(nums, k) {
+    
+};","# @param {Integer[]} nums
+# @param {Integer} k
+# @return {Integer}
+def count_partitions(nums, k)
+    
+end","class Solution {
+    func countPartitions(_ nums: [Int], _ k: Int) -> Int {
+        
+    }
+}","func countPartitions(nums []int, k int) int {
+    
+}","object Solution {
+    def countPartitions(nums: Array[Int], k: Int): Int = {
+        
+    }
+}","class Solution {
+    fun countPartitions(nums: IntArray, k: Int): Int {
+        
+    }
+}","impl Solution {
+    pub fn count_partitions(nums: Vec<i32>, k: i32) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @param Integer $k
+     * @return Integer
+     */
+    function countPartitions($nums, $k) {
+        
+    }
+}","function countPartitions(nums: number[], k: number): number {
+
+};","(define/contract (count-partitions nums k)
+  (-> (listof exact-integer?) exact-integer? exact-integer?)
+
+  )","-spec count_partitions(Nums :: [integer()], K :: integer()) -> integer().
+count_partitions(Nums, K) ->
+  .","defmodule Solution do
+  @spec count_partitions(nums :: [integer], k :: integer) :: integer
+  def count_partitions(nums, k) do
+
+  end
+end","class Solution {
+  int countPartitions(List<int> nums, int k) {
+
+  }
+}","[({'nums': '[1,2,3,4]', 'k': '4'}, '6'), ({'nums': '[3,3,3]', 'k': '4'}, '0'), ({'nums': '[6,6]', 'k': '2'}, '2')]"
+22,cycle-length-queries-in-a-tree,Cycle Length Queries in a Tree,2509.0,2597.0,"You are given an integer n. There is a complete binary tree with 2n - 1 nodes. The root of that tree is the node with the value 1, and every node with a value val in the range [1, 2n - 1 - 1] has two children where:
+
+The left node has the value 2 * val, and
+The right node has the value 2 * val + 1.
+
+You are also given a 2D integer array queries of length m, where queries[i] = [ai, bi]. For each query, solve the following problem:
+
+Add an edge between the nodes with values ai and bi.
+Find the length of the cycle in the graph.
+Remove the added edge between nodes with values ai and bi.
+
+Note that:
+
+A cycle is a path that starts and ends at the same node, and each edge in the path is visited only once.
+The length of a cycle is the number of edges visited in the cycle.
+There could be multiple edges between two nodes in the tree after adding the edge of the query.
+
+Return an array answer of length m where answer[i] is the answer to the ith query.
+ 
+Example 1:
+
+
+Input: n = 3, queries = [[5,3],[4,7],[2,3]]
+Output: [4,5,3]
+Explanation: The diagrams above show the tree of 23 - 1 nodes. Nodes colored in red describe the nodes in the cycle after adding the edge.
+- After adding the edge between nodes 3 and 5, the graph contains a cycle of nodes [5,2,1,3]. Thus answer to the first query is 4. We delete the added edge and process the next query.
+- After adding the edge between nodes 4 and 7, the graph contains a cycle of nodes [4,2,1,3,7]. Thus answer to the second query is 5. We delete the added edge and process the next query.
+- After adding the edge between nodes 2 and 3, the graph contains a cycle of nodes [2,1,3]. Thus answer to the third query is 3. We delete the added edge.
+
+Example 2:
+
+
+Input: n = 2, queries = [[1,2]]
+Output: [2]
+Explanation: The diagram above shows the tree of 22 - 1 nodes. Nodes colored in red describe the nodes in the cycle after adding the edge.
+- After adding the edge between nodes 1 and 2, the graph contains a cycle of nodes [2,1]. Thus answer for the first query is 2. We delete the added edge.
+
+ 
+Constraints:
+
+2 <= n <= 30
+m == queries.length
+1 <= m <= 105
+queries[i].length == 2
+1 <= ai, bi <= 2n - 1
+ai != bi
+
+","class Solution {
+public:
+    vector<int> cycleLengthQueries(int n, vector<vector<int>>& queries) {
+        
+    }
+};","class Solution {
+    public int[] cycleLengthQueries(int n, int[][] queries) {
+        
+    }
+}","class Solution(object):
+    def cycleLengthQueries(self, n, queries):
+        """"""
+        :type n: int
+        :type queries: List[List[int]]
+        :rtype: List[int]
+        """"""
+        ","class Solution:
+    def cycleLengthQueries(self, n: int, queries: List[List[int]]) -> List[int]:
+        ","/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* cycleLengthQueries(int n, int** queries, int queriesSize, int* queriesColSize, int* returnSize){
+
+}","public class Solution {
+    public int[] CycleLengthQueries(int n, int[][] queries) {
+        
+    }
+}","/**
+ * @param {number} n
+ * @param {number[][]} queries
+ * @return {number[]}
+ */
+var cycleLengthQueries = function(n, queries) {
+    
+};","# @param {Integer} n
+# @param {Integer[][]} queries
+# @return {Integer[]}
+def cycle_length_queries(n, queries)
+    
+end","class Solution {
+    func cycleLengthQueries(_ n: Int, _ queries: [[Int]]) -> [Int] {
+        
+    }
+}","func cycleLengthQueries(n int, queries [][]int) []int {
+    
+}","object Solution {
+    def cycleLengthQueries(n: Int, queries: Array[Array[Int]]): Array[Int] = {
+        
+    }
+}","class Solution {
+    fun cycleLengthQueries(n: Int, queries: Array<IntArray>): IntArray {
+        
+    }
+}","impl Solution {
+    pub fn cycle_length_queries(n: i32, queries: Vec<Vec<i32>>) -> Vec<i32> {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer $n
+     * @param Integer[][] $queries
+     * @return Integer[]
+     */
+    function cycleLengthQueries($n, $queries) {
+        
+    }
+}","function cycleLengthQueries(n: number, queries: number[][]): number[] {
+
+};","(define/contract (cycle-length-queries n queries)
+  (-> exact-integer? (listof (listof exact-integer?)) (listof exact-integer?))
+
+  )","-spec cycle_length_queries(N :: integer(), Queries :: [[integer()]]) -> [integer()].
+cycle_length_queries(N, Queries) ->
+  .","defmodule Solution do
+  @spec cycle_length_queries(n :: integer, queries :: [[integer]]) :: [integer]
+  def cycle_length_queries(n, queries) do
+
+  end
+end","class Solution {
+  List<int> cycleLengthQueries(int n, List<List<int>> queries) {
+
+  }
+}","[({'n': '3', 'queries': '[[5,3],[4,7],[2,3]]'}, '[4,5,3]'), ({'n': '2', 'queries': '[[1,2]]'}, '[2]')]"
+23,add-edges-to-make-degrees-of-all-nodes-even,Add Edges to Make Degrees of All Nodes Even,2508.0,2596.0,"There is an undirected graph consisting of n nodes numbered from 1 to n. You are given the integer n and a 2D array edges where edges[i] = [ai, bi] indicates that there is an edge between nodes ai and bi. The graph can be disconnected.
+You can add at most two additional edges (possibly none) to this graph so that there are no repeated edges and no self-loops.
+Return true if it is possible to make the degree of each node in the graph even, otherwise return false.
+The degree of a node is the number of edges connected to it.
+ 
+Example 1:
+
+
+Input: n = 5, edges = [[1,2],[2,3],[3,4],[4,2],[1,4],[2,5]]
+Output: true
+Explanation: The above diagram shows a valid way of adding an edge.
+Every node in the resulting graph is connected to an even number of edges.
+
+Example 2:
+
+
+Input: n = 4, edges = [[1,2],[3,4]]
+Output: true
+Explanation: The above diagram shows a valid way of adding two edges.
+Example 3:
+
+
+Input: n = 4, edges = [[1,2],[1,3],[1,4]]
+Output: false
+Explanation: It is not possible to obtain a valid graph with adding at most 2 edges.
+ 
+Constraints:
+
+3 <= n <= 105
+2 <= edges.length <= 105
+edges[i].length == 2
+1 <= ai, bi <= n
+ai != bi
+There are no repeated edges.
+
+","class Solution {
+public:
+    bool isPossible(int n, vector<vector<int>>& edges) {
+        
+    }
+};","class Solution {
+    public boolean isPossible(int n, List<List<Integer>> edges) {
+        
+    }
+}","class Solution(object):
+    def isPossible(self, n, edges):
+        """"""
+        :type n: int
+        :type edges: List[List[int]]
+        :rtype: bool
+        """"""
+        ","class Solution:
+    def isPossible(self, n: int, edges: List[List[int]]) -> bool:
+        ","bool isPossible(int n, int** edges, int edgesSize, int* edgesColSize){
+
+}","public class Solution {
+    public bool IsPossible(int n, IList<IList<int>> edges) {
+        
+    }
+}","/**
+ * @param {number} n
+ * @param {number[][]} edges
+ * @return {boolean}
+ */
+var isPossible = function(n, edges) {
+    
+};","# @param {Integer} n
+# @param {Integer[][]} edges
+# @return {Boolean}
+def is_possible(n, edges)
+    
+end","class Solution {
+    func isPossible(_ n: Int, _ edges: [[Int]]) -> Bool {
+        
+    }
+}","func isPossible(n int, edges [][]int) bool {
+    
+}","object Solution {
+    def isPossible(n: Int, edges: List[List[Int]]): Boolean = {
+        
+    }
+}","class Solution {
+    fun isPossible(n: Int, edges: List<List<Int>>): Boolean {
+        
+    }
+}","impl Solution {
+    pub fn is_possible(n: i32, edges: Vec<Vec<i32>>) -> bool {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer $n
+     * @param Integer[][] $edges
+     * @return Boolean
+     */
+    function isPossible($n, $edges) {
+        
+    }
+}","function isPossible(n: number, edges: number[][]): boolean {
+
+};","(define/contract (is-possible n edges)
+  (-> exact-integer? (listof (listof exact-integer?)) boolean?)
+
+  )","-spec is_possible(N :: integer(), Edges :: [[integer()]]) -> boolean().
+is_possible(N, Edges) ->
+  .","defmodule Solution do
+  @spec is_possible(n :: integer, edges :: [[integer]]) :: boolean
+  def is_possible(n, edges) do
+
+  end
+end","class Solution {
+  bool isPossible(int n, List<List<int>> edges) {
+
+  }
+}","[({'n': '5', 'edges': '[[1,2],[2,3],[3,4],[4,2],[1,4],[2,5]]'}, 'rue'), ({'n': '4', 'edges': '[[1,2],[3,4]]'}, 'rue'), ({'n': '4', 'edges': '[[1,2],[1,3],[1,4]]'}, 'false')]"
+24,minimum-total-cost-to-make-arrays-unequal,Minimum Total Cost to Make Arrays Unequal,2499.0,2592.0,"You are given two 0-indexed integer arrays nums1 and nums2, of equal length n.
+In one operation, you can swap the values of any two indices of nums1. The cost of this operation is the sum of the indices.
+Find the minimum total cost of performing the given operation any number of times such that nums1[i] != nums2[i] for all 0 <= i <= n - 1 after performing all the operations.
+Return the minimum total cost such that nums1 and nums2 satisfy the above condition. In case it is not possible, return -1.
+ 
+Example 1:
+
+Input: nums1 = [1,2,3,4,5], nums2 = [1,2,3,4,5]
+Output: 10
+Explanation: 
+One of the ways we can perform the operations is:
+- Swap values at indices 0 and 3, incurring cost = 0 + 3 = 3. Now, nums1 = [4,2,3,1,5]
+- Swap values at indices 1 and 2, incurring cost = 1 + 2 = 3. Now, nums1 = [4,3,2,1,5].
+- Swap values at indices 0 and 4, incurring cost = 0 + 4 = 4. Now, nums1 =[5,3,2,1,4].
+We can see that for each index i, nums1[i] != nums2[i]. The cost required here is 10.
+Note that there are other ways to swap values, but it can be proven that it is not possible to obtain a cost less than 10.
+
+Example 2:
+
+Input: nums1 = [2,2,2,1,3], nums2 = [1,2,2,3,3]
+Output: 10
+Explanation: 
+One of the ways we can perform the operations is:
+- Swap values at indices 2 and 3, incurring cost = 2 + 3 = 5. Now, nums1 = [2,2,1,2,3].
+- Swap values at indices 1 and 4, incurring cost = 1 + 4 = 5. Now, nums1 = [2,3,1,2,2].
+The total cost needed here is 10, which is the minimum possible.
+
+Example 3:
+
+Input: nums1 = [1,2,2], nums2 = [1,2,2]
+Output: -1
+Explanation: 
+It can be shown that it is not possible to satisfy the given conditions irrespective of the number of operations we perform.
+Hence, we return -1.
+
+ 
+Constraints:
+
+n == nums1.length == nums2.length
+1 <= n <= 105
+1 <= nums1[i], nums2[i] <= n
+
+","class Solution {
+public:
+    long long minimumTotalCost(vector<int>& nums1, vector<int>& nums2) {
+        
+    }
+};","class Solution {
+    public long minimumTotalCost(int[] nums1, int[] nums2) {
+        
+    }
+}","class Solution(object):
+    def minimumTotalCost(self, nums1, nums2):
+        """"""
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def minimumTotalCost(self, nums1: List[int], nums2: List[int]) -> int:
+        ","long long minimumTotalCost(int* nums1, int nums1Size, int* nums2, int nums2Size){
+
+}","public class Solution {
+    public long MinimumTotalCost(int[] nums1, int[] nums2) {
+        
+    }
+}","/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number}
+ */
+var minimumTotalCost = function(nums1, nums2) {
+    
+};","# @param {Integer[]} nums1
+# @param {Integer[]} nums2
+# @return {Integer}
+def minimum_total_cost(nums1, nums2)
+    
+end","class Solution {
+    func minimumTotalCost(_ nums1: [Int], _ nums2: [Int]) -> Int {
+        
+    }
+}","func minimumTotalCost(nums1 []int, nums2 []int) int64 {
+    
+}","object Solution {
+    def minimumTotalCost(nums1: Array[Int], nums2: Array[Int]): Long = {
+        
+    }
+}","class Solution {
+    fun minimumTotalCost(nums1: IntArray, nums2: IntArray): Long {
+        
+    }
+}","impl Solution {
+    pub fn minimum_total_cost(nums1: Vec<i32>, nums2: Vec<i32>) -> i64 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $nums1
+     * @param Integer[] $nums2
+     * @return Integer
+     */
+    function minimumTotalCost($nums1, $nums2) {
+        
+    }
+}","function minimumTotalCost(nums1: number[], nums2: number[]): number {
+
+};","(define/contract (minimum-total-cost nums1 nums2)
+  (-> (listof exact-integer?) (listof exact-integer?) exact-integer?)
+
+  )","-spec minimum_total_cost(Nums1 :: [integer()], Nums2 :: [integer()]) -> integer().
+minimum_total_cost(Nums1, Nums2) ->
+  .","defmodule Solution do
+  @spec minimum_total_cost(nums1 :: [integer], nums2 :: [integer]) :: integer
+  def minimum_total_cost(nums1, nums2) do
+
+  end
+end","class Solution {
+  int minimumTotalCost(List<int> nums1, List<int> nums2) {
+
+  }
+}","[({'nums1': '[1,2,3,4,5]', 'nums2': '[1,2,3,4,5]'}, '10'), ({'nums1': '[2,2,2,1,3]', 'nums2': '[1,2,2,3,3]'}, '10'), ({'nums1': '[1,2,2]', 'nums2': '[1,2,2]'}, '-1')]"
+25,maximum-number-of-points-from-grid-queries,Maximum Number of Points From Grid Queries,2503.0,2588.0,"You are given an m x n integer matrix grid and an array queries of size k.
+Find an array answer of size k such that for each integer queries[i] you start in the top left cell of the matrix and repeat the following process:
+
+If queries[i] is strictly greater than the value of the current cell that you are in, then you get one point if it is your first time visiting this cell, and you can move to any adjacent cell in all 4 directions: up, down, left, and right.
+Otherwise, you do not get any points, and you end this process.
+
+After the process, answer[i] is the maximum number of points you can get. Note that for each query you are allowed to visit the same cell multiple times.
+Return the resulting array answer.
+ 
+Example 1:
+
+
+Input: grid = [[1,2,3],[2,5,7],[3,5,1]], queries = [5,6,2]
+Output: [5,8,1]
+Explanation: The diagrams above show which cells we visit to get points for each query.
+Example 2:
+
+
+Input: grid = [[5,2,1],[1,1,2]], queries = [3]
+Output: [0]
+Explanation: We can not get any points because the value of the top left cell is already greater than or equal to 3.
+
+ 
+Constraints:
+
+m == grid.length
+n == grid[i].length
+2 <= m, n <= 1000
+4 <= m * n <= 105
+k == queries.length
+1 <= k <= 104
+1 <= grid[i][j], queries[i] <= 106
+
+","class Solution {
+public:
+    vector<int> maxPoints(vector<vector<int>>& grid, vector<int>& queries) {
+        
+    }
+};","class Solution {
+    public int[] maxPoints(int[][] grid, int[] queries) {
+        
+    }
+}","class Solution(object):
+    def maxPoints(self, grid, queries):
+        """"""
+        :type grid: List[List[int]]
+        :type queries: List[int]
+        :rtype: List[int]
+        """"""
+        ","class Solution:
+    def maxPoints(self, grid: List[List[int]], queries: List[int]) -> List[int]:
+        ","/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* maxPoints(int** grid, int gridSize, int* gridColSize, int* queries, int queriesSize, int* returnSize){
+
+}","public class Solution {
+    public int[] MaxPoints(int[][] grid, int[] queries) {
+        
+    }
+}","/**
+ * @param {number[][]} grid
+ * @param {number[]} queries
+ * @return {number[]}
+ */
+var maxPoints = function(grid, queries) {
+    
+};","# @param {Integer[][]} grid
+# @param {Integer[]} queries
+# @return {Integer[]}
+def max_points(grid, queries)
+    
+end","class Solution {
+    func maxPoints(_ grid: [[Int]], _ queries: [Int]) -> [Int] {
+        
+    }
+}","func maxPoints(grid [][]int, queries []int) []int {
+    
+}","object Solution {
+    def maxPoints(grid: Array[Array[Int]], queries: Array[Int]): Array[Int] = {
+        
+    }
+}","class Solution {
+    fun maxPoints(grid: Array<IntArray>, queries: IntArray): IntArray {
+        
+    }
+}","impl Solution {
+    pub fn max_points(grid: Vec<Vec<i32>>, queries: Vec<i32>) -> Vec<i32> {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[][] $grid
+     * @param Integer[] $queries
+     * @return Integer[]
+     */
+    function maxPoints($grid, $queries) {
+        
+    }
+}","function maxPoints(grid: number[][], queries: number[]): number[] {
+
+};","(define/contract (max-points grid queries)
+  (-> (listof (listof exact-integer?)) (listof exact-integer?) (listof exact-integer?))
+
+  )","-spec max_points(Grid :: [[integer()]], Queries :: [integer()]) -> [integer()].
+max_points(Grid, Queries) ->
+  .","defmodule Solution do
+  @spec max_points(grid :: [[integer]], queries :: [integer]) :: [integer]
+  def max_points(grid, queries) do
+
+  end
+end","class Solution {
+  List<int> maxPoints(List<List<int>> grid, List<int> queries) {
+
+  }
+}","[({'grid': '[[1,2,3],[2,5,7],[3,5,1]]', 'queries': '[5,6,2]'}, '[5,8,1]'), ({'grid': '[[5,2,1],[1,1,2]]', 'queries': '[3]'}, '[0]')]"
+26,divide-nodes-into-the-maximum-number-of-groups,Divide Nodes Into the Maximum Number of Groups,2493.0,2583.0,"You are given a positive integer n representing the number of nodes in an undirected graph. The nodes are labeled from 1 to n.
+You are also given a 2D integer array edges, where edges[i] = [ai, bi] indicates that there is a bidirectional edge between nodes ai and bi. Notice that the given graph may be disconnected.
+Divide the nodes of the graph into m groups (1-indexed) such that:
+
+Each node in the graph belongs to exactly one group.
+For every pair of nodes in the graph that are connected by an edge [ai, bi], if ai belongs to the group with index x, and bi belongs to the group with index y, then |y - x| = 1.
+
+Return the maximum number of groups (i.e., maximum m) into which you can divide the nodes. Return -1 if it is impossible to group the nodes with the given conditions.
+ 
+Example 1:
+
+
+Input: n = 6, edges = [[1,2],[1,4],[1,5],[2,6],[2,3],[4,6]]
+Output: 4
+Explanation: As shown in the image we:
+- Add node 5 to the first group.
+- Add node 1 to the second group.
+- Add nodes 2 and 4 to the third group.
+- Add nodes 3 and 6 to the fourth group.
+We can see that every edge is satisfied.
+It can be shown that that if we create a fifth group and move any node from the third or fourth group to it, at least on of the edges will not be satisfied.
+
+Example 2:
+
+Input: n = 3, edges = [[1,2],[2,3],[3,1]]
+Output: -1
+Explanation: If we add node 1 to the first group, node 2 to the second group, and node 3 to the third group to satisfy the first two edges, we can see that the third edge will not be satisfied.
+It can be shown that no grouping is possible.
+
+ 
+Constraints:
+
+1 <= n <= 500
+1 <= edges.length <= 104
+edges[i].length == 2
+1 <= ai, bi <= n
+ai != bi
+There is at most one edge between any pair of vertices.
+
+","class Solution {
+public:
+    int magnificentSets(int n, vector<vector<int>>& edges) {
+        
+    }
+};","class Solution {
+    public int magnificentSets(int n, int[][] edges) {
+        
+    }
+}","class Solution(object):
+    def magnificentSets(self, n, edges):
+        """"""
+        :type n: int
+        :type edges: List[List[int]]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def magnificentSets(self, n: int, edges: List[List[int]]) -> int:
+        ","int magnificentSets(int n, int** edges, int edgesSize, int* edgesColSize){
+
+}","public class Solution {
+    public int MagnificentSets(int n, int[][] edges) {
+        
+    }
+}","/**
+ * @param {number} n
+ * @param {number[][]} edges
+ * @return {number}
+ */
+var magnificentSets = function(n, edges) {
+    
+};","# @param {Integer} n
+# @param {Integer[][]} edges
+# @return {Integer}
+def magnificent_sets(n, edges)
+    
+end","class Solution {
+    func magnificentSets(_ n: Int, _ edges: [[Int]]) -> Int {
+        
+    }
+}","func magnificentSets(n int, edges [][]int) int {
+    
+}","object Solution {
+    def magnificentSets(n: Int, edges: Array[Array[Int]]): Int = {
+        
+    }
+}","class Solution {
+    fun magnificentSets(n: Int, edges: Array<IntArray>): Int {
+        
+    }
+}","impl Solution {
+    pub fn magnificent_sets(n: i32, edges: Vec<Vec<i32>>) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer $n
+     * @param Integer[][] $edges
+     * @return Integer
+     */
+    function magnificentSets($n, $edges) {
+        
+    }
+}","function magnificentSets(n: number, edges: number[][]): number {
+
+};","(define/contract (magnificent-sets n edges)
+  (-> exact-integer? (listof (listof exact-integer?)) exact-integer?)
+
+  )","-spec magnificent_sets(N :: integer(), Edges :: [[integer()]]) -> integer().
+magnificent_sets(N, Edges) ->
+  .","defmodule Solution do
+  @spec magnificent_sets(n :: integer, edges :: [[integer]]) :: integer
+  def magnificent_sets(n, edges) do
+
+  end
+end","class Solution {
+  int magnificentSets(int n, List<List<int>> edges) {
+
+  }
+}","[({'n': '6', 'edges': '[[1,2],[1,4],[1,5],[2,6],[2,3],[4,6]]'}, '4'), ({'n': '3', 'edges': '[[1,2],[2,3],[3,1]]'}, '-1')]"
+27,count-palindromic-subsequences,Count Palindromic Subsequences,2484.0,2577.0,"Given a string of digits s, return the number of palindromic subsequences of s having length 5. Since the answer may be very large, return it modulo 109 + 7.
+Note:
+
+A string is palindromic if it reads the same forward and backward.
+A subsequence is a string that can be derived from another string by deleting some or no characters without changing the order of the remaining characters.
+
+ 
+Example 1:
+
+Input: s = ""103301""
+Output: 2
+Explanation: 
+There are 6 possible subsequences of length 5: ""10330"",""10331"",""10301"",""10301"",""13301"",""03301"". 
+Two of them (both equal to ""10301"") are palindromic.
+
+Example 2:
+
+Input: s = ""0000000""
+Output: 21
+Explanation: All 21 subsequences are ""00000"", which is palindromic.
+
+Example 3:
+
+Input: s = ""9999900000""
+Output: 2
+Explanation: The only two palindromic subsequences are ""99999"" and ""00000"".
+
+ 
+Constraints:
+
+1 <= s.length <= 104
+s consists of digits.
+
+","class Solution {
+public:
+    int countPalindromes(string s) {
+        
+    }
+};","class Solution {
+    public int countPalindromes(String s) {
+        
+    }
+}","class Solution(object):
+    def countPalindromes(self, s):
+        """"""
+        :type s: str
+        :rtype: int
+        """"""
+        ","class Solution:
+    def countPalindromes(self, s: str) -> int:
+        ","int countPalindromes(char * s){
+
+}","public class Solution {
+    public int CountPalindromes(string s) {
+        
+    }
+}","/**
+ * @param {string} s
+ * @return {number}
+ */
+var countPalindromes = function(s) {
+    
+};","# @param {String} s
+# @return {Integer}
+def count_palindromes(s)
+    
+end","class Solution {
+    func countPalindromes(_ s: String) -> Int {
+        
+    }
+}","func countPalindromes(s string) int {
+    
+}","object Solution {
+    def countPalindromes(s: String): Int = {
+        
+    }
+}","class Solution {
+    fun countPalindromes(s: String): Int {
+        
+    }
+}","impl Solution {
+    pub fn count_palindromes(s: String) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param String $s
+     * @return Integer
+     */
+    function countPalindromes($s) {
+        
+    }
+}","function countPalindromes(s: string): number {
+
+};","(define/contract (count-palindromes s)
+  (-> string? exact-integer?)
+
+  )","-spec count_palindromes(S :: unicode:unicode_binary()) -> integer().
+count_palindromes(S) ->
+  .","defmodule Solution do
+  @spec count_palindromes(s :: String.t) :: integer
+  def count_palindromes(s) do
+
+  end
+end","class Solution {
+  int countPalindromes(String s) {
+
+  }
+}","[({}, '2'), ({}, '21'), ({}, '2')]"
+28,count-subarrays-with-median-k,Count Subarrays With Median K,2488.0,2574.0,"You are given an array nums of size n consisting of distinct integers from 1 to n and a positive integer k.
+Return the number of non-empty subarrays in nums that have a median equal to k.
+Note:
+
+The median of an array is the middle element after sorting the array in ascending order. If the array is of even length, the median is the left middle element.
+
+	
+For example, the median of [2,3,1,4] is 2, and the median of [8,4,3,5,1] is 4.
+
+
+A subarray is a contiguous part of an array.
+
+ 
+Example 1:
+
+Input: nums = [3,2,1,4,5], k = 4
+Output: 3
+Explanation: The subarrays that have a median equal to 4 are: [4], [4,5] and [1,4,5].
+
+Example 2:
+
+Input: nums = [2,3,1], k = 3
+Output: 1
+Explanation: [3] is the only subarray that has a median equal to 3.
+
+ 
+Constraints:
+
+n == nums.length
+1 <= n <= 105
+1 <= nums[i], k <= n
+The integers in nums are distinct.
+
+","class Solution {
+public:
+    int countSubarrays(vector<int>& nums, int k) {
+        
+    }
+};","class Solution {
+    public int countSubarrays(int[] nums, int k) {
+        
+    }
+}","class Solution(object):
+    def countSubarrays(self, nums, k):
+        """"""
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """"""
+        ","class Solution:
+    def countSubarrays(self, nums: List[int], k: int) -> int:
+        ","int countSubarrays(int* nums, int numsSize, int k){
+
+}","public class Solution {
+    public int CountSubarrays(int[] nums, int k) {
+        
+    }
+}","/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var countSubarrays = function(nums, k) {
+    
+};","# @param {Integer[]} nums
+# @param {Integer} k
+# @return {Integer}
+def count_subarrays(nums, k)
+    
+end","class Solution {
+    func countSubarrays(_ nums: [Int], _ k: Int) -> Int {
+        
+    }
+}","func countSubarrays(nums []int, k int) int {
+    
+}","object Solution {
+    def countSubarrays(nums: Array[Int], k: Int): Int = {
+        
+    }
+}","class Solution {
+    fun countSubarrays(nums: IntArray, k: Int): Int {
+        
+    }
+}","impl Solution {
+    pub fn count_subarrays(nums: Vec<i32>, k: i32) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @param Integer $k
+     * @return Integer
+     */
+    function countSubarrays($nums, $k) {
+        
+    }
+}","function countSubarrays(nums: number[], k: number): number {
+
+};","(define/contract (count-subarrays nums k)
+  (-> (listof exact-integer?) exact-integer? exact-integer?)
+
+  )","-spec count_subarrays(Nums :: [integer()], K :: integer()) -> integer().
+count_subarrays(Nums, K) ->
+  .","defmodule Solution do
+  @spec count_subarrays(nums :: [integer], k :: integer) :: integer
+  def count_subarrays(nums, k) do
+
+  end
+end","class Solution {
+  int countSubarrays(List<int> nums, int k) {
+
+  }
+}","[({'nums': '[3,2,1,4,5]', 'k': '4'}, '3'), ({'nums': '[2,3,1]', 'k': '3'}, '1')]"
+29,number-of-beautiful-partitions,Number of Beautiful Partitions,2478.0,2569.0,"You are given a string s that consists of the digits '1' to '9' and two integers k and minLength.
+A partition of s is called beautiful if:
+
+s is partitioned into k non-intersecting substrings.
+Each substring has a length of at least minLength.
+Each substring starts with a prime digit and ends with a non-prime digit. Prime digits are '2', '3', '5', and '7', and the rest of the digits are non-prime.
+
+Return the number of beautiful partitions of s. Since the answer may be very large, return it modulo 109 + 7.
+A substring is a contiguous sequence of characters within a string.
+ 
+Example 1:
+
+Input: s = ""23542185131"", k = 3, minLength = 2
+Output: 3
+Explanation: There exists three ways to create a beautiful partition:
+""2354 | 218 | 5131""
+""2354 | 21851 | 31""
+""2354218 | 51 | 31""
+
+Example 2:
+
+Input: s = ""23542185131"", k = 3, minLength = 3
+Output: 1
+Explanation: There exists one way to create a beautiful partition: ""2354 | 218 | 5131"".
+
+Example 3:
+
+Input: s = ""3312958"", k = 3, minLength = 1
+Output: 1
+Explanation: There exists one way to create a beautiful partition: ""331 | 29 | 58"".
+
+ 
+Constraints:
+
+1 <= k, minLength <= s.length <= 1000
+s consists of the digits '1' to '9'.
+
+","class Solution {
+public:
+    int beautifulPartitions(string s, int k, int minLength) {
+        
+    }
+};","class Solution {
+    public int beautifulPartitions(String s, int k, int minLength) {
+        
+    }
+}","class Solution(object):
+    def beautifulPartitions(self, s, k, minLength):
+        """"""
+        :type s: str
+        :type k: int
+        :type minLength: int
+        :rtype: int
+        """"""
+        ","class Solution:
+    def beautifulPartitions(self, s: str, k: int, minLength: int) -> int:
+        ","int beautifulPartitions(char * s, int k, int minLength){
+
+}","public class Solution {
+    public int BeautifulPartitions(string s, int k, int minLength) {
+        
+    }
+}","/**
+ * @param {string} s
+ * @param {number} k
+ * @param {number} minLength
+ * @return {number}
+ */
+var beautifulPartitions = function(s, k, minLength) {
+    
+};","# @param {String} s
+# @param {Integer} k
+# @param {Integer} min_length
+# @return {Integer}
+def beautiful_partitions(s, k, min_length)
+    
+end","class Solution {
+    func beautifulPartitions(_ s: String, _ k: Int, _ minLength: Int) -> Int {
+        
+    }
+}","func beautifulPartitions(s string, k int, minLength int) int {
+    
+}","object Solution {
+    def beautifulPartitions(s: String, k: Int, minLength: Int): Int = {
+        
+    }
+}","class Solution {
+    fun beautifulPartitions(s: String, k: Int, minLength: Int): Int {
+        
+    }
+}","impl Solution {
+    pub fn beautiful_partitions(s: String, k: i32, min_length: i32) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param String $s
+     * @param Integer $k
+     * @param Integer $minLength
+     * @return Integer
+     */
+    function beautifulPartitions($s, $k, $minLength) {
+        
+    }
+}","function beautifulPartitions(s: string, k: number, minLength: number): number {
+
+};","(define/contract (beautiful-partitions s k minLength)
+  (-> string? exact-integer? exact-integer? exact-integer?)
+
+  )","-spec beautiful_partitions(S :: unicode:unicode_binary(), K :: integer(), MinLength :: integer()) -> integer().
+beautiful_partitions(S, K, MinLength) ->
+  .","defmodule Solution do
+  @spec beautiful_partitions(s :: String.t, k :: integer, min_length :: integer) :: integer
+  def beautiful_partitions(s, k, min_length) do
+
+  end
+end","class Solution {
+  int beautifulPartitions(String s, int k, int minLength) {
+
+  }
+}","[({'k': '3', 'minLength': '2'}, '3'), ({'k': '3', 'minLength': '3'}, '1'), ({'k': '3', 'minLength': '1'}, '1')]"
+30,split-message-based-on-limit,Split Message Based on Limit,2468.0,2563.0,"You are given a string, message, and a positive integer, limit.
+You must split message into one or more parts based on limit. Each resulting part should have the suffix ""<a/b>"", where ""b"" is to be replaced with the total number of parts and ""a"" is to be replaced with the index of the part, starting from 1 and going up to b. Additionally, the length of each resulting part (including its suffix) should be equal to limit, except for the last part whose length can be at most limit.
+The resulting parts should be formed such that when their suffixes are removed and they are all concatenated in order, they should be equal to message. Also, the result should contain as few parts as possible.
+Return the parts message would be split into as an array of strings. If it is impossible to split message as required, return an empty array.
+ 
+Example 1:
+
+Input: message = ""this is really a very awesome message"", limit = 9
+Output: [""thi<1/14>"",""s i<2/14>"",""s r<3/14>"",""eal<4/14>"",""ly <5/14>"",""a v<6/14>"",""ery<7/14>"","" aw<8/14>"",""eso<9/14>"",""me<10/14>"","" m<11/14>"",""es<12/14>"",""sa<13/14>"",""ge<14/14>""]
+Explanation:
+The first 9 parts take 3 characters each from the beginning of message.
+The next 5 parts take 2 characters each to finish splitting message. 
+In this example, each part, including the last, has length 9. 
+It can be shown it is not possible to split message into less than 14 parts.
+
+Example 2:
+
+Input: message = ""short message"", limit = 15
+Output: [""short mess<1/2>"",""age<2/2>""]
+Explanation:
+Under the given constraints, the string can be split into two parts: 
+- The first part comprises of the first 10 characters, and has a length 15.
+- The next part comprises of the last 3 characters, and has a length 8.
+
+ 
+Constraints:
+
+1 <= message.length <= 104
+message consists only of lowercase English letters and ' '.
+1 <= limit <= 104
+
+","class Solution {
+public:
+    vector<string> splitMessage(string message, int limit) {
+        
+    }
+};","class Solution {
+    public String[] splitMessage(String message, int limit) {
+        
+    }
+}","class Solution(object):
+    def splitMessage(self, message, limit):
+        """"""
+        :type message: str
+        :type limit: int
+        :rtype: List[str]
+        """"""
+        ","class Solution:
+    def splitMessage(self, message: str, limit: int) -> List[str]:
+        ","/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+char ** splitMessage(char * message, int limit, int* returnSize){
+
+}","public class Solution {
+    public string[] SplitMessage(string message, int limit) {
+        
+    }
+}","/**
+ * @param {string} message
+ * @param {number} limit
+ * @return {string[]}
+ */
+var splitMessage = function(message, limit) {
+    
+};","# @param {String} message
+# @param {Integer} limit
+# @return {String[]}
+def split_message(message, limit)
+    
+end","class Solution {
+    func splitMessage(_ message: String, _ limit: Int) -> [String] {
+        
+    }
+}","func splitMessage(message string, limit int) []string {
+    
+}","object Solution {
+    def splitMessage(message: String, limit: Int): Array[String] = {
+        
+    }
+}","class Solution {
+    fun splitMessage(message: String, limit: Int): Array<String> {
+        
+    }
+}","impl Solution {
+    pub fn split_message(message: String, limit: i32) -> Vec<String> {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param String $message
+     * @param Integer $limit
+     * @return String[]
+     */
+    function splitMessage($message, $limit) {
+        
+    }
+}","function splitMessage(message: string, limit: number): string[] {
+
+};","(define/contract (split-message message limit)
+  (-> string? exact-integer? (listof string?))
+
+  )","-spec split_message(Message :: unicode:unicode_binary(), Limit :: integer()) -> [unicode:unicode_binary()].
+split_message(Message, Limit) ->
+  .","defmodule Solution do
+  @spec split_message(message :: String.t, limit :: integer) :: [String.t]
+  def split_message(message, limit) do
+
+  end
+end","class Solution {
+  List<String> splitMessage(String message, int limit) {
+
+  }
+}","[({'limit': '9'}, '[""thi<1/14>"",""s i<2/14>"",""s r<3/14>"",""eal<4/14>"",""ly <5/14>"",""a v<6/14>"",""ery<7/14>"","" aw<8/14>"",""eso<9/14>"",""me<10/14>"","" m<11/14>"",""es<12/14>"",""sa<13/14>"",""ge<14/14>""]'), ({'limit': '15'}, '[""short mess<1/2>"",""age<2/2>""]')]"
+31,maximum-number-of-non-overlapping-palindrome-substrings,Maximum Number of Non-overlapping Palindrome Substrings,2472.0,2559.0,"You are given a string s and a positive integer k.
+Select a set of non-overlapping substrings from the string s that satisfy the following conditions:
+
+The length of each substring is at least k.
+Each substring is a palindrome.
+
+Return the maximum number of substrings in an optimal selection.
+A substring is a contiguous sequence of characters within a string.
+ 
+Example 1:
+
+Input: s = ""abaccdbbd"", k = 3
+Output: 2
+Explanation: We can select the substrings underlined in s = ""abaccdbbd"". Both ""aba"" and ""dbbd"" are palindromes and have a length of at least k = 3.
+It can be shown that we cannot find a selection with more than two valid substrings.
+
+Example 2:
+
+Input: s = ""adbcda"", k = 2
+Output: 0
+Explanation: There is no palindrome substring of length at least 2 in the string.
+
+ 
+Constraints:
+
+1 <= k <= s.length <= 2000
+s consists of lowercase English letters.
+
+","class Solution {
+public:
+    int maxPalindromes(string s, int k) {
+        
+    }
+};","class Solution {
+    public int maxPalindromes(String s, int k) {
+        
+    }
+}","class Solution(object):
+    def maxPalindromes(self, s, k):
+        """"""
+        :type s: str
+        :type k: int
+        :rtype: int
+        """"""
+        ","class Solution:
+    def maxPalindromes(self, s: str, k: int) -> int:
+        ","int maxPalindromes(char * s, int k){
+
+}","public class Solution {
+    public int MaxPalindromes(string s, int k) {
+        
+    }
+}","/**
+ * @param {string} s
+ * @param {number} k
+ * @return {number}
+ */
+var maxPalindromes = function(s, k) {
+    
+};","# @param {String} s
+# @param {Integer} k
+# @return {Integer}
+def max_palindromes(s, k)
+    
+end","class Solution {
+    func maxPalindromes(_ s: String, _ k: Int) -> Int {
+        
+    }
+}","func maxPalindromes(s string, k int) int {
+    
+}","object Solution {
+    def maxPalindromes(s: String, k: Int): Int = {
+        
+    }
+}","class Solution {
+    fun maxPalindromes(s: String, k: Int): Int {
+        
+    }
+}","impl Solution {
+    pub fn max_palindromes(s: String, k: i32) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param String $s
+     * @param Integer $k
+     * @return Integer
+     */
+    function maxPalindromes($s, $k) {
+        
+    }
+}","function maxPalindromes(s: string, k: number): number {
+
+};","(define/contract (max-palindromes s k)
+  (-> string? exact-integer? exact-integer?)
+
+  )","-spec max_palindromes(S :: unicode:unicode_binary(), K :: integer()) -> integer().
+max_palindromes(S, K) ->
+  .","defmodule Solution do
+  @spec max_palindromes(s :: String.t, k :: integer) :: integer
+  def max_palindromes(s, k) do
+
+  end
+end","class Solution {
+  int maxPalindromes(String s, int k) {
+
+  }
+}","[({'k': '3'}, '2'), ({'k': '2'}, '0')]"
+32,minimum-total-distance-traveled,Minimum Total Distance Traveled,2463.0,2554.0,"There are some robots and factories on the X-axis. You are given an integer array robot where robot[i] is the position of the ith robot. You are also given a 2D integer array factory where factory[j] = [positionj, limitj] indicates that positionj is the position of the jth factory and that the jth factory can repair at most limitj robots.
+The positions of each robot are unique. The positions of each factory are also unique. Note that a robot can be in the same position as a factory initially.
+All the robots are initially broken; they keep moving in one direction. The direction could be the negative or the positive direction of the X-axis. When a robot reaches a factory that did not reach its limit, the factory repairs the robot, and it stops moving.
+At any moment, you can set the initial direction of moving for some robot. Your target is to minimize the total distance traveled by all the robots.
+Return the minimum total distance traveled by all the robots. The test cases are generated such that all the robots can be repaired.
+Note that
+
+All robots move at the same speed.
+If two robots move in the same direction, they will never collide.
+If two robots move in opposite directions and they meet at some point, they do not collide. They cross each other.
+If a robot passes by a factory that reached its limits, it crosses it as if it does not exist.
+If the robot moved from a position x to a position y, the distance it moved is |y - x|.
+
+ 
+Example 1:
+
+
+Input: robot = [0,4,6], factory = [[2,2],[6,2]]
+Output: 4
+Explanation: As shown in the figure:
+- The first robot at position 0 moves in the positive direction. It will be repaired at the first factory.
+- The second robot at position 4 moves in the negative direction. It will be repaired at the first factory.
+- The third robot at position 6 will be repaired at the second factory. It does not need to move.
+The limit of the first factory is 2, and it fixed 2 robots.
+The limit of the second factory is 2, and it fixed 1 robot.
+The total distance is |2 - 0| + |2 - 4| + |6 - 6| = 4. It can be shown that we cannot achieve a better total distance than 4.
+
+Example 2:
+
+
+Input: robot = [1,-1], factory = [[-2,1],[2,1]]
+Output: 2
+Explanation: As shown in the figure:
+- The first robot at position 1 moves in the positive direction. It will be repaired at the second factory.
+- The second robot at position -1 moves in the negative direction. It will be repaired at the first factory.
+The limit of the first factory is 1, and it fixed 1 robot.
+The limit of the second factory is 1, and it fixed 1 robot.
+The total distance is |2 - 1| + |(-2) - (-1)| = 2. It can be shown that we cannot achieve a better total distance than 2.
+
+ 
+Constraints:
+
+1 <= robot.length, factory.length <= 100
+factory[j].length == 2
+-109 <= robot[i], positionj <= 109
+0 <= limitj <= robot.length
+The input will be generated such that it is always possible to repair every robot.
+
+","class Solution {
+public:
+    long long minimumTotalDistance(vector<int>& robot, vector<vector<int>>& factory) {
+        
+    }
+};","class Solution {
+    public long minimumTotalDistance(List<Integer> robot, int[][] factory) {
+        
+    }
+}","class Solution(object):
+    def minimumTotalDistance(self, robot, factory):
+        """"""
+        :type robot: List[int]
+        :type factory: List[List[int]]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def minimumTotalDistance(self, robot: List[int], factory: List[List[int]]) -> int:
+        ","long long minimumTotalDistance(int* robot, int robotSize, int** factory, int factorySize, int* factoryColSize){
+
+}","public class Solution {
+    public long MinimumTotalDistance(IList<int> robot, int[][] factory) {
+        
+    }
+}","/**
+ * @param {number[]} robot
+ * @param {number[][]} factory
+ * @return {number}
+ */
+var minimumTotalDistance = function(robot, factory) {
+    
+};","# @param {Integer[]} robot
+# @param {Integer[][]} factory
+# @return {Integer}
+def minimum_total_distance(robot, factory)
+    
+end","class Solution {
+    func minimumTotalDistance(_ robot: [Int], _ factory: [[Int]]) -> Int {
+        
+    }
+}","func minimumTotalDistance(robot []int, factory [][]int) int64 {
+    
+}","object Solution {
+    def minimumTotalDistance(robot: List[Int], factory: Array[Array[Int]]): Long = {
+        
+    }
+}","class Solution {
+    fun minimumTotalDistance(robot: List<Int>, factory: Array<IntArray>): Long {
+        
+    }
+}","impl Solution {
+    pub fn minimum_total_distance(robot: Vec<i32>, factory: Vec<Vec<i32>>) -> i64 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $robot
+     * @param Integer[][] $factory
+     * @return Integer
+     */
+    function minimumTotalDistance($robot, $factory) {
+        
+    }
+}","function minimumTotalDistance(robot: number[], factory: number[][]): number {
+
+};","(define/contract (minimum-total-distance robot factory)
+  (-> (listof exact-integer?) (listof (listof exact-integer?)) exact-integer?)
+
+  )","-spec minimum_total_distance(Robot :: [integer()], Factory :: [[integer()]]) -> integer().
+minimum_total_distance(Robot, Factory) ->
+  .","defmodule Solution do
+  @spec minimum_total_distance(robot :: [integer], factory :: [[integer]]) :: integer
+  def minimum_total_distance(robot, factory) do
+
+  end
+end","class Solution {
+  int minimumTotalDistance(List<int> robot, List<List<int>> factory) {
+
+  }
+}","[({'robot': '[0,4,6]', 'factory': '[[2,2],[6,2]]'}, '4'), ({'robot': '[1,-1]', 'factory': '[[-2,1],[2,1]]'}, '2')]"
+33,next-greater-element-iv,Next Greater Element IV,2454.0,2549.0,"You are given a 0-indexed array of non-negative integers nums. For each integer in nums, you must find its respective second greater integer.
+The second greater integer of nums[i] is nums[j] such that:
+
+j > i
+nums[j] > nums[i]
+There exists exactly one index k such that nums[k] > nums[i] and i < k < j.
+
+If there is no such nums[j], the second greater integer is considered to be -1.
+
+For example, in the array [1, 2, 4, 3], the second greater integer of 1 is 4, 2 is 3, and that of 3 and 4 is -1.
+
+Return an integer array answer, where answer[i] is the second greater integer of nums[i].
+ 
+Example 1:
+
+Input: nums = [2,4,0,9,6]
+Output: [9,6,6,-1,-1]
+Explanation:
+0th index: 4 is the first integer greater than 2, and 9 is the second integer greater than 2, to the right of 2.
+1st index: 9 is the first, and 6 is the second integer greater than 4, to the right of 4.
+2nd index: 9 is the first, and 6 is the second integer greater than 0, to the right of 0.
+3rd index: There is no integer greater than 9 to its right, so the second greater integer is considered to be -1.
+4th index: There is no integer greater than 6 to its right, so the second greater integer is considered to be -1.
+Thus, we return [9,6,6,-1,-1].
+
+Example 2:
+
+Input: nums = [3,3]
+Output: [-1,-1]
+Explanation:
+We return [-1,-1] since neither integer has any integer greater than it.
+
+ 
+Constraints:
+
+1 <= nums.length <= 105
+0 <= nums[i] <= 109
+
+","class Solution {
+public:
+    vector<int> secondGreaterElement(vector<int>& nums) {
+        
+    }
+};","class Solution {
+    public int[] secondGreaterElement(int[] nums) {
+        
+    }
+}","class Solution(object):
+    def secondGreaterElement(self, nums):
+        """"""
+        :type nums: List[int]
+        :rtype: List[int]
+        """"""
+        ","class Solution:
+    def secondGreaterElement(self, nums: List[int]) -> List[int]:
+        ","/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* secondGreaterElement(int* nums, int numsSize, int* returnSize){
+
+}","public class Solution {
+    public int[] SecondGreaterElement(int[] nums) {
+        
+    }
+}","/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var secondGreaterElement = function(nums) {
+    
+};","# @param {Integer[]} nums
+# @return {Integer[]}
+def second_greater_element(nums)
+    
+end","class Solution {
+    func secondGreaterElement(_ nums: [Int]) -> [Int] {
+        
+    }
+}","func secondGreaterElement(nums []int) []int {
+    
+}","object Solution {
+    def secondGreaterElement(nums: Array[Int]): Array[Int] = {
+        
+    }
+}","class Solution {
+    fun secondGreaterElement(nums: IntArray): IntArray {
+        
+    }
+}","impl Solution {
+    pub fn second_greater_element(nums: Vec<i32>) -> Vec<i32> {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @return Integer[]
+     */
+    function secondGreaterElement($nums) {
+        
+    }
+}","function secondGreaterElement(nums: number[]): number[] {
+
+};","(define/contract (second-greater-element nums)
+  (-> (listof exact-integer?) (listof exact-integer?))
+
+  )","-spec second_greater_element(Nums :: [integer()]) -> [integer()].
+second_greater_element(Nums) ->
+  .","defmodule Solution do
+  @spec second_greater_element(nums :: [integer]) :: [integer]
+  def second_greater_element(nums) do
+
+  end
+end","class Solution {
+  List<int> secondGreaterElement(List<int> nums) {
+
+  }
+}","[({'nums': '[2,4,0,9,6]'}, '[9,6,6,-1,-1]'), ({'nums': '[3,3]'}, '[-1,-1]')]"
+34,height-of-binary-tree-after-subtree-removal-queries,Height of Binary Tree After Subtree Removal Queries,2458.0,2545.0,"You are given the root of a binary tree with n nodes. Each node is assigned a unique value from 1 to n. You are also given an array queries of size m.
+You have to perform m independent queries on the tree where in the ith query you do the following:
+
+Remove the subtree rooted at the node with the value queries[i] from the tree. It is guaranteed that queries[i] will not be equal to the value of the root.
+
+Return an array answer of size m where answer[i] is the height of the tree after performing the ith query.
+Note:
+
+The queries are independent, so the tree returns to its initial state after each query.
+The height of a tree is the number of edges in the longest simple path from the root to some node in the tree.
+
+ 
+Example 1:
+
+
+Input: root = [1,3,4,2,null,6,5,null,null,null,null,null,7], queries = [4]
+Output: [2]
+Explanation: The diagram above shows the tree after removing the subtree rooted at node with value 4.
+The height of the tree is 2 (The path 1 -> 3 -> 2).
+
+Example 2:
+
+
+Input: root = [5,8,9,2,1,3,7,4,6], queries = [3,2,4,8]
+Output: [3,2,3,2]
+Explanation: We have the following queries:
+- Removing the subtree rooted at node with value 3. The height of the tree becomes 3 (The path 5 -> 8 -> 2 -> 4).
+- Removing the subtree rooted at node with value 2. The height of the tree becomes 2 (The path 5 -> 8 -> 1).
+- Removing the subtree rooted at node with value 4. The height of the tree becomes 3 (The path 5 -> 8 -> 2 -> 6).
+- Removing the subtree rooted at node with value 8. The height of the tree becomes 2 (The path 5 -> 9 -> 3).
+
+ 
+Constraints:
+
+The number of nodes in the tree is n.
+2 <= n <= 105
+1 <= Node.val <= n
+All the values in the tree are unique.
+m == queries.length
+1 <= m <= min(n, 104)
+1 <= queries[i] <= n
+queries[i] != root.val
+
+","/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> treeQueries(TreeNode* root, vector<int>& queries) {
+        
+    }
+};","/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int[] treeQueries(TreeNode root, int[] queries) {
+        
+    }
+}","# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def treeQueries(self, root, queries):
+        """"""
+        :type root: Optional[TreeNode]
+        :type queries: List[int]
+        :rtype: List[int]
+        """"""
+        ","# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def treeQueries(self, root: Optional[TreeNode], queries: List[int]) -> List[int]:
+        ","/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* treeQueries(struct TreeNode* root, int* queries, int queriesSize, int* returnSize){
+
+}","/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    public int[] TreeQueries(TreeNode root, int[] queries) {
+        
+    }
+}","/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number[]} queries
+ * @return {number[]}
+ */
+var treeQueries = function(root, queries) {
+    
+};","# Definition for a binary tree node.
+# class TreeNode
+#     attr_accessor :val, :left, :right
+#     def initialize(val = 0, left = nil, right = nil)
+#         @val = val
+#         @left = left
+#         @right = right
+#     end
+# end
+# @param {TreeNode} root
+# @param {Integer[]} queries
+# @return {Integer[]}
+def tree_queries(root, queries)
+    
+end","/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public var val: Int
+ *     public var left: TreeNode?
+ *     public var right: TreeNode?
+ *     public init() { self.val = 0; self.left = nil; self.right = nil; }
+ *     public init(_ val: Int) { self.val = val; self.left = nil; self.right = nil; }
+ *     public init(_ val: Int, _ left: TreeNode?, _ right: TreeNode?) {
+ *         self.val = val
+ *         self.left = left
+ *         self.right = right
+ *     }
+ * }
+ */
+class Solution {
+    func treeQueries(_ root: TreeNode?, _ queries: [Int]) -> [Int] {
+        
+    }
+}","/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func treeQueries(root *TreeNode, queries []int) []int {
+    
+}","/**
+ * Definition for a binary tree node.
+ * class TreeNode(_value: Int = 0, _left: TreeNode = null, _right: TreeNode = null) {
+ *   var value: Int = _value
+ *   var left: TreeNode = _left
+ *   var right: TreeNode = _right
+ * }
+ */
+object Solution {
+    def treeQueries(root: TreeNode, queries: Array[Int]): Array[Int] = {
+        
+    }
+}","/**
+ * Example:
+ * var ti = TreeNode(5)
+ * var v = ti.`val`
+ * Definition for a binary tree node.
+ * class TreeNode(var `val`: Int) {
+ *     var left: TreeNode? = null
+ *     var right: TreeNode? = null
+ * }
+ */
+class Solution {
+    fun treeQueries(root: TreeNode?, queries: IntArray): IntArray {
+        
+    }
+}","// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+// 
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    pub fn tree_queries(root: Option<Rc<RefCell<TreeNode>>>, queries: Vec<i32>) -> Vec<i32> {
+        
+    }
+}","/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     public $val = null;
+ *     public $left = null;
+ *     public $right = null;
+ *     function __construct($val = 0, $left = null, $right = null) {
+ *         $this->val = $val;
+ *         $this->left = $left;
+ *         $this->right = $right;
+ *     }
+ * }
+ */
+class Solution {
+
+    /**
+     * @param TreeNode $root
+     * @param Integer[] $queries
+     * @return Integer[]
+     */
+    function treeQueries($root, $queries) {
+        
+    }
+}","/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function treeQueries(root: TreeNode | null, queries: number[]): number[] {
+
+};","; Definition for a binary tree node.
+#|
+
+; val : integer?
+; left : (or/c tree-node? #f)
+; right : (or/c tree-node? #f)
+(struct tree-node
+  (val left right) #:mutable #:transparent)
+
+; constructor
+(define (make-tree-node [val 0])
+  (tree-node val #f #f))
+
+|#
+
+(define/contract (tree-queries root queries)
+  (-> (or/c tree-node? #f) (listof exact-integer?) (listof exact-integer?))
+
+  )","%% Definition for a binary tree node.
+%%
+%% -record(tree_node, {val = 0 :: integer(),
+%%                     left = null  :: 'null' | #tree_node{},
+%%                     right = null :: 'null' | #tree_node{}}).
+
+-spec tree_queries(Root :: #tree_node{} | null, Queries :: [integer()]) -> [integer()].
+tree_queries(Root, Queries) ->
+  .","# Definition for a binary tree node.
+#
+# defmodule TreeNode do
+#   @type t :: %__MODULE__{
+#           val: integer,
+#           left: TreeNode.t() | nil,
+#           right: TreeNode.t() | nil
+#         }
+#   defstruct val: 0, left: nil, right: nil
+# end
+
+defmodule Solution do
+  @spec tree_queries(root :: TreeNode.t | nil, queries :: [integer]) :: [integer]
+  def tree_queries(root, queries) do
+
+  end
+end","/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *   int val;
+ *   TreeNode? left;
+ *   TreeNode? right;
+ *   TreeNode([this.val = 0, this.left, this.right]);
+ * }
+ */
+class Solution {
+  List<int> treeQueries(TreeNode? root, List<int> queries) {
+
+  }
+}","[({'root': '[1,3,4,2,null,6,5,null,null,null,null,null,7]', 'queries': '[4]'}, '[2]'), ({'root': '[5,8,9,2,1,3,7,4,6]', 'queries': '[3,2,4,8]'}, '[3,2,3,2]')]"
+35,minimum-number-of-operations-to-make-arrays-similar,Minimum Number of Operations to Make Arrays Similar,2449.0,2539.0,"You are given two positive integer arrays nums and target, of the same length.
+In one operation, you can choose any two distinct indices i and j where 0 <= i, j < nums.length and:
+
+set nums[i] = nums[i] + 2 and
+set nums[j] = nums[j] - 2.
+
+Two arrays are considered to be similar if the frequency of each element is the same.
+Return the minimum number of operations required to make nums similar to target. The test cases are generated such that nums can always be similar to target.
+ 
+Example 1:
+
+Input: nums = [8,12,6], target = [2,14,10]
+Output: 2
+Explanation: It is possible to make nums similar to target in two operations:
+- Choose i = 0 and j = 2, nums = [10,12,4].
+- Choose i = 1 and j = 2, nums = [10,14,2].
+It can be shown that 2 is the minimum number of operations needed.
+
+Example 2:
+
+Input: nums = [1,2,5], target = [4,1,3]
+Output: 1
+Explanation: We can make nums similar to target in one operation:
+- Choose i = 1 and j = 2, nums = [1,4,3].
+
+Example 3:
+
+Input: nums = [1,1,1,1,1], target = [1,1,1,1,1]
+Output: 0
+Explanation: The array nums is already similiar to target.
+
+ 
+Constraints:
+
+n == nums.length == target.length
+1 <= n <= 105
+1 <= nums[i], target[i] <= 106
+It is possible to make nums similar to target.
+
+","class Solution {
+public:
+    long long makeSimilar(vector<int>& nums, vector<int>& target) {
+        
+    }
+};","class Solution {
+    public long makeSimilar(int[] nums, int[] target) {
+        
+    }
+}","class Solution(object):
+    def makeSimilar(self, nums, target):
+        """"""
+        :type nums: List[int]
+        :type target: List[int]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def makeSimilar(self, nums: List[int], target: List[int]) -> int:
+        ","long long makeSimilar(int* nums, int numsSize, int* target, int targetSize){
+
+}","public class Solution {
+    public long MakeSimilar(int[] nums, int[] target) {
+        
+    }
+}","/**
+ * @param {number[]} nums
+ * @param {number[]} target
+ * @return {number}
+ */
+var makeSimilar = function(nums, target) {
+    
+};","# @param {Integer[]} nums
+# @param {Integer[]} target
+# @return {Integer}
+def make_similar(nums, target)
+    
+end","class Solution {
+    func makeSimilar(_ nums: [Int], _ target: [Int]) -> Int {
+        
+    }
+}","func makeSimilar(nums []int, target []int) int64 {
+    
+}","object Solution {
+    def makeSimilar(nums: Array[Int], target: Array[Int]): Long = {
+        
+    }
+}","class Solution {
+    fun makeSimilar(nums: IntArray, target: IntArray): Long {
+        
+    }
+}","impl Solution {
+    pub fn make_similar(nums: Vec<i32>, target: Vec<i32>) -> i64 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @param Integer[] $target
+     * @return Integer
+     */
+    function makeSimilar($nums, $target) {
+        
+    }
+}","function makeSimilar(nums: number[], target: number[]): number {
+
+};","(define/contract (make-similar nums target)
+  (-> (listof exact-integer?) (listof exact-integer?) exact-integer?)
+
+  )","-spec make_similar(Nums :: [integer()], Target :: [integer()]) -> integer().
+make_similar(Nums, Target) ->
+  .","defmodule Solution do
+  @spec make_similar(nums :: [integer], target :: [integer]) :: integer
+  def make_similar(nums, target) do
+
+  end
+end","class Solution {
+  int makeSimilar(List<int> nums, List<int> target) {
+
+  }
+}","[({'nums': '[8,12,6]', 'target': '[2,14,10]'}, '2'), ({'nums': '[1,2,5]', 'target': '[4,1,3]'}, '1'), ({'nums': '[1,1,1,1,1]', 'target': '[1,1,1,1,1]'}, '0')]"
+36,minimum-cost-to-make-array-equal,Minimum Cost to Make Array Equal,2448.0,2538.0,"You are given two 0-indexed arrays nums and cost consisting each of n positive integers.
+You can do the following operation any number of times:
+
+Increase or decrease any element of the array nums by 1.
+
+The cost of doing one operation on the ith element is cost[i].
+Return the minimum total cost such that all the elements of the array nums become equal.
+ 
+Example 1:
+
+Input: nums = [1,3,5,2], cost = [2,3,1,14]
+Output: 8
+Explanation: We can make all the elements equal to 2 in the following way:
+- Increase the 0th element one time. The cost is 2.
+- Decrease the 1st element one time. The cost is 3.
+- Decrease the 2nd element three times. The cost is 1 + 1 + 1 = 3.
+The total cost is 2 + 3 + 3 = 8.
+It can be shown that we cannot make the array equal with a smaller cost.
+
+Example 2:
+
+Input: nums = [2,2,2,2,2], cost = [4,2,8,1,3]
+Output: 0
+Explanation: All the elements are already equal, so no operations are needed.
+
+ 
+Constraints:
+
+n == nums.length == cost.length
+1 <= n <= 105
+1 <= nums[i], cost[i] <= 106
+
+","class Solution {
+public:
+    long long minCost(vector<int>& nums, vector<int>& cost) {
+        
+    }
+};","class Solution {
+    public long minCost(int[] nums, int[] cost) {
+        
+    }
+}","class Solution(object):
+    def minCost(self, nums, cost):
+        """"""
+        :type nums: List[int]
+        :type cost: List[int]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def minCost(self, nums: List[int], cost: List[int]) -> int:
+        ","long long minCost(int* nums, int numsSize, int* cost, int costSize){
+
+}","public class Solution {
+    public long MinCost(int[] nums, int[] cost) {
+        
+    }
+}","/**
+ * @param {number[]} nums
+ * @param {number[]} cost
+ * @return {number}
+ */
+var minCost = function(nums, cost) {
+    
+};","# @param {Integer[]} nums
+# @param {Integer[]} cost
+# @return {Integer}
+def min_cost(nums, cost)
+    
+end","class Solution {
+    func minCost(_ nums: [Int], _ cost: [Int]) -> Int {
+        
+    }
+}","func minCost(nums []int, cost []int) int64 {
+    
+}","object Solution {
+    def minCost(nums: Array[Int], cost: Array[Int]): Long = {
+        
+    }
+}","class Solution {
+    fun minCost(nums: IntArray, cost: IntArray): Long {
+        
+    }
+}","impl Solution {
+    pub fn min_cost(nums: Vec<i32>, cost: Vec<i32>) -> i64 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @param Integer[] $cost
+     * @return Integer
+     */
+    function minCost($nums, $cost) {
+        
+    }
+}","function minCost(nums: number[], cost: number[]): number {
+
+};","(define/contract (min-cost nums cost)
+  (-> (listof exact-integer?) (listof exact-integer?) exact-integer?)
+
+  )","-spec min_cost(Nums :: [integer()], Cost :: [integer()]) -> integer().
+min_cost(Nums, Cost) ->
+  .","defmodule Solution do
+  @spec min_cost(nums :: [integer], cost :: [integer]) :: integer
+  def min_cost(nums, cost) do
+
+  end
+end","class Solution {
+  int minCost(List<int> nums, List<int> cost) {
+
+  }
+}","[({'nums': '[1,3,5,2]', 'cost': '[2,3,1,14]'}, '8'), ({'nums': '[2,2,2,2,2]', 'cost': '[4,2,8,1,3]'}, '0')]"
+37,create-components-with-same-value,Create Components With Same Value,2440.0,2531.0,"There is an undirected tree with n nodes labeled from 0 to n - 1.
+You are given a 0-indexed integer array nums of length n where nums[i] represents the value of the ith node. You are also given a 2D integer array edges of length n - 1 where edges[i] = [ai, bi] indicates that there is an edge between nodes ai and bi in the tree.
+You are allowed to delete some edges, splitting the tree into multiple connected components. Let the value of a component be the sum of all nums[i] for which node i is in the component.
+Return the maximum number of edges you can delete, such that every connected component in the tree has the same value.
+ 
+Example 1:
+
+
+Input: nums = [6,2,2,2,6], edges = [[0,1],[1,2],[1,3],[3,4]] 
+Output: 2 
+Explanation: The above figure shows how we can delete the edges [0,1] and [3,4]. The created components are nodes [0], [1,2,3] and [4]. The sum of the values in each component equals 6. It can be proven that no better deletion exists, so the answer is 2.
+
+Example 2:
+
+Input: nums = [2], edges = []
+Output: 0
+Explanation: There are no edges to be deleted.
+
+ 
+Constraints:
+
+1 <= n <= 2 * 104
+nums.length == n
+1 <= nums[i] <= 50
+edges.length == n - 1
+edges[i].length == 2
+0 <= edges[i][0], edges[i][1] <= n - 1
+edges represents a valid tree.
+
+","class Solution {
+public:
+    int componentValue(vector<int>& nums, vector<vector<int>>& edges) {
+        
+    }
+};","class Solution {
+    public int componentValue(int[] nums, int[][] edges) {
+        
+    }
+}","class Solution(object):
+    def componentValue(self, nums, edges):
+        """"""
+        :type nums: List[int]
+        :type edges: List[List[int]]
+        :rtype: int
+        """"""
+        ","class Solution:
+    def componentValue(self, nums: List[int], edges: List[List[int]]) -> int:
+        ","int componentValue(int* nums, int numsSize, int** edges, int edgesSize, int* edgesColSize){
+
+}","public class Solution {
+    public int ComponentValue(int[] nums, int[][] edges) {
+        
+    }
+}","/**
+ * @param {number[]} nums
+ * @param {number[][]} edges
+ * @return {number}
+ */
+var componentValue = function(nums, edges) {
+    
+};","# @param {Integer[]} nums
+# @param {Integer[][]} edges
+# @return {Integer}
+def component_value(nums, edges)
+    
+end","class Solution {
+    func componentValue(_ nums: [Int], _ edges: [[Int]]) -> Int {
+        
+    }
+}","func componentValue(nums []int, edges [][]int) int {
+    
+}","object Solution {
+    def componentValue(nums: Array[Int], edges: Array[Array[Int]]): Int = {
+        
+    }
+}","class Solution {
+    fun componentValue(nums: IntArray, edges: Array<IntArray>): Int {
+        
+    }
+}","impl Solution {
+    pub fn component_value(nums: Vec<i32>, edges: Vec<Vec<i32>>) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @param Integer[][] $edges
+     * @return Integer
+     */
+    function componentValue($nums, $edges) {
+        
+    }
+}","function componentValue(nums: number[], edges: number[][]): number {
+
+};","(define/contract (component-value nums edges)
+  (-> (listof exact-integer?) (listof (listof exact-integer?)) exact-integer?)
+
+  )","-spec component_value(Nums :: [integer()], Edges :: [[integer()]]) -> integer().
+component_value(Nums, Edges) ->
+  .","defmodule Solution do
+  @spec component_value(nums :: [integer], edges :: [[integer]]) :: integer
+  def component_value(nums, edges) do
+
+  end
+end","class Solution {
+  int componentValue(List<int> nums, List<List<int>> edges) {
+
+  }
+}","[({'nums': '[6,2,2,2,6]', 'edges': '[[0,1],[1,2],[1,3],[3,4]]'}, '2'), ({'nums': '[2]', 'edges': '[]'}, '0')]"
+38,count-subarrays-with-fixed-bounds,Count Subarrays With Fixed Bounds,2444.0,2527.0,"You are given an integer array nums and two integers minK and maxK.
+A fixed-bound subarray of nums is a subarray that satisfies the following conditions:
+
+The minimum value in the subarray is equal to minK.
+The maximum value in the subarray is equal to maxK.
+
+Return the number of fixed-bound subarrays.
+A subarray is a contiguous part of an array.
+ 
+Example 1:
+
+Input: nums = [1,3,5,2,7,5], minK = 1, maxK = 5
+Output: 2
+Explanation: The fixed-bound subarrays are [1,3,5] and [1,3,5,2].
+
+Example 2:
+
+Input: nums = [1,1,1,1], minK = 1, maxK = 1
+Output: 10
+Explanation: Every subarray of nums is a fixed-bound subarray. There are 10 possible subarrays.
+
+ 
+Constraints:
+
+2 <= nums.length <= 105
+1 <= nums[i], minK, maxK <= 106
+
+","class Solution {
+public:
+    long long countSubarrays(vector<int>& nums, int minK, int maxK) {
+        
+    }
+};","class Solution {
+    public long countSubarrays(int[] nums, int minK, int maxK) {
+        
+    }
+}","class Solution(object):
+    def countSubarrays(self, nums, minK, maxK):
+        """"""
+        :type nums: List[int]
+        :type minK: int
+        :type maxK: int
+        :rtype: int
+        """"""
+        ","class Solution:
+    def countSubarrays(self, nums: List[int], minK: int, maxK: int) -> int:
+        ","long long countSubarrays(int* nums, int numsSize, int minK, int maxK){
+
+}","public class Solution {
+    public long CountSubarrays(int[] nums, int minK, int maxK) {
+        
+    }
+}","/**
+ * @param {number[]} nums
+ * @param {number} minK
+ * @param {number} maxK
+ * @return {number}
+ */
+var countSubarrays = function(nums, minK, maxK) {
+    
+};","# @param {Integer[]} nums
+# @param {Integer} min_k
+# @param {Integer} max_k
+# @return {Integer}
+def count_subarrays(nums, min_k, max_k)
+    
+end","class Solution {
+    func countSubarrays(_ nums: [Int], _ minK: Int, _ maxK: Int) -> Int {
+        
+    }
+}","func countSubarrays(nums []int, minK int, maxK int) int64 {
+    
+}","object Solution {
+    def countSubarrays(nums: Array[Int], minK: Int, maxK: Int): Long = {
+        
+    }
+}","class Solution {
+    fun countSubarrays(nums: IntArray, minK: Int, maxK: Int): Long {
+        
+    }
+}","impl Solution {
+    pub fn count_subarrays(nums: Vec<i32>, min_k: i32, max_k: i32) -> i64 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @param Integer $minK
+     * @param Integer $maxK
+     * @return Integer
+     */
+    function countSubarrays($nums, $minK, $maxK) {
+        
+    }
+}","function countSubarrays(nums: number[], minK: number, maxK: number): number {
+
+};","(define/contract (count-subarrays nums minK maxK)
+  (-> (listof exact-integer?) exact-integer? exact-integer? exact-integer?)
+
+  )","-spec count_subarrays(Nums :: [integer()], MinK :: integer(), MaxK :: integer()) -> integer().
+count_subarrays(Nums, MinK, MaxK) ->
+  .","defmodule Solution do
+  @spec count_subarrays(nums :: [integer], min_k :: integer, max_k :: integer) :: integer
+  def count_subarrays(nums, min_k, max_k) do
+
+  end
+end","class Solution {
+  int countSubarrays(List<int> nums, int minK, int maxK) {
+
+  }
+}","[({'nums': '[1,3,5,2,7,5]', 'minK': '1', 'maxK': '5'}, '2'), ({'nums': '[1,1,1,1]', 'minK': '1', 'maxK': '1'}, '10')]"
+39,longest-increasing-subsequence-ii,Longest Increasing Subsequence II,2407.0,2526.0,"You are given an integer array nums and an integer k.
+Find the longest subsequence of nums that meets the following requirements:
+
+The subsequence is strictly increasing and
+The difference between adjacent elements in the subsequence is at most k.
+
+Return the length of the longest subsequence that meets the requirements.
+A subsequence is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.
+ 
+Example 1:
+
+Input: nums = [4,2,1,4,3,4,5,8,15], k = 3
+Output: 5
+Explanation:
+The longest subsequence that meets the requirements is [1,3,4,5,8].
+The subsequence has a length of 5, so we return 5.
+Note that the subsequence [1,3,4,5,8,15] does not meet the requirements because 15 - 8 = 7 is larger than 3.
+
+Example 2:
+
+Input: nums = [7,4,5,1,8,12,4,7], k = 5
+Output: 4
+Explanation:
+The longest subsequence that meets the requirements is [4,5,8,12].
+The subsequence has a length of 4, so we return 4.
+
+Example 3:
+
+Input: nums = [1,5], k = 1
+Output: 1
+Explanation:
+The longest subsequence that meets the requirements is [1].
+The subsequence has a length of 1, so we return 1.
+
+ 
+Constraints:
+
+1 <= nums.length <= 105
+1 <= nums[i], k <= 105
+
+","class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums, int k) {
+        
+    }
+};","class Solution {
+    public int lengthOfLIS(int[] nums, int k) {
+        
+    }
+}","class Solution(object):
+    def lengthOfLIS(self, nums, k):
+        """"""
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """"""
+        ","class Solution:
+    def lengthOfLIS(self, nums: List[int], k: int) -> int:
+        ","int lengthOfLIS(int* nums, int numsSize, int k){
+
+}","public class Solution {
+    public int LengthOfLIS(int[] nums, int k) {
+        
+    }
+}","/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var lengthOfLIS = function(nums, k) {
+    
+};","# @param {Integer[]} nums
+# @param {Integer} k
+# @return {Integer}
+def length_of_lis(nums, k)
+    
+end","class Solution {
+    func lengthOfLIS(_ nums: [Int], _ k: Int) -> Int {
+        
+    }
+}","func lengthOfLIS(nums []int, k int) int {
+    
+}","object Solution {
+    def lengthOfLIS(nums: Array[Int], k: Int): Int = {
+        
+    }
+}","class Solution {
+    fun lengthOfLIS(nums: IntArray, k: Int): Int {
+        
+    }
+}","impl Solution {
+    pub fn length_of_lis(nums: Vec<i32>, k: i32) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @param Integer $k
+     * @return Integer
+     */
+    function lengthOfLIS($nums, $k) {
+        
+    }
+}","function lengthOfLIS(nums: number[], k: number): number {
+
+};","(define/contract (length-of-lis nums k)
+  (-> (listof exact-integer?) exact-integer? exact-integer?)
+
+  )","-spec length_of_lis(Nums :: [integer()], K :: integer()) -> integer().
+length_of_lis(Nums, K) ->
+  .","defmodule Solution do
+  @spec length_of_lis(nums :: [integer], k :: integer) :: integer
+  def length_of_lis(nums, k) do
+
+  end
+end","class Solution {
+  int lengthOfLIS(List<int> nums, int k) {
+
+  }
+}","[({'nums': '[4,2,1,4,3,4,5,8,15]', 'k': '3'}, '5'), ({'nums': '[7,4,5,1,8,12,4,7]', 'k': '5'}, '4'), ({'nums': '[1,5]', 'k': '1'}, '1')]"
+40,paths-in-matrix-whose-sum-is-divisible-by-k,Paths in Matrix Whose Sum Is Divisible by K,2435.0,2521.0,"You are given a 0-indexed m x n integer matrix grid and an integer k. You are currently at position (0, 0) and you want to reach position (m - 1, n - 1) moving only down or right.
+Return the number of paths where the sum of the elements on the path is divisible by k. Since the answer may be very large, return it modulo 109 + 7.
+ 
+Example 1:
+
+
+Input: grid = [[5,2,4],[3,0,5],[0,7,2]], k = 3
+Output: 2
+Explanation: There are two paths where the sum of the elements on the path is divisible by k.
+The first path highlighted in red has a sum of 5 + 2 + 4 + 5 + 2 = 18 which is divisible by 3.
+The second path highlighted in blue has a sum of 5 + 3 + 0 + 5 + 2 = 15 which is divisible by 3.
+
+Example 2:
+
+
+Input: grid = [[0,0]], k = 5
+Output: 1
+Explanation: The path highlighted in red has a sum of 0 + 0 = 0 which is divisible by 5.
+
+Example 3:
+
+
+Input: grid = [[7,3,4,9],[2,3,6,2],[2,3,7,0]], k = 1
+Output: 10
+Explanation: Every integer is divisible by 1 so the sum of the elements on every possible path is divisible by k.
+
+ 
+Constraints:
+
+m == grid.length
+n == grid[i].length
+1 <= m, n <= 5 * 104
+1 <= m * n <= 5 * 104
+0 <= grid[i][j] <= 100
+1 <= k <= 50
+
+","class Solution {
+public:
+    int numberOfPaths(vector<vector<int>>& grid, int k) {
+        
+    }
+};","class Solution {
+    public int numberOfPaths(int[][] grid, int k) {
+        
+    }
+}","class Solution(object):
+    def numberOfPaths(self, grid, k):
+        """"""
+        :type grid: List[List[int]]
+        :type k: int
+        :rtype: int
+        """"""
+        ","class Solution:
+    def numberOfPaths(self, grid: List[List[int]], k: int) -> int:
+        ","int numberOfPaths(int** grid, int gridSize, int* gridColSize, int k){
+
+}","public class Solution {
+    public int NumberOfPaths(int[][] grid, int k) {
+        
+    }
+}","/**
+ * @param {number[][]} grid
+ * @param {number} k
+ * @return {number}
+ */
+var numberOfPaths = function(grid, k) {
+    
+};","# @param {Integer[][]} grid
+# @param {Integer} k
+# @return {Integer}
+def number_of_paths(grid, k)
+    
+end","class Solution {
+    func numberOfPaths(_ grid: [[Int]], _ k: Int) -> Int {
+        
+    }
+}","func numberOfPaths(grid [][]int, k int) int {
+    
+}","object Solution {
+    def numberOfPaths(grid: Array[Array[Int]], k: Int): Int = {
+        
+    }
+}","class Solution {
+    fun numberOfPaths(grid: Array<IntArray>, k: Int): Int {
+        
+    }
+}","impl Solution {
+    pub fn number_of_paths(grid: Vec<Vec<i32>>, k: i32) -> i32 {
+        
+    }
+}","class Solution {
+
+    /**
+     * @param Integer[][] $grid
+     * @param Integer $k
+     * @return Integer
+     */
+    function numberOfPaths($grid, $k) {
+        
+    }
+}","function numberOfPaths(grid: number[][], k: number): number {
+
+};","(define/contract (number-of-paths grid k)
+  (-> (listof (listof exact-integer?)) exact-integer? exact-integer?)
+
+  )","-spec number_of_paths(Grid :: [[integer()]], K :: integer()) -> integer().
+number_of_paths(Grid, K) ->
+  .","defmodule Solution do
+  @spec number_of_paths(grid :: [[integer]], k :: integer) :: integer
+  def number_of_paths(grid, k) do
+
+  end
+end","class Solution {
+  int numberOfPaths(List<List<int>> grid, int k) {
+
+  }
+}","[({'grid': '[[5,2,4],[3,0,5],[0,7,2]]', 'k': '3'}, '2'), ({'grid': '[[0,0]]', 'k': '5'}, '1'), ({'grid': '[[7,3,4,9],[2,3,6,2],[2,3,7,0]]', 'k': '1'}, '10')]"
