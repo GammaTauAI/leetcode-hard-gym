@@ -28,7 +28,7 @@ Supports:
   - OpenAI's GPT-4: `10.7` ([source](https://arxiv.org/pdf/2303.12712.pdf))
   - OpenAI's Codex: `3.6` ([source](https://arxiv.org/pdf/2303.12712.pdf))
   - OpenAI's GPT-3.5: `0.0` ([source](https://arxiv.org/pdf/2303.12712.pdf))
-  - Reflexion + GPT-4: `???`
+  - Reflexion + GPT-4: `15.0` ([source](https://arxiv.org/abs/2303.11366))
 
 ### Setup:
 - pip install requirements
