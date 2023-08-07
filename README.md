@@ -85,3 +85,17 @@ print(status, reward, done, submission_result)
 
 Note: compare result was shortened here, it contains a sequence of booleans indicating if a test was passed
 
+### Cite
+
+This benchmark was introduced in the following paper:
+
+```bibtex
+@misc{shinn2023reflexion,
+      title={Reflexion: Language Agents with Verbal Reinforcement Learning}, 
+      author={Noah Shinn and Federico Cassano and Beck Labash and Ashwin Gopinath and Karthik Narasimhan and Shunyu Yao},
+      year={2023},
+      eprint={2303.11366},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI}
+}
+```
