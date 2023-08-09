@@ -703,7 +703,7 @@ end","class Solution {
   int minimumScore(String s, String t) {
 
   }
-}","[({}, '1'), ({}, '3')]"
+}","[({'s': 'abacaba', 't': 'bzaa'}, '1'), ({'s': 'cde', 't': 'xyz'}, '3')]"
 6,minimum-number-of-visited-cells-in-a-grid,Minimum Number of Visited Cells in a Grid,2617.0,2697.0,"You are given a 0-indexed m x n integer matrix grid. Your initial position is at the top-left cell (0, 0).
 Starting from the cell (i, j), you can move to one of the following cells:
 
