@@ -2467,7 +2467,7 @@ end","class Solution {
   int countAnagrams(String s) {
 
   }
-}","[({}, '18'), ({}, '1')]"
+}","[({'s': 'too hot'}, '18'), ({'s': 'aa'}, '1')]"
 21,number-of-great-partitions,Number of Great Partitions,2518.0,2601.0,"You are given an array nums consisting of positive integers and an integer k.
 Partition the array into two ordered groups such that each element is in exactly one group. A partition is called great if the sum of elements of each group is greater than or equal to k.
 Return the number of distinct great partitions. Since the answer may be too large, return it modulo 109 + 7.
@@ -2825,7 +2825,7 @@ end","class Solution {
   bool isPossible(int n, List<List<int>> edges) {
 
   }
-}","[({'n': '5', 'edges': '[[1,2],[2,3],[3,4],[4,2],[1,4],[2,5]]'}, 'rue'), ({'n': '4', 'edges': '[[1,2],[3,4]]'}, 'rue'), ({'n': '4', 'edges': '[[1,2],[1,3],[1,4]]'}, 'false')]"
+}","[({'n': '5', 'edges': '[[1,2],[2,3],[3,4],[4,2],[1,4],[2,5]]'}, 'true'), ({'n': '4', 'edges': '[[1,2],[3,4]]'}, 'true'), ({'n': '4', 'edges': '[[1,2],[1,3],[1,4]]'}, 'false')]"
 24,minimum-total-cost-to-make-arrays-unequal,Minimum Total Cost to Make Arrays Unequal,2499.0,2592.0,"You are given two 0-indexed integer arrays nums1 and nums2, of equal length n.
 In one operation, you can swap the values of any two indices of nums1. The cost of this operation is the sum of the indices.
 Find the minimum total cost of performing the given operation any number of times such that nums1[i] != nums2[i] for all 0 <= i <= n - 1 after performing all the operations.
@@ -3295,7 +3295,7 @@ end","class Solution {
   int countPalindromes(String s) {
 
   }
-}","[({}, '2'), ({}, '21'), ({}, '2')]"
+}","[({'s': '103301'}, '2'), ({'s': '0000000'}, '21'), ({'s': '9999900000'}, '2')]"
 28,count-subarrays-with-median-k,Count Subarrays With Median K,2488.0,2574.0,"You are given an array nums of size n consisting of distinct integers from 1 to n and a positive integer k.
 Return the number of non-empty subarrays in nums that have a median equal to k.
 Note:
@@ -3531,7 +3531,7 @@ end","class Solution {
   int beautifulPartitions(String s, int k, int minLength) {
 
   }
-}","[({'k': '3', 'minLength': '2'}, '3'), ({'k': '3', 'minLength': '3'}, '1'), ({'k': '3', 'minLength': '1'}, '1')]"
+}","[({'s': '23542185131', 'k': '3', 'minLength': '2'}, '3'), ({'s': '23542185131', 'k': '3', 'minLength': '3'}, '1'), ({'s': '3312958', 'k': '3', 'minLength': '1'}, '1')]"
 30,split-message-based-on-limit,Split Message Based on Limit,2468.0,2563.0,"You are given a string, message, and a positive integer, limit.
 You must split message into one or more parts based on limit. Each resulting part should have the suffix ""<a/b>"", where ""b"" is to be replaced with the total number of parts and ""a"" is to be replaced with the index of the part, starting from 1 and going up to b. Additionally, the length of each resulting part (including its suffix) should be equal to limit, except for the last part whose length can be at most limit.
 The resulting parts should be formed such that when their suffixes are removed and they are all concatenated in order, they should be equal to message. Also, the result should contain as few parts as possible.
@@ -3646,7 +3646,7 @@ end","class Solution {
   List<String> splitMessage(String message, int limit) {
 
   }
-}","[({'limit': '9'}, '[""thi<1/14>"",""s i<2/14>"",""s r<3/14>"",""eal<4/14>"",""ly <5/14>"",""a v<6/14>"",""ery<7/14>"","" aw<8/14>"",""eso<9/14>"",""me<10/14>"","" m<11/14>"",""es<12/14>"",""sa<13/14>"",""ge<14/14>""]'), ({'limit': '15'}, '[""short mess<1/2>"",""age<2/2>""]')]"
+}","[({'message': 'this is really a very awesome message', 'limit': '9'}, '[""thi<1/14>"",""s i<2/14>"",""s r<3/14>"",""eal<4/14>"",""ly <5/14>"",""a v<6/14>"",""ery<7/14>"","" aw<8/14>"",""eso<9/14>"",""me<10/14>"","" m<11/14>"",""es<12/14>"",""sa<13/14>"",""ge<14/14>""]'), ({'message': 'short message', 'limit': '15'}, '[""short mess<1/2>"",""age<2/2>""]')]"
 31,maximum-number-of-non-overlapping-palindrome-substrings,Maximum Number of Non-overlapping Palindrome Substrings,2472.0,2559.0,"You are given a string s and a positive integer k.
 Select a set of non-overlapping substrings from the string s that satisfy the following conditions:
 
@@ -3755,7 +3755,7 @@ end","class Solution {
   int maxPalindromes(String s, int k) {
 
   }
-}","[({'k': '3'}, '2'), ({'k': '2'}, '0')]"
+}","[({'s': 'abaccdbbd', 'k': '3'}, '2'), ({'s': 'adbcda', 'k': '2'}, '0')]"
 32,minimum-total-distance-traveled,Minimum Total Distance Traveled,2463.0,2554.0,"There are some robots and factories on the X-axis. You are given an integer array robot where robot[i] is the position of the ith robot. You are also given a 2D integer array factory where factory[j] = [positionj, limitj] indicates that positionj is the position of the jth factory and that the jth factory can repair at most limitj robots.
 The positions of each robot are unique. The positions of each factory are also unique. Note that a robot can be in the same position as a factory initially.
 All the robots are initially broken; they keep moving in one direction. The direction could be the negative or the positive direction of the X-axis. When a robot reaches a factory that did not reach its limit, the factory repairs the robot, and it stops moving.
