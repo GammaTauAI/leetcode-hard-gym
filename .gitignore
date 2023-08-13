@@ -3,3 +3,5 @@ env/
 __pycache__/
 SubmissionTest.ipynb
 .vscode/
+data/
+__init__.py
