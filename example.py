@@ -1,19 +1,19 @@
-from .leetcode_env.environment import LeetCodeEnv
-from .leetcode_env.leetcode_types import LeetCodeSubmission, ProgrammingLanguage
-from .leetcode_env.utils import id_from_slug
+from leetcode_env.environment import LeetCodeEnv
+from leetcode_env.types import LeetCodeSubmission, ProgrammingLanguage
+
 code = """
 class Solution:
     def twoSum(self, nums, target):
-        return [0]
+        l = len(nums)
+        for i in range(l - 1):
+            for j in range(i + 1, l):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
 """
-lang = ProgrammingLanguage.PYTHON3
-question_id = 1
-question_slug = 'two-sum'
 
 sub = LeetCodeSubmission(code=code,
-                         lang=lang,
-                         question_id=id_from_slug(question_slug),
-                         question_slug=question_slug)
+                         lang=ProgrammingLanguage.PYTHON3,
+                         question_slug='two-sum')
 
 env = LeetCodeEnv()
 

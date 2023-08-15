@@ -1,11 +1,8 @@
 import pandas as pd
 import time
-import sys
 import ast
 import re
-sys.path.append('..')
-from .utils import test_cases_from_slug
-import re
+from leetcode_env.utils import test_cases_from_slug
 
 def extract_examples(description):
     inputs = [l for l in description.split('\n') if l.startswith('Input')]

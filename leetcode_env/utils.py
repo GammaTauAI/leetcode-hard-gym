@@ -4,22 +4,6 @@ from abc import ABC, abstractmethod
 import os
 import astunparse
 import leetcode
-# import dotenv
-
-# dotenv.load_dotenv()
-
-# configuration = leetcode.Configuration()
-
-# leetcode_session = os.environ["LEETCODE_SESSION"]
-# csrf_token = leetcode.auth.get_csrf_cookie(leetcode_session)
-
-# configuration.api_key["x-csrftoken"] = csrf_token
-# configuration.api_key["csrftoken"] = csrf_token
-# configuration.api_key["LEETCODE_SESSION"] = leetcode_session
-# configuration.api_key["Referer"] = "https://leetcode.com"
-# configuration.debug = False
-
-# api_instance = leetcode.DefaultApi(leetcode.ApiClient(configuration))
 
 def id_from_slug(slug: str, api_instance) -> str:
     """
