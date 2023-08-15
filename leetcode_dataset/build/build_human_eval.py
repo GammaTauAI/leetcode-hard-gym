@@ -6,8 +6,6 @@ import pandas as pd
 import re
 import json
 
-import os, sys
-sys.path.append(os.path.abspath(os.path.join('../../')))
 from leetcode_env.utils import PySubmissionFormatter, RsSubmissionFormatter, metadata_from_slug
 from leetcode_env.environment import LeetCodeEnv
 

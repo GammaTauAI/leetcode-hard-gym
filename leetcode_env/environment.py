@@ -7,20 +7,25 @@ import gym
 import leetcode
 import leetcode.auth
 
-from .leetcode_types import LeetCodeSubmission
+from .types import LeetCodeSubmission
 from .utils import id_from_slug
 
 dotenv.load_dotenv()
 
-class LeetCodeEnv(gym.Env):
-    metadata = {'render.modes': ['human']}
 
-    def __init__(self, cooldown = 0):
+class LeetCodeEnv(gym.Env):
+    """
+    Gym environment for LeetCode submissions
+    """
+
+    metadata = {"render.modes": ["human"]}
+
+    def __init__(self, cooldown=0):
         super(LeetCodeEnv, self).__init__()
         self.__configure_leetcode()
         self.reward = False
-        self.last_run = None 
-        self.cooldown = cooldown # To avoid rate limit
+        self.last_run = None
+        self.cooldown = cooldown  # To avoid rate limit
 
     def __configure_leetcode(self):
         configuration = leetcode.Configuration()
@@ -38,7 +43,18 @@ class LeetCodeEnv(gym.Env):
         self.api_instance = leetcode.DefaultApi(leetcode.ApiClient(configuration))
 
     def step(self, action: LeetCodeSubmission):
+        """
+        Sends a submission to LeetCode and returns the result
 
+        Args:
+            action (LeetCodeSubmission): LeetCodeSubmission object
+
+        Returns:
+            status (str): 'Accepted' | 'Runtime Error'| 'Wrong Answer' | 'Submission Timed-Out' | 'Unknown'
+            reward (bool): True if status is 'Accepted', False otherwise
+            done (bool): True if status is 'Accepted', False otherwise
+            submission_result (dict): LeetCode API response
+        """
         submission_result = self.__send_submission(action)
 
         reward, status = self.__calculate_reward(submission_result)
@@ -59,7 +75,11 @@ class LeetCodeEnv(gym.Env):
             sub.question_id = id_from_slug(sub.question_slug, self.api_instance)
 
         submission = leetcode.Submission(
-            judge_type="large", typed_code=sub.code, question_id=sub.question_id, test_mode=False, lang=sub.lang.value
+            judge_type="large",
+            typed_code=sub.code,
+            question_id=sub.question_id,
+            test_mode=False,
+            lang=sub.lang.value,
         )
 
         submission_id = self.api_instance.problems_problem_submit_post(
@@ -75,20 +95,25 @@ class LeetCodeEnv(gym.Env):
         return submission_result
 
     def __calculate_reward(self, submission_result):
-        if submission_result == {'state': 'STARTED'}:
-            status_msg = 'Submission Timed-Out'
+        if submission_result == {"state": "STARTED"}:
+            status_msg = "Submission Timed-Out"
 
-        elif 'status' in submission_result.keys() and submission_result['status'] == 'PENDING':
-            status_msg = 'Submission Timed-Out'
-        
-        elif 'status_msg' in submission_result.keys():
-            status_msg = submission_result['status_msg'] # 'Accepted' | 'Runtime Error'| 'Wrong Answer' 
+        elif (
+            "status" in submission_result.keys()
+            and submission_result["status"] == "PENDING"
+        ):
+            status_msg = "Submission Timed-Out"
+
+        elif "status_msg" in submission_result.keys():
+            status_msg = submission_result[
+                "status_msg"
+            ]  # 'Accepted' | 'Runtime Error'| 'Wrong Answer'
 
         else:
-            status_msg = 'Unknown'
-            
-        return status_msg == 'Accepted', status_msg
-    
+            status_msg = "Unknown"
+
+        return status_msg == "Accepted", status_msg
+
     def __wait_for_cooldown(self):
         if self.last_run == None:
             self.last_run = datetime.now()
@@ -99,4 +124,3 @@ class LeetCodeEnv(gym.Env):
 
     def is_done(self):
         return self.reward
-
