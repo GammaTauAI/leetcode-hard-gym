@@ -120,7 +120,7 @@ python build.py --langs python3 rust --log_level INFO --output_dir ./build
 
 If the `--extract_test_cases` option is used, the `openai` and `langchain` libraries are required. These can be installed with:
 ```python
- pip3 install openai langchain
+ pip3 install openai langchain termcolor
 ```
 
 ### Output
