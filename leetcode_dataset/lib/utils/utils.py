@@ -2,7 +2,43 @@ import json
 import time
 import requests
 from bs4 import BeautifulSoup
+import os
 from typing import List
+import leetcode
+import leetcode.auth
+from typing import Dict
+
+def lines_to_jsonl(lines: List[Dict], file_path: str):
+    """
+    Convert a list of dicts to a jsonl file
+    """
+    # Empty the current file
+    open(file_path, 'w').close()
+
+    with open(file_path, 'a') as file:
+        for dict_data in lines:
+            json_line = json.dumps(dict_data)
+            file.write(json_line + os.linesep)
+
+def get_api_instance():
+    """
+    Get the leetcode api instance
+    """
+    configuration = leetcode.Configuration()
+
+    # From Dev Tools/Application/Cookies/LEETCODE_SESSION
+    leetcode_session = os.environ["LEETCODE_SESSION"]
+    csrf_token = leetcode.auth.get_csrf_cookie(leetcode_session)
+
+    configuration.api_key["x-csrftoken"] = csrf_token
+    configuration.api_key["csrftoken"] = csrf_token
+    configuration.api_key["LEETCODE_SESSION"] = leetcode_session
+    configuration.api_key["Referer"] = "https://leetcode.com"
+    configuration.debug = False
+
+    api_instance = leetcode.DefaultApi(leetcode.ApiClient(configuration))
+
+    return api_instance
 
 def get_question(url):
     """
@@ -75,3 +111,4 @@ headers = {
 def test_cases_from_slug(slug: str) -> List[str]:
     response = requests.post(url, headers=headers, data=payload(slug))
     return dict(response.json())['data']['question']['exampleTestcaseList']
+

@@ -1,58 +1,65 @@
 import os
+import logging
 import argparse
+from lib.fetch_dataset import fetch_dataset
+from lib.utils.utils import get_api_instance
+from lib.clean_dataset import remove_class_dependent, remove_void, remove_class_impls, remove_examples
+from lib.format_dataset import format_problems, to_jsonl
 
-def main():
-    parser = argparse.ArgumentParser(description="A simple build script for Python and Rust.")
-    parser.add_argument(
-        "--lang",
-        choices=["python", "rust"],
-        required=True,
-        help="The programming language for the build. Choices: 'python' or 'rust'.",
-    )
+parser = argparse.ArgumentParser(description="Configuration for building uncontaminated Leetcode Hard dataset")
+parser.add_argument('--langs', nargs='+', default=['python3'], help="List of languages. Possible options are: rust, python3")
+parser.add_argument('--log_level', type=str, default='INFO', help="Logging level. Options: DEBUG, INFO, WARNING, ERROR, CRITICAL.")
+parser.add_argument('--output_dir', type=str, default="./build", help="Directory to save the built dataset.")
+parser.add_argument('--extract_test_cases', action='store_true', help="If set, test cases will be extracted from problem descriptions using GPT.")
+parser.add_argument('--remove_examples', action='store_true', help="If set, examples will be removed. Cannot be used with --extract_test_cases.")
 
-    # Add output directory argument that defaults to os.getcwd()
-    parser.add_argument(
-        "--output_dir",
-        default=os.getcwd(),
-        help="The directory to output the build artifacts.",
-    )
+args = parser.parse_args()
 
+langs = args.langs
+log_level = getattr(logging, args.log_level.upper())
+output_dir = args.output_dir
+extract_test_cases = args.extract_test_cases
+remove_examples_ = args.remove_examples
 
-    # Add an argument called keep_temp that defaults to false
-    parser.add_argument(
-        "--keep_temp",
-        action="store_true",
-        help="Keep the temporary build directory.",
-    )
+try:
+    os.environ["LEETCODE_SESSION"]
+except:
+    print("Environment variable LEETCODE_SESSION is not set. Please refer to README")
+    exit(1)
 
-    args = parser.parse_args() 
-
-    build_dataset(args)
-
-import leetcode
-import leetcode.auth
-configuration = leetcode.Configuration()
-
-# From Dev Tools/Application/Cookies/LEETCODE_SESSION
-leetcode_session = os.environ["LEETCODE_SESSION"]
-csrf_token = leetcode.auth.get_csrf_cookie(leetcode_session)
-
-configuration.api_key["x-csrftoken"] = csrf_token
-configuration.api_key["csrftoken"] = csrf_token
-configuration.api_key["LEETCODE_SESSION"] = leetcode_session
-configuration.api_key["Referer"] = "https://leetcode.com"
-configuration.debug = False
-
-api_instance = leetcode.DefaultApi(leetcode.ApiClient(configuration))
-
-def build_dataset(args):
-    if args.lang == "python":
-        print("Building a Python project...")
-        # Add your Python build logic here
-    elif args.lang == "rust":
-        print("Building a Rust project...")
-        # Add your Rust build logic here
+if extract_test_cases:
+    try:
+        os.environ["OPENAI_API_KEY"]
+        import openai
+        import langchain
+    except:
+        print("Extra dependencies and setup are required for test case extraction. Please refer to README")
+        exit(1)
+    if remove_examples_:
+        print("Cannot use --remove_examples with --extract_test_cases")
+        exit(1)
 
 
-if __name__ == "__main__":
-    main()
+logging.basicConfig(level=log_level)
+os.makedirs(output_dir, exist_ok=True)
+
+api_instance = get_api_instance()
+dataset = fetch_dataset(api_instance)
+
+filtered_dataset = \
+    remove_class_impls(
+    remove_void(
+    remove_class_dependent(dataset)))
+
+if remove_examples_:
+    filtered_dataset = remove_examples(filtered_dataset)
+
+logging.info(f"Filtered out {len(dataset) - len(filtered_dataset)} problem(s)")
+
+for lang in langs:
+    logging.info(f"Formatting dataset for {lang}")
+    formatted_dataset = format_problems(filtered_dataset, lang)
+    if extract_test_cases:
+        from lib.add_test_cases import extract_test_cases
+        formatted_dataset = extract_test_cases(formatted_dataset, lang)
+    to_jsonl(formatted_dataset, os.path.join(output_dir, f'leetcode-hard-uncontaminated-{lang}.jsonl'))

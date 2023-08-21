@@ -92,6 +92,41 @@ print(status, reward, done, submission_result)
 
 Note: compare result was shortened here, it contains a sequence of booleans indicating if a test was passed
 
+## LeetcodeHardGym Dataset
+
+A script is provided to build an uncontaminated set of free Leetcode Hard problems in a format similar to HumanEval. It fetches the dataset, filters out class-dependent, void, and class implementation problems, and formats the problems for the specified programming languages. Optionally, it can extract test cases from examples in problem descriptions using GPT, or remove these examples from generated docstrings.
+
+### Usage
+
+To build the dataset, `leetcode_env` must be installed in the current environment. Then, we can run the following command from the `leetcode_dataset/` directory of this repository:
+```bash
+python build.py --langs python3 rust --log_level INFO --output_dir ./build
+```
+
+### Arguments
+
+- `--langs`: List of languages. Current options are: rust, python3.
+- `--log_level`: Logging level. Options: DEBUG, INFO, WARNING, ERROR, CRITICAL. Default is INFO.
+- `--output_dir`: Directory to save the built dataset. Default is ./build.
+- `--extract_test_cases`: If set, test cases will be extracted from problem descriptions using GPT.
+- `--remove_examples`: If set, examples will be removed. Cannot be used with --extract_test_cases.
+
+### Environment Variables
+
+- `LEETCODE_SESSION`: This environment variable must be set for the script to run. Please refer to the Setup section for instructions on how to obtain your session cookie. 
+- `OPENAI_API_KEY`: This environment variable is required if the `--extract_test_cases` option is used. Please refer to the OpenAI API documentation for instructions on how to obtain your API key.
+
+### Dependencies
+
+If the `--extract_test_cases` option is used, the `openai` and `langchain` libraries are required. These can be installed with:
+```python
+ pip3 install openai langchain
+```
+
+### Output
+
+The script will output a .jsonl file for each specified language in the output directory. The filename will be in the format `leetcode-hard-uncontaminated-{lang}.jsonl`.
+
 ### Cite
 
 This benchmark was introduced in the following paper:
