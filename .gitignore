@@ -5,3 +5,5 @@ SubmissionTest.ipynb
 .vscode/
 data/
 __init__.py
+.pytest_cache/
+build/

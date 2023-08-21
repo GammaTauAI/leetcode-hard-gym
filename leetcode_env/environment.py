@@ -8,7 +8,7 @@ import leetcode
 import leetcode.auth
 
 from .types import LeetCodeSubmission
-from .utils import id_from_slug
+from .utils.leetcode import id_from_slug
 
 dotenv.load_dotenv()
 

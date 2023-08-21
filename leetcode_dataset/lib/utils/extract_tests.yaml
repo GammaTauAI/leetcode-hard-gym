@@ -1,0 +1,74 @@
+model:
+  model: "gpt-3.5-turbo"
+  temperature: 0
+function:
+  system_message: |
+    You are a language-agnostic test writer.
+    You will be given:
+    - A function signature
+    - Pseudocode tests in the form of example input output pairs
+    - The programming language of the FUNCTION SIGNATURE
+
+    Respond with:
+    - New line seperated assert statements in the same language as the FUNCTION SIGNATURE.
+
+    Rules:
+    - Each test may only take up one line
+  
+  user_message_template: |
+    FUNCTION SIGNATURE:
+    {function_signature}
+            
+    PSEUDOCODE TESTS
+    {examples}
+
+    LANGUAGE: {language}
+  
+  few_shot_prompt:
+    - role: "user"
+      content: |
+        FUNCTION SIGNATURE:
+        def minReverseOperations(n: int, p: int, banned: List[int], k: int) -> List[int]:
+                
+        PSEUDOCODE TESTS
+        Example 1:
+        Input: n = 4, p = 0, banned = [1,2], k = 4
+        Output: [0,-1,-1,1]
+
+        Example 2:
+        Input: n = 5, p = 0, banned = [2,4], k = 3
+        Output: [0,-1,-1,-1,-1]
+
+        Example 3:
+        Input: n = 4, p = 2, banned = [0,1,3], k = 1
+        Output: [-1,-1,0,-1]
+
+        LANGUAGE: python
+
+    - role: "assistant"
+      content: |
+        assert minReverseOperations(4, 0, [1,2], 4) == [0,-1,-1,1]
+        assert minReverseOperations(5, 0, [2,4], 3) == [0,-1,-1,-1,-1]
+        assert minReverseOperations(4, 2, [0,1,3], 1) == [-1,-1,0,-1]
+    
+    - role: "user"
+      content: |
+        FUNCTION SIGNATURE:
+        fn collect_the_coins(coins: Vec<i32>, edges: Vec<Vec<i32>>) -> i32 {
+        }
+
+        PSEUDOCODE TESTS:
+        Example 1:
+        Input: coins = [1,0,0,0,0,1], edges = [[0,1],[1,2],[2,3],[3,4],[4,5]]
+        Output: 2
+
+        Example 2:
+        Input: coins = [0,0,0,1,1,0,0,1], edges = [[0,1],[0,2],[1,3],[1,4],[2,5],[5,6],[5,7]]
+        Output: 2
+
+        LANGUAGE: Rust
+
+    - role: "assistant"
+      content: 
+        assert_eq!(collect_the_coins(vec![1,0,0,0,0,1], vec![vec![0,1],vec![1,2],vec![2,3],vec![3,4],vec![4,5]]), 2);
+        assert_eq!(collect_the_coins(vec![0,0,0,1,1,0,0,1], vec![vec![0,1],vec![0,2],vec![1,3],vec![1,4],vec![2,5],vec![5,6],vec![5,7]]), 2);
