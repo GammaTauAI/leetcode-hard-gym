@@ -132,7 +132,7 @@ class PythonSubmissionFormatter:
     
     @staticmethod
     def extract_signature(source: str) -> str:
-        return source.strip('def ')
+        return source.strip('def ')[:-1]
         
 
 
