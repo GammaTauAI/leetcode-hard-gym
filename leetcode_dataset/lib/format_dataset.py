@@ -23,7 +23,7 @@ def format_problems(dataset: pd.DataFrame, lang: str):
     for ind, row in dataset.iterrows():
         formatted_problem = formatter.to_humaneval(row[f"{lang}_snippet"])
         prompt = formatter.add_docstring(formatted_problem, row["description"])
-        dataset.at[ind, "signature"] = formatted_problem
+        dataset.at[ind, "signature"] = formatter.extract_signature(formatted_problem)
         dataset.at[ind, "prompt"] = prompt
     return dataset
 
