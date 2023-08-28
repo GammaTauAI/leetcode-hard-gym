@@ -25,11 +25,20 @@ class SubmissionFormatter(ABC):
         Convert the string to humaneval format
         """
 
+    @staticmethod
     @abstractmethod
     def add_docstring(snippet: str, description: str):
         """
         Add a docstring to the snippet
         """
+    
+    @staticmethod
+    @abstractmethod
+    def extract_signature(source: str) -> str:
+        """
+        Extract the signature from the function
+        """
+
 
 
 class PythonSubmissionFormatter:
@@ -120,6 +129,11 @@ class PythonSubmissionFormatter:
                 imports.append(from_match.group(0))
 
         return imports
+    
+    @staticmethod
+    def extract_signature(source: str) -> str:
+        return source.strip('def ')
+        
 
 
 class RustSubmissionFormatter:
@@ -198,6 +212,10 @@ class RustSubmissionFormatter:
             r"fn ", "pub fn ", function_source, count=1
         )  # Add pub to root function
         return f"{imports}\nimpl {struct_name} {{\n{function_source}\n}}\n"  # Add impl struct_name { } around function
+    
+    @staticmethod
+    def extract_signature(source: str) -> str:
+        return source.strip('fn ').replace('{', '').replace('}', '').strip().strip('\n')
 
 
 def leading_whitespace_count(s):
