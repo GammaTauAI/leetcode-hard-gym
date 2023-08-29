@@ -32,8 +32,8 @@ def extract_examples(description):
     """
     Extract a natural language representation of the examples from the description 
     """
-    inputs = [l for l in description.split('\n') if l.startswith('Input')]
-    outputs = [l.strip('Output: ') for l in description.split('\n') if l.startswith('Output')]
+    inputs = [l for l in description.split('\n') if l.strip().startswith('Input')]
+    outputs = [l.strip('Output: ') for l in description.split('\n') if l.strip().startswith('Output')]
 
     examples = []
 
