@@ -5,6 +5,14 @@ from bs4 import BeautifulSoup
 import time
 import leetcode
 import logging
+import html2text
+import re
+
+h = html2text.HTML2Text()
+h.ignore_links = True
+h.ignore_images = True
+h.ignore_emphasis = True  
+
 dotenv.load_dotenv()
 
 def get_info(question_slug: str, api_instance):
@@ -44,7 +52,12 @@ def fetch_dataset(api_instance):
             if q.difficulty.level == 3
             and q.paid_only == False]
 
-    uncontaminated = hard[:41] # First question after 41 is contaminated
+    hard_dicts = [q.to_dict() for q in hard]
+
+    slug = 'paths-in-matrix-whose-sum-is-divisible-by-k' # This is the first uncontaminated problem
+    index = next((i for i, q in enumerate(hard_dicts) if q['stat']['question__title_slug'] == slug), None)
+    uncontaminated = hard[:index + 1]
+    uncontaminated = uncontaminated[-41:] # Need to get the oldest 41 problems so that the benchmark is consistent
 
     df = pd.DataFrame()
     for ind, question in enumerate(uncontaminated):
@@ -52,18 +65,20 @@ def fetch_dataset(api_instance):
         question_slug = question.stat.question__title_slug
         info = get_info(question_slug, api_instance)
         snippets = info['code_snippets']
-        content = BeautifulSoup(info['content'], features='html.parser').get_text()
+        content = BeautifulSoup(info['content'], features='html.parser')
+        text_content = h.handle(str(content))
+        text_content = "\n".join(line.lstrip() for line in text_content.split("\n"))
+        text_content = re.sub('\n\n+', '\n\n', text_content)
+        text_content = text_content.strip().strip('\n')
 
         df.at[ind, "question_slug"] = question.stat.question__title_slug
         df.at[ind, "question_title"] = question.stat.question__title
         df.at[ind, "frontend_question_id"] = int(question.stat.frontend_question_id)
         df.at[ind, "question_id"] = int(question.stat.question_id)
-        df.at[ind, "description"] = content
+        df.at[ind, "description"] = text_content  
 
         for snippet in snippets:
             df.at[ind, snippet['lang_slug'] + '_snippet'] = snippet['code']
-    
-        time.sleep(1) # Check this after
 
     return df
 
