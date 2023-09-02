@@ -1,12 +1,14 @@
 import json
-import time
-import requests
-from bs4 import BeautifulSoup
 import os
-from typing import List
+import string
+import time
+from typing import Dict, List
+
 import leetcode
 import leetcode.auth
-from typing import Dict
+import requests
+from bs4 import BeautifulSoup
+
 
 def lines_to_jsonl(lines: List[Dict], file_path: str):
     """
@@ -54,6 +56,14 @@ def get_question(url):
         else:
             print(status)
             time.sleep(300)
+
+def slug_to_title(question_slug: str) -> str:
+    """Format a Leetcode question's slug as a title"""
+    return string.capwords(question_slug.replace("-", " ")).strip()
+
+def format_integer(n):
+    """Format the integer to have a length of 4 by padding with zeroes."""
+    return str(n).zfill(4)[:4]
     
 def title_slug(title):
     """
