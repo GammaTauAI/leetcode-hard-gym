@@ -1,21 +1,12 @@
-import ast
-import logging
-import re
-import urllib.parse
-from typing import Dict
-
 import dotenv
-import html2text
-import leetcode
 import pandas as pd
-import requests
+import ast
 from bs4 import BeautifulSoup
-
-from leetcode_env.utils.formatting import (PythonSubmissionFormatter,
-                                           RustSubmissionFormatter,
-                                           SubmissionFormatter)
-
-from .utils.utils import format_integer
+import time
+import leetcode
+import logging
+import html2text
+import re
 
 h = html2text.HTML2Text()
 h.ignore_links = True
@@ -49,41 +40,6 @@ def get_info(question_slug: str, api_instance):
     response = ast.literal_eval(str(api_instance.graphql_post(body=graphql_request)))
     data = response['data']['question']
     return data 
-
-def fetch_solutions(dataset: pd.DataFrame, lang: str) -> pd.DataFrame:
-    """
-    Fetch the solutions for the given lang
-    """
-    dataset = dataset.copy()
-    for ind, row in dataset.iterrows():
-        logging.info(f"Fetching solution for problem {ind+1}/{len(dataset)}")
-        solution = fetch_solution(row['frontend_question_id'], row['question_title'], lang)
-        dataset.at[ind, 'solution'] = solution
-    return dataset
-
-def fetch_solution(frontend_question_id: int, question_title: str, lang: str = "python3"):
-    """Get the solution of the question from the LeetCode github repository."""
-    LANG_EXT_MAP = {
-        "python3": "py",
-        "java": "java",
-        "cpp": "cpp",
-    }
-
-    if lang not in LANG_EXT_MAP:
-        raise ValueError(f"Solutions not supported for Language {lang}")
-
-    FORMATTER_MAP: Dict[str, SubmissionFormatter] = {
-        "python3": PythonSubmissionFormatter,
-        "rust": RustSubmissionFormatter,
-    }
-    question_id = format_integer(int(frontend_question_id))
-
-    url = f"https://raw.githubusercontent.com/walkccc/LeetCode/main/solutions/{question_id}. {question_title}/{question_id}.{LANG_EXT_MAP[lang]}"
-    encoded_url = urllib.parse.quote(url, safe=":/")
-    response = requests.get(encoded_url)
-    if response.status_code == 404:
-        return None
-    return FORMATTER_MAP[lang].to_humaneval(response.text)
 
 def fetch_dataset(api_instance):
     """
