@@ -36,7 +36,6 @@ def to_jsonl(dataset: pd.DataFrame, path: str):
     for ind, row in dataset.iterrows():
         task_id = row["question_slug"]
         test_cases = '\n'.join(row.get("test_cases", []))
-        solution = row.get("solution", "")
         prompt = row["prompt"]
         signature = row["signature"]
         docstring = row["description"]
@@ -44,7 +43,7 @@ def to_jsonl(dataset: pd.DataFrame, path: str):
         line = {
             "task_id": task_id,
             "prompt": prompt,
-            "cannonical_solution": solution,
+            "cannonical_solution": "",
             "test": test_cases,
             "signature": signature,
             "docstring": docstring,
