@@ -23,7 +23,8 @@ def format_problems(dataset: pd.DataFrame, lang: str):
     for ind, row in dataset.iterrows():
         formatted_problem = formatter.to_humaneval(row[f"{lang}_snippet"])
         prompt = formatter.add_docstring(formatted_problem, row["description"])
-        dataset.at[ind, "signature"] = formatter.extract_signature(formatted_problem)
+        signature = formatter.extract_signature(formatted_problem)
+        dataset.at[ind, "signature"] =  signature
         dataset.at[ind, "prompt"] = prompt
     return dataset
 
@@ -36,6 +37,7 @@ def to_jsonl(dataset: pd.DataFrame, path: str):
     for ind, row in dataset.iterrows():
         task_id = row["question_slug"]
         test_cases = '\n'.join(row.get("test_cases", []))
+        solution = row.get("solution", "")
         prompt = row["prompt"]
         signature = row["signature"]
         docstring = row["description"]
@@ -43,7 +45,7 @@ def to_jsonl(dataset: pd.DataFrame, path: str):
         line = {
             "task_id": task_id,
             "prompt": prompt,
-            "cannonical_solution": "",
+            "canonical_solution": solution,
             "test": test_cases,
             "signature": signature,
             "docstring": docstring,
