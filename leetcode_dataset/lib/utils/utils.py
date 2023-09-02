@@ -7,6 +7,7 @@ from typing import List
 import leetcode
 import leetcode.auth
 from typing import Dict
+import string
 
 def lines_to_jsonl(lines: List[Dict], file_path: str):
     """
@@ -60,6 +61,14 @@ def title_slug(title):
     Format the title into a title slug
     """
     return '-'.join(title.lower().split())
+
+def slug_to_title(question_slug: str) -> str:
+    """Format a Leetcode question's slug as a title"""
+    return string.capwords(question_slug.replace("-", " ")).strip()
+
+def format_integer(n):
+    """Format the integer to have a length of 4 by padding with zeroes."""
+    return str(n).zfill(4)[:4]
 
 def get_code_snippets(url):
     """

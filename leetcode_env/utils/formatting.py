@@ -132,8 +132,7 @@ class PythonSubmissionFormatter:
     
     @staticmethod
     def extract_signature(source: str) -> str:
-        return source.strip('def ')[:-1]
-        
+        return source.replace('def ', '', 1)[:-1]
 
 
 class RustSubmissionFormatter:
