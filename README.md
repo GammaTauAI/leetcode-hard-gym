@@ -74,8 +74,8 @@ sub = LeetCodeSubmission(code=code,
 ... and instantiate a submission environment  ...
 
 ```python
-from leetcode_env.environment import LeetcodeEnv
-env = LeetcodeEnv()
+from leetcode_env.environment import LeetCodeEnv
+env = LeetCodeEnv()
 ```
 
 Finally, we can step through the environment with the submission:
