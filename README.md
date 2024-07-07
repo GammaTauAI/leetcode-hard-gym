@@ -1,8 +1,6 @@
 # Leetcode-Hard Gym
 RL environment interface to LeetCode's submission server for evaluating codegen agents. Built on top of OpenAI's [gym](https://github.com/openai/gym).
 
-Written by: [Beck Labash](https://github.com/becklabs)
-
 Supports:
   - `c`
   - `c#`
@@ -42,9 +40,10 @@ source venv/bin/activate
 python -m pip install -e .
 ```
 
-3. Set the environment variable `LEETCODE_SESSION` to the cookie `LEETCODE_SESSION` from a signed-in Leetcode session. This cookie can be found by using browser DevTools or by using a browser extension like [EditThisCookie](https://www.editthiscookie.com/).
+3. Set the environment variables `LEETCODE_SESSION` to the cookie `LEETCODE_SESSION` and `LEETCODE_CSRF_TOKEN` to the cookie `csrftoken` from a signed-in Leetcode session. This cookie can be found by using browser DevTools or by using a browser extension like [EditThisCookie](https://www.editthiscookie.com/).
 ```bash
 export LEETCODE_SESSION=...
+export LEETCODE_CSRF_TOKEN=...
 ```
 
 ### Example usage:
@@ -114,6 +113,7 @@ python build.py --langs python3 rust --log_level INFO --output_dir ./build
 ### Environment Variables
 
 - `LEETCODE_SESSION`: This environment variable must be set for the script to run. Please refer to the Setup section for instructions on how to obtain your session cookie. 
+- `LEETCODE_CSRF_TOKEN`: This environment variable must be set for the script to run. Please refer to the Setup section for instructions on how to obtain your csrf token.
 - `OPENAI_API_KEY`: This environment variable is required if the `--extract_test_cases` option is used. Please refer to the OpenAI API documentation for instructions on how to obtain your API key.
 
 ### Dependencies
